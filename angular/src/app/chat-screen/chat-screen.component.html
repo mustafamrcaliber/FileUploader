@@ -1,0 +1,205 @@
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div id="ChatScreen" style="overflow: scroll; height: 25rem">
+        <ng-container *ngFor="let message of this.chatScreenChatData; let i = index;">
+          <!-- <div
+            class="border"
+            [style]="
+              message.messageType == 1
+                ? 'text-align: right;background: #8f84d98a; border-bottom-left-radius: 22px; border-top-left-radius: 22px;'
+                : 'text-align: left;background: #e38db552; border-bottom-right-radius: 22px;border-top-right-radius: 22px;'
+            "
+          >
+            <span> {{ message.message }} </span>
+          </div> -->
+          <div  class="border2" [style]="
+          message.messageType == 1
+            ? ' text-align: right; margin-left: 4rem;'
+            : ' text-align: left; margin-right: 4rem; '
+        "
+          >
+            <div  class="border"
+            [style]="
+              message.messageType == 1
+                ? 'padding:0.5rem; text-align: right;background: #8f84d9; border-bottom-left-radius: 10px; border-top-left-radius: 10px;'
+                : 'padding:0.5rem; text-align: left;background: #e38db5; border-bottom-right-radius: 10px;border-top-right-radius: 10px;'
+            "> {{ message.message }} </div>
+            <div *ngIf="ShowChart[i] && chartData[i].length != 0" style="padding:0.5rem; text-align: left;background: #e38db5; border-bottom-right-radius: 22px;border-top-right-radius: 22px;">
+              <ngx-charts-pie-chart
+  [view]="view"
+  [scheme]="colorScheme"
+  [results]="chartData[i]"
+  [gradient]="gradient"
+  [legend]="showLegend"
+  [legendPosition]="legendPosition"
+  [labels]="showLabels"
+  [doughnut]="isDoughnut"
+  >
+</ngx-charts-pie-chart>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+
+    </div>
+    <div>
+      <form [formGroup]="chatForm" id="chat-form" validateOnSubmit>
+        <div class="row">
+          <div class="col">
+            <!-- <label class="form-label" for="returnResponseType">
+              {{ '::Chart' | abpLocalization }} *
+            </label> -->
+            <div class="row" style="margin: 1%;">
+              <div class="form-check col-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="returnResponseType"
+                  id="returnResponseType1"
+                  formControlName="returnResponseType" [value]="1"
+                />
+                <label class="form-check-label" for="returnResponseType1">
+                  {{ "::Text" | abpLocalization }}
+                </label>
+              </div>
+              <div class="form-check col-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="returnResponseType"
+                  id="returnResponseType2"
+                  formControlName="returnResponseType"
+                  [value]="2"
+                />
+                <label class="form-check-label" for="returnResponseType">
+                 {{ "::Chart" | abpLocalization }}
+                </label>
+              </div>
+              <div class="col" id="isListening">
+                <span *ngIf="this.isMagicWordCalled == true || this.isListenButtonClicked == true">
+                  {{ "::Listening..." | abpLocalization }}
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-9">
+            <div class="mt-2 fade-in-top">
+              <div class="mb-3">
+                <!-- <label class="form-label" for="userMessage">
+          {{ '::userMessage' | abpLocalization }} *
+        </label> -->
+
+                <input
+                  id="userMessage"
+                  type="text"
+                  formControlName="userMessage"
+                  class="form-control"
+                  autofocus
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <button
+              [disabled]="!(this.chatForm.controls.userMessage.value != null && this.chatForm.controls.returnResponseType.value != null && this.showloader != true)"
+              class="btn btn-secondary btn-sm mt-2 buttoninlineStyle"
+              iconClass="fa fa-send"
+              (click)="sendUserMessage()"
+              formName="chat-form"
+            >
+            <span class="row">
+                <ng-container *ngIf="this.showloader">
+                  <span  class="col">
+                  <span  style="color: white !important;" class="spinner-border spinner-border-sm" role="status">
+                    <span class="visually-hidden">Loading...</span></span>
+                  </span>
+                </ng-container>
+
+              <span class="col">
+                <!-- {{ '::Send' | abpLocalization }} -->
+                <i class="fas fa-paper-plane"></i>
+              </span>
+            </span>
+            </button>
+            <span class="col">
+              <button class="btn btn-secondary btn-sm mt-2 buttoninlineStyle"
+              iconClass="fa fa-microphone" [disabled]="!(this.chatForm.controls.returnResponseType.value != null && this.showloader != true && this.disableRecordingButton != true)"
+              (click)="this.isListenButtonClicked = true"><i class="fas fa-microphone"></i></button>
+            </span>
+            <span class="">
+              <button
+              class="btn btn-secondary btn-sm mt-2 buttoninlineStyle"
+              iconClass="fa fa-send"
+              (click)="clearChatHistory()"
+            >
+              {{ '::clear' | abpLocalization }}
+            </button>
+            </span>
+          </div>
+          <!-- <div class="col-1">
+
+          </div> -->
+          <div class="col-2">
+            <button
+              class="btn btn-secondary btn-sm"
+              iconClass="fa fa-plus"
+              (click)="openFileSelectionModel()"
+            >
+              {{ '::selectFile' | abpLocalization }}
+            </button>
+          </div>
+
+          <div class="col">
+            <ng-container *ngIf="this.currentSelectedFiles.length != 0">
+              <b class="row">{{"::SelectedFiles" | abpLocalization}}</b>
+              <ng-container *ngFor="let selectedFile of this.currentSelectedFiles">
+                <div class="row">
+                  {{ selectedFile }}
+                </div>
+              </ng-container>
+            </ng-container>
+          </div>
+          <div *ngIf="this.currentSelectedFiles.length != 0" class="col" (click)="clearSelectedFiles()">
+            <i style="color: var(--lpx-danger);" class="fas fa-trash"></i>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<abp-modal [(visible)]="isFileSelectionModelOpen">
+  <ng-template #abpHeader>
+    <h3>{{"::SelectFiles" | abpLocalization}}</h3>
+  </ng-template>
+
+  <ng-template #abpBody>
+    <form [formGroup]="fileForm" id="file-form">
+      <!-- <label for="selectedFiles">{{ '::SelectFile' | abpLocalization }}</label
+      ><span> * </span> -->
+      <select class="form-control" formControlName="selectedFiles" multiple="multiple">
+        <option *ngFor="let file of this.listOfFiles" [value]="file.fileName[0]">
+          {{ file.fileName[0] }}
+        </option>
+      </select>
+    </form>
+  </ng-template>
+
+  <ng-template #abpFooter>
+    <!-- <button type="button" class="btn btn-secondary" >
+      {{ 'AbpUi::Cancel' | abpLocalization }}
+    </button> -->
+    <button type="button" class="btn btn-secondary" (click)="sendFilesToApi()">
+      {{ '::Done' | abpLocalization }}
+    </button>
+  </ng-template>
+</abp-modal>
+
+
+

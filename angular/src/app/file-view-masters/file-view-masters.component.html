@@ -1,0 +1,19 @@
+<div ngbAccordion>
+  <div *ngFor="let folder of this.files" ngbAccordionItem>
+    <h2 ngbAccordionHeader>
+      <button ngbAccordionButton>{{ folder.folderName }}</button>
+    </h2>
+    <div ngbAccordionCollapse>
+      <div ngbAccordionBody>
+        <ng-template>
+          <div *ngFor="let file of folder.fileName">
+            <span> {{ file }} </span>
+            <button type="button" class="btn btn-secondary" (click)="this.downloadDocument(folder.folderName, file)">
+              {{ 'Download' | abpLocalization }}
+            </button>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

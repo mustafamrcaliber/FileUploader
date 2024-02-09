@@ -1,0 +1,13 @@
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+COPY bin/Release/net8.0/publish/ app/
+WORKDIR /app
+
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+RUN dotnet dev-certs https -v -ep openiddict.pfx -p eae3efe6-b287-42bc-9016-f1a19090d1e8
+
+FROM base AS final
+WORKDIR /app
+COPY --from=build /src .
+
+ENTRYPOINT ["dotnet", "FileUploader.AuthServer.dll"]

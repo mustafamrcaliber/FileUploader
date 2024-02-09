@@ -1,0 +1,24 @@
+.border
+{
+  padding: 0.3rem;
+  border: solid;
+  border-color: red($color: #412e2e41);
+  border-width: 1px;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+  color: white;
+  border-radius: 10px;
+}
+
+.border2
+{
+  padding: 0rem;
+}
+
+/* HTML: <div class="loader"></div> */
+
+
+.buttoninlineStyle{
+  margin: 4px;
+
+}
