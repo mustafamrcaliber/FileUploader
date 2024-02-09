@@ -1,5 +1,4 @@
-.border
-{
+.border {
   padding: 0.3rem;
   border: solid;
   border-color: red($color: #412e2e41);
@@ -10,15 +9,117 @@
   border-radius: 10px;
 }
 
-.border2
-{
+.border2 {
   padding: 0rem;
 }
 
 /* HTML: <div class="loader"></div> */
 
 
-.buttoninlineStyle{
+.buttoninlineStyle {
   margin: 4px;
 
+}
+
+
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ball {
+  width: 8px;
+  height: 8px;
+  border-radius: 47px;
+  margin: 0px 2px;
+
+  animation: 2s bounce ease infinite;
+}
+
+.blue {
+  background-color: #2e67ad;
+}
+
+.yellow {
+  background-color: #f6c527;
+  animation-delay: .25s;
+}
+
+.green {
+  background-color: #34A952;
+  animation-delay: .45s;
+}
+
+.blueOne {
+  background-color: #2e67ad;
+  animation-delay: .65s;
+}
+
+.yellowOne {
+  background-color: #f6c527;
+  animation-delay: .85s;
+}
+
+.greenOne {
+  background-color: #34A952;
+}
+
+@keyframes bounce {
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@keyframes pulse {
+  0%{
+    width: 5px;
+    height: 20px;
+  }
+  50%{
+    width: 5px;
+    height: 12px;
+  }
+  100%{
+    width: 5px;
+    height: 20px;
+  }
+}
+
+.pulseOne{
+  animation: pulse 1.1s infinite ease-in-out;
+  background: #2e67ad;
+  border-radius: 47px;
+  margin: 0px 2px;
+}
+.pulseTwo{
+  background: #f6c527;
+  border-radius: 47px;
+  margin: 0px 2px;
+  animation: pulse 1.4s infinite ease-in-out;
+}
+.pulseThree{
+  background: #34A952;
+  border-radius: 47px;
+  margin: 0px 2px;
+  animation: pulse 1.3s infinite ease-in-out;
+}
+.pulseFour{
+  background: #2e67ad;
+  border-radius: 47px;
+  margin: 0px 2px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+.pulseFive{
+  background: #f6c527;
+  border-radius: 47px;
+  margin: 0px 2px;
+  animation: pulse 1.8s infinite ease-in-out;
+}
+.pulseSix{
+  background: #34A952;
+  border-radius: 47px;
+  margin: 0px 2px;
+  animation: pulse 1.7s infinite ease-in-out;
 }

@@ -73,6 +73,8 @@
     "selectFile":"Select File",
     "SelectedFiles":"Selected Files",
     "SelectFiles":"Select Files",
-    "Done":"Done"
+    "Done":"Done",
+    "clearChat":"Clear Chat",
+    "loading...":"Loading..."
   }
 }
