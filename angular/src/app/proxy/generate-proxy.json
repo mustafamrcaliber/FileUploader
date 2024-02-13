@@ -8583,6 +8583,147 @@
               },
               "allowAnonymous": null,
               "implementFrom": "FileUploader.FileUploaderSaver.FileUploaderSaverController"
+            },
+            "GetListOfFilesFromDir": {
+              "uniqueName": "GetListOfFilesFromDir",
+              "name": "GetListOfFilesFromDir",
+              "httpMethod": "GET",
+              "url": "FileUploaderSaver/GetListOfFilesFromDir",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "System.Collections.Generic.List<System.String>",
+                "typeSimple": "[string]"
+              },
+              "allowAnonymous": true,
+              "implementFrom": "FileUploader.FileUploaderSaver.FileUploaderSaverController"
+            },
+            "UploadFileToChatByFileName": {
+              "uniqueName": "UploadFileToChatByFileName",
+              "name": "UploadFileToChat",
+              "httpMethod": "GET",
+              "url": "FileUploaderSaver/UploadFileToChat",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "FileName",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "FileName",
+                  "name": "FileName",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.String",
+                "typeSimple": "string"
+              },
+              "allowAnonymous": true,
+              "implementFrom": "FileUploader.FileUploaderSaver.FileUploaderSaverController"
+            },
+            "SendUserMessageToApiAndGetJsonChartByMessage": {
+              "uniqueName": "SendUserMessageToApiAndGetJsonChartByMessage",
+              "name": "SendUserMessageToApiAndGetJsonChart",
+              "httpMethod": "GET",
+              "url": "FileUploaderSaver/SendUserMessageToApiAndGetJsonChart",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "Message",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "Message",
+                  "name": "Message",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.String",
+                "typeSimple": "string"
+              },
+              "allowAnonymous": true,
+              "implementFrom": "FileUploader.FileUploaderSaver.FileUploaderSaverController"
+            },
+            "SendUserMessageToApiByMessage": {
+              "uniqueName": "SendUserMessageToApiByMessage",
+              "name": "SendUserMessageToApi",
+              "httpMethod": "GET",
+              "url": "FileUploaderSaver/SendUserMessageToApi",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "Message",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "Message",
+                  "name": "Message",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.String",
+                "typeSimple": "string"
+              },
+              "allowAnonymous": true,
+              "implementFrom": "FileUploader.FileUploaderSaver.FileUploaderSaverController"
+            },
+            "GetUrlToUploadFile": {
+              "uniqueName": "GetUrlToUploadFile",
+              "name": "GetUrlToUploadFile",
+              "httpMethod": "GET",
+              "url": "FileUploaderSaver/GetUrlToUploadFile",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "System.String",
+                "typeSimple": "string"
+              },
+              "allowAnonymous": true,
+              "implementFrom": "FileUploader.FileUploaderSaver.FileUploaderSaverController"
             }
           }
         },
@@ -9159,6 +9300,73 @@
                     "type": "System.Collections.Generic.List<FileUploader.FileUploaderSaver.GetWholeDirectorySturctureResponseModel>",
                     "typeSimple": "[FileUploader.FileUploaderSaver.GetWholeDirectorySturctureResponseModel]"
                   }
+                },
+                {
+                  "name": "GetListOfFilesFromDir",
+                  "parametersOnMethod": [],
+                  "returnValue": {
+                    "type": "System.Collections.Generic.List<System.String>",
+                    "typeSimple": "[string]"
+                  }
+                },
+                {
+                  "name": "UploadFileToChat",
+                  "parametersOnMethod": [
+                    {
+                      "name": "FileName",
+                      "typeAsString": "System.String, System.Private.CoreLib",
+                      "type": "System.String",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.String",
+                    "typeSimple": "string"
+                  }
+                },
+                {
+                  "name": "SendUserMessageToApiAndGetJsonChart",
+                  "parametersOnMethod": [
+                    {
+                      "name": "Message",
+                      "typeAsString": "System.String, System.Private.CoreLib",
+                      "type": "System.String",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.String",
+                    "typeSimple": "string"
+                  }
+                },
+                {
+                  "name": "SendUserMessageToApi",
+                  "parametersOnMethod": [
+                    {
+                      "name": "Message",
+                      "typeAsString": "System.String, System.Private.CoreLib",
+                      "type": "System.String",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.String",
+                    "typeSimple": "string"
+                  }
+                },
+                {
+                  "name": "GetUrlToUploadFile",
+                  "parametersOnMethod": [],
+                  "returnValue": {
+                    "type": "System.String",
+                    "typeSimple": "string"
+                  }
                 }
               ]
             }
@@ -9212,6 +9420,147 @@
               "returnValue": {
                 "type": "System.Collections.Generic.List<FileUploader.FileUploaderSaver.GetWholeDirectorySturctureResponseModel>",
                 "typeSimple": "[FileUploader.FileUploaderSaver.GetWholeDirectorySturctureResponseModel]"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "FileUploader.FileUploaderSaver.IFileUploaderSaverAppService"
+            },
+            "GetListOfFilesFromDir": {
+              "uniqueName": "GetListOfFilesFromDir",
+              "name": "GetListOfFilesFromDir",
+              "httpMethod": "GET",
+              "url": "api/app/file-uploader-saver/of-files-from-dir",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "System.Collections.Generic.List<System.String>",
+                "typeSimple": "[string]"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "FileUploader.FileUploaderSaver.IFileUploaderSaverAppService"
+            },
+            "UploadFileToChatByFileName": {
+              "uniqueName": "UploadFileToChatByFileName",
+              "name": "UploadFileToChat",
+              "httpMethod": "POST",
+              "url": "api/app/file-uploader-saver/upload-file-to-chat",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "FileName",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "FileName",
+                  "name": "FileName",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.String",
+                "typeSimple": "string"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "FileUploader.FileUploaderSaver.IFileUploaderSaverAppService"
+            },
+            "SendUserMessageToApiAndGetJsonChartByMessage": {
+              "uniqueName": "SendUserMessageToApiAndGetJsonChartByMessage",
+              "name": "SendUserMessageToApiAndGetJsonChart",
+              "httpMethod": "POST",
+              "url": "api/app/file-uploader-saver/send-user-message-to-api-and-get-json-chart",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "Message",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "Message",
+                  "name": "Message",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.String",
+                "typeSimple": "string"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "FileUploader.FileUploaderSaver.IFileUploaderSaverAppService"
+            },
+            "SendUserMessageToApiByMessage": {
+              "uniqueName": "SendUserMessageToApiByMessage",
+              "name": "SendUserMessageToApi",
+              "httpMethod": "POST",
+              "url": "api/app/file-uploader-saver/send-user-message-to-api",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "Message",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "Message",
+                  "name": "Message",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.String",
+                "typeSimple": "string"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "FileUploader.FileUploaderSaver.IFileUploaderSaverAppService"
+            },
+            "GetUrlToUploadFile": {
+              "uniqueName": "GetUrlToUploadFile",
+              "name": "GetUrlToUploadFile",
+              "httpMethod": "GET",
+              "url": "api/app/file-uploader-saver/url-to-upload-file",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "System.String",
+                "typeSimple": "string"
               },
               "allowAnonymous": null,
               "implementFrom": "FileUploader.FileUploaderSaver.IFileUploaderSaverAppService"

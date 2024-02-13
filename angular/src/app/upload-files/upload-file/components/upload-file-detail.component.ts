@@ -32,10 +32,11 @@ export class UploadFileDetailModalComponent implements OnInit {
   selectedFile: File;
 
   constructor(
-    private fileUploadSaverService: FileUploadProxyService,
-    private fb: FormBuilder,
-    private chatScreenService: ChatScreenService
-  ) {
+    private fileUploadSaverService: FileUploaderSaverService,
+    private fileUploadSaverProxyservice: FileUploadProxyService,
+    private fb: FormBuilder
+  ) // private chatScreenService: ChatScreenService,
+  {
     this.fileUploadForm = this.fb.group({
       FileInputField: [null, Validators.required],
     });
@@ -44,14 +45,7 @@ export class UploadFileDetailModalComponent implements OnInit {
 
   onFileselection(event) {
     if (event.target.files.length > 0) {
-      // if(event.target.files[0].type != 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-      // {
-      //   // this.importFromExcelForm.controls.FileInputField.setErrors({invalidType:true});
-      // }
-      // else
-      // {
       this.selectedFile = <File>event.target.files[0];
-      // }
     }
   }
   uploadFile() {
@@ -59,39 +53,19 @@ export class UploadFileDetailModalComponent implements OnInit {
       file: this.selectedFile,
       filePath: 'sfgdf',
     };
-    // const formData = new FormData();
-    // for (const prop in FileForm) {
-    //   if (!FileForm.hasOwnProperty(prop)) { continue; }
-    //   formData.append(prop , FileForm[prop]);
-    // }
-    console.log(FileForm);
+    let $uploadFileNameChatSubs = this.fileUploadSaverService.uploadFileToChatByFileName(
+      FileForm.file.name
+    );
+    let $getUrlForFileUpload = this.fileUploadSaverService.getUrlToUploadFile();
 
-    let $uploadFile = this.fileUploadSaverService.ActualFileUpload(FileForm);
-    let $uploadFileNameChatSubs = this.chatScreenService.uploadFileToChat(FileForm.file.name);
-    let subscribeOne = $uploadFile.subscribe( x => {
-      $uploadFileNameChatSubs.subscribe( y => {
-
-      })
-      subscribeOne.unsubscribe();
-      this.service.list.get();
-      this.service.hideForm();
-    })
-    // let fork = forkJoin([$uploadFile, $uploadFileNameChatSubs]).subscribe(x => {
-    //   fork.unsubscribe();
-    //   this.service.list.get();
-    //   this.service.hideForm();
-    // });
-
-    // let $uploadFile = this.fileUploadSaverService.ActualFileUpload(FileForm);
-    // let uploadFile = $uploadFile.subscribe(x => {
-    //   let uploadFileNameChatSubs = this.chatScreenService
-    //       .uploadFileToChat(FileForm.file.name)
-    //       .subscribe(nameResponse => {
-    //         uploadFileNameChatSubs.unsubscribe();
-    //         uploadFile.unsubscribe();
-    //       this.service.list.get();
-    //       this.service.hideForm();
-    //       });
-    // });
+    let subscriptionOne = $getUrlForFileUpload.subscribe(x => {
+      let $uploadFile = this.fileUploadSaverProxyservice.ActualFileUpload(FileForm, x);
+      let subscriptionTwo = $uploadFile.subscribe(y => {
+        $uploadFileNameChatSubs.subscribe(z => {});
+        subscriptionOne.unsubscribe();
+        this.service.list.get();
+        this.service.hideForm();
+      });
+    });
   }
 }

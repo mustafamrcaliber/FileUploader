@@ -29,7 +29,7 @@ export class FileUploadProxyService {
 
   constructor(private restService: RestService, private http: HttpClient) {}
 
-  public ActualFileUpload(FileData: UploadFileRequestModel): Observable<any> {
+  public ActualFileUpload(FileData: UploadFileRequestModel, url: string): Observable<any> {
     const formData = new FormData();
     for (const prop in FileData) {
       if (!FileData.hasOwnProperty(prop)) {
@@ -38,22 +38,22 @@ export class FileUploadProxyService {
       formData.append(prop, FileData[prop]);
     }
     return this.http
-      .post<any>(`https://localhost:44335/FileUploaderSaver/UploadFile`, formData)
+      .post<any>(url, formData)
       .pipe(map(x => true));
   }
 
-  public ActualFileUploadChat(FileData: UploadFileRequestModel): Observable<any> {
-    const formData = new FormData();
-    for (const prop in FileData) {
-      if (!FileData.hasOwnProperty(prop)) {
-        continue;
-      }
-      formData.append(prop, FileData[prop]);
-    }
-    return this.http
-      .post<any>(`http://10.20.61.83:5000/api/FileSaver/UploadFile`, formData)
-      .pipe(map(x => true));
-  }
+  // public ActualFileUploadChat(FileData: UploadFileRequestModel): Observable<any> {
+  //   const formData = new FormData();
+  //   for (const prop in FileData) {
+  //     if (!FileData.hasOwnProperty(prop)) {
+  //       continue;
+  //     }
+  //     formData.append(prop, FileData[prop]);
+  //   }
+  //   return this.http
+  //     .post<any>(`http://10.20.61.83:5000/api/FileSaver/UploadFile`, formData)
+  //     .pipe(map(x => true));
+  // }
 
 
   public GetWholeDirectorySturcture(): Observable<GetWholeDirectorySturctureResponseModel[]> {

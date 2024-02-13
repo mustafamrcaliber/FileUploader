@@ -34,26 +34,26 @@ export class ChatScreenService {
   ];
   constructor(private restService: RestService, private http: HttpClient) {}
 
-  public sendUserMessageToApi(message: string): Observable<any> {
-    let httpOptions: Object = {
-      headers: new HttpHeaders({
-        Accept: 'text/html',
-        'Content-Type': 'text/plain; charset=utf-8',
-      }),
-      responseType: 'text',
-    };
-    return this.http.get<any>(this.URL + message, httpOptions);
-  }
+  // public sendUserMessageToApi(message: string): Observable<any> {
+  //   let httpOptions: Object = {
+  //     headers: new HttpHeaders({
+  //       Accept: 'text/html',
+  //       'Content-Type': 'text/plain; charset=utf-8',
+  //     }),
+  //     responseType: 'text',
+  //   };
+  //   return this.http.get<any>(this.URL + message, httpOptions);
+  // }
 
- public uploadFileToChat(fileName: string): Observable<any>
- {
-  return this.http.get<any>('http://10.20.61.83:5002/FileUpload/'+fileName);
- }
+//  public uploadFileToChat(fileName: string): Observable<any>
+//  {
+//   return this.http.get<any>('http://10.20.61.83:5002/FileUpload/'+fileName);
+//  }
 
- public sendUserMessafeToApiAndGetJsonChart(message: string): Observable<any>
- {
-  return this.http.get<any>("http://10.20.61.83:5004/Text2SGraph/"+message);
- }
+//  public sendUserMessafeToApiAndGetJsonChart(message: string): Observable<any>
+//  {
+//   return this.http.get<any>("http://10.20.61.83:5004/Text2SGraph/"+message);
+//  }
 }
 
 export interface chatScreenChatInterface {

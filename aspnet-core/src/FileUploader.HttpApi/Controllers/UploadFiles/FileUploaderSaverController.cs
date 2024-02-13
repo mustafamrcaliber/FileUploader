@@ -64,5 +64,84 @@ namespace FileUploader.FileUploaderSaver
 
             return  new FileStream(filePath, FileMode.Open, FileAccess.Read);
         }
+
+        [AllowAnonymous]
+        [HttpGet("GetListOfFilesFromDir")]
+        public async Task<List<string>> GetListOfFilesFromDir()
+        {
+            List<string> Response = new List<string>();
+            try
+            {
+                Response = await _iFileUploaderSaverAppService.GetListOfFilesFromDir();
+            }
+            catch(Exception ex)
+            {
+                throw new UserFriendlyException(ex.Message);
+            }
+            return Response;
+        }
+
+        [AllowAnonymous]
+        [HttpGet("UploadFileToChat")]
+        public async Task<string> UploadFileToChat(string FileName)
+        {
+            string Response = "";
+            try
+            {
+                Response = await _iFileUploaderSaverAppService.UploadFileToChat(FileName);
+            }
+            catch(Exception ex)
+            {
+                throw new UserFriendlyException(ex.Message);
+            }
+            return Response;
+        }
+
+        [AllowAnonymous]
+        [HttpGet("SendUserMessageToApiAndGetJsonChart")]
+        public async Task<string> SendUserMessageToApiAndGetJsonChart(string Message)
+        {
+            string Response = "";
+            try
+            {
+                Response = await _iFileUploaderSaverAppService.SendUserMessageToApiAndGetJsonChart(Message);
+            }
+            catch(Exception ex)
+            {
+                throw new UserFriendlyException(ex.Message);
+            }
+            return Response;
+        }
+
+        [AllowAnonymous]
+        [HttpGet("SendUserMessageToApi")]
+        public async Task<string> SendUserMessageToApi(string Message)
+        {
+            string Response = "";
+            try
+            {
+                Response = await _iFileUploaderSaverAppService.SendUserMessageToApi(Message);
+            }
+            catch(Exception ex)
+            {
+                throw new UserFriendlyException(ex.Message);
+            }
+            return Response;
+        }
+        [AllowAnonymous]
+        [HttpGet("GetUrlToUploadFile")]
+        public string GetUrlToUploadFile()
+        {
+            string Response = "";
+            try
+            {
+                Response = _iFileUploaderSaverAppService.GetUrlToUploadFile();
+            }
+            catch(Exception ex)
+            {
+                throw new UserFriendlyException(ex.Message);
+            }
+            return Response;
+        }
     }
 }
