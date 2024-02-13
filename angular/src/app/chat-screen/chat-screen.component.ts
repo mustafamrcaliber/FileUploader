@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ChatScreenService, IWindow, chatScreenChatInterface } from './chst-screen.service';
 import { FileUploadProxyService } from '../shared/FileUploadProxy.service';
-import { GetWholeDirectorySturctureResponseModel } from '@proxy/file-uploader-saver';
+import { FileUploaderSaverService, GetWholeDirectorySturctureResponseModel } from '@proxy/file-uploader-saver';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -14,7 +14,7 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
   chatForm: FormGroup;
   chatScreenChatData: chatScreenChatInterface[] = [];
   isFileSelectionModelOpen: boolean = false;
-  listOfFiles: GetWholeDirectorySturctureResponseModel[] = [];
+  listOfFiles: string[] = [];
   fileForm: FormGroup;
   currentSelectedFiles: string[] = [];
   showloader: boolean = false;
@@ -39,7 +39,8 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(
     private fb: FormBuilder,
-    private fileUploadSaverProxyService: FileUploadProxyService,
+    // private fileUploadSaverProxyService: FileUploadProxyService,
+    private fileUploadSaverService: FileUploaderSaverService,
     private service: ChatScreenService
   ) {
     this.service.jsonDataTest.forEach( x=>{
@@ -77,7 +78,7 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
     this.showloader = true;
     if(this.chatForm.controls.returnResponseType.value == 1)
     {
-      this.subscription = this.service.sendUserMessageToApi(this.chatForm.controls.userMessage.value).subscribe(
+      this.subscription = this.fileUploadSaverService.sendUserMessageToApiByMessage(this.chatForm.controls.userMessage.value).subscribe(
         x =>
         {
           let chat2: chatScreenChatInterface = {
@@ -178,8 +179,8 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   openFileSelectionModel() {
-    let subscription: Subscription = this.fileUploadSaverProxyService
-      .GetWholeDirectorySturcture()
+    let subscription: Subscription = this.fileUploadSaverService
+      .getListOfFilesFromDir()
       .subscribe(x => {
         this.buildingFileForm();
         this.listOfFiles = x;

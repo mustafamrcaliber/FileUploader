@@ -216,8 +216,8 @@
       <!-- <label for="selectedFiles">{{ '::SelectFile' | abpLocalization }}</label
       ><span> * </span> -->
       <select class="form-control" formControlName="selectedFiles" multiple="multiple">
-        <option *ngFor="let file of this.listOfFiles" [value]="file.fileName[0]">
-          {{ file.fileName[0] }}
+        <option *ngFor="let file of this.listOfFiles" [value]="file">
+          {{ file }}
         </option>
       </select>
     </form>
