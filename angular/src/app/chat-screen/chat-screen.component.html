@@ -1,4 +1,4 @@
-<div class="card" style="width: 100%">
+<!-- <div class="card" style="width: 100%">
   <div class="card-body">
     <div class="card text-dark bg-light mb-3">
       <div class="card-body" style="padding: 2% !important">
@@ -16,8 +16,8 @@
                 class="border"
                 [style]="
                   message.messageType == 1
-                    ? 'padding:0.5rem; text-align: right;background: #8f84d9; border-bottom-left-radius: 10px; border-top-left-radius: 10px;'
-                    : 'padding:0.5rem; text-align: left;background: #e38db5; border-bottom-right-radius: 10px;border-top-right-radius: 10px;'
+                    ? 'padding:0.5rem; text-align: right;background: #78C1F3; border-bottom-left-radius: 10px; border-top-left-radius: 10px;'
+                    : 'padding:0.5rem; text-align: left;background: #9BE8D8; border-bottom-right-radius: 10px;border-top-right-radius: 10px;'
                 "
               >
                 {{ message.message }}
@@ -508,7 +508,10 @@
       </form>
     </div>
   </div>
-</div>
+</div> -->
+
+
+
 
 <abp-modal [(visible)]="isFileSelectionModelOpen">
   <ng-template #abpHeader>
@@ -536,3 +539,519 @@
     </button>
   </ng-template>
 </abp-modal>
+
+<div class="bodyStyle">
+  <div class="card mb-3">
+    <div class="card-body" style="padding: 1% !important">
+  <div class="chatScreenConvoLayout">
+    <div id="ChatScreen" class="ChatScreenSizeStyle">
+      <ng-container *ngFor="let message of this.chatScreenChatData; let i = index">
+
+        <div
+          class="border2 classDivOpposite"
+          [style]="
+            message.messageType == 1
+              ? ' text-align: right;'
+              : ' text-align: left;'
+          "
+        >
+        <div *ngIf="message.messageType == 1"></div>
+          <div *ngIf="message.message.length != 0"
+            class="border"
+            [class]="
+              message.messageType == 1
+                ? 'chatUserMessageClass'
+                : 'chatResponseMessageClass'
+            "
+          >
+            <div>{{ message.message }}</div>
+
+          </div>
+          <div *ngIf="message.messageType == 2"></div>
+        </div>
+        <div  *ngIf="message.message.length != 0" class="classDivOpposite"
+        [style]="
+          message.messageType == 1
+            ? ' text-align: right;'
+            : ' text-align: left;'
+        ">
+          <div>
+            <div *ngIf="message.messageType == 2" class="chatScreenMessageDateStyle" style="padding-left: 1vw;">{{ message.dateTime  | shortDateTime }}</div>
+          </div>
+          <div>
+            <div *ngIf="message.messageType == 1" class="chatScreenMessageDateStyle" style="padding-right: 1vw;">{{ message.dateTime  | shortDateTime }}</div>
+          </div>
+        </div>
+          <div
+
+            *ngIf="ShowChart[i] && chartData[i].length != 0"
+            class="chatCardsAndGraphs"
+          >
+            <ngx-charts-pie-chart
+              [view]="view"
+              [scheme]="colorScheme"
+              [results]="chartData[i]"
+              [gradient]="gradient"
+              [legend]="showLegend"
+              [legendPosition]="legendPosition"
+              [labels]="showLabels"
+              [doughnut]="isDoughnut"
+            >
+            </ngx-charts-pie-chart>
+          </div>
+
+          <div
+
+            *ngIf="showPMSampleDataChartArray[i]"
+            class="chatCardsAndGraphs"
+          >
+            <div class="card-body">
+              <div class="card">
+                <h5 class="card-title" style="padding: 2% !important">
+                  {{ 'EM Sample status' | abpLocalization }}
+                </h5>
+                <div class="card-body" style="padding: 2% !important">
+                  <div class="container">
+                    <div class="row EmSampleBorderBotto">
+                      <div class="col-1">
+                        <i class="fas fa-flask EMPMiconSampleStatus"></i>
+                      </div>
+                      <div class="col">
+                        {{ 'EM sample points' | abpLocalization }}
+                      </div>
+                      <div class="col">
+                        <b>{{ this.PMSampleDataForBoard[i - 1][0]?.eMsamplepoints ?? 0 }}</b>
+                      </div>
+                    </div>
+                    <div class="row EmSampleBorderBotto">
+                      <div class="col-1">
+                        <i class="fas fa-flask EMPMiconSampleStatus"></i>
+                      </div>
+                      <div class="col">
+                        {{ 'Samples - (In Mapping State)' | abpLocalization }}
+                      </div>
+                      <div class="col">
+                        <b>{{
+                          this.PMSampleDataForBoard[i - 1][0]?.startSamplingCount ?? 0
+                        }}</b>
+                      </div>
+                    </div>
+                    <div class="row EmSampleBorderBotto">
+                      <div class="col-1">
+                        <i class="fas fa-flask EMPMiconSampleStatus"></i>
+                      </div>
+                      <div class="col">
+                        {{ 'Pending for Swab Process' | abpLocalization }}
+                      </div>
+                      <div class="col">
+                        <b>{{
+                          this.PMSampleDataForBoard[i - 1][0]?.samplesWaitingForSwabProcess ?? 0
+                        }}</b>
+                      </div>
+                    </div>
+                    <div class="row EmSampleBorderBotto">
+                      <div class="col-1">
+                        <i class="fas fa-flask EMPMiconSampleStatus"></i>
+                      </div>
+                      <div class="col">
+                        {{ 'Pending for Incubation' | abpLocalization }}
+                      </div>
+                      <div class="col">
+                        <b>{{
+                          this.PMSampleDataForBoard[i - 1][0]?.collectSamplingCount ?? 0
+                        }}</b>
+                      </div>
+                    </div>
+                    <div class="row EmSampleBorderBotto">
+                      <div class="col-1">
+                        <i class="fas fa-flask EMPMiconSampleStatus"></i>
+                      </div>
+                      <div class="col">
+                        {{ 'Incubation - (In Progress)' | abpLocalization }}
+                      </div>
+                      <div class="col">
+                        <b>{{
+                          this.PMSampleDataForBoard[i - 1][0]?.incubationSamplingCount ?? 0
+                        }}</b>
+                      </div>
+                    </div>
+                    <div class="row EmSampleBorderBotto">
+                      <div class="col-1">
+                        <i class="fas fa-flask EMPMiconSampleStatus"></i>
+                      </div>
+                      <div class="col">
+                        {{ 'Pending for Result Observation' | abpLocalization }}
+                      </div>
+                      <div class="col">
+                        <b>{{
+                          this.PMSampleDataForBoard[i - 1][0]?.observationSamplingCount ?? 0
+                        }}</b>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <h5 class="card-title" style="padding: 2% !important">
+                  {{ 'PM Samples Data Status' | abpLocalization }}
+                </h5>
+                <div class="card-body" style="padding: 2% !important">
+                  <div class="row EmSampleBorderBotto">
+                    <div class="col-1">
+                      <i  class="fas fa-flask EMPMiconSampleStatus"></i>
+                    </div>
+                    <div class="col">
+                      {{ "Personnel Registered" | abpLocalization}}
+                    </div>
+                    <div class="col">
+                      <b>{{ this.PMSampleDataForBoard[i - 1][0]?.personaldata ?? 0 }}</b>
+                    </div>
+                  </div>
+                  <div class="row EmSampleBorderBotto">
+                    <div class="col-1">
+                      <i  class="fas fa-flask EMPMiconSampleStatus"></i>
+                    </div>
+                    <div class="col">
+                      {{ "Pending for Incubation" | abpLocalization}}
+                    </div>
+                    <div class="col">
+                      <b>{{ this.PMSampleDataForBoard[i - 1][0]?.collectSamplingCount ?? 0 }}</b>
+                    </div>
+                  </div>
+                  <div class="row EmSampleBorderBotto">
+                    <div class="col-1">
+                      <i  class="fas fa-flask EMPMiconSampleStatus"></i>
+                    </div>
+                    <div class="col">
+                      {{ "Incubation - (In Progress)" | abpLocalization}}
+                    </div>
+                    <div class="col">
+                      <b>{{ this.PMSampleDataForBoard[i - 1][0]?.incubationSamplingCount ?? 0 }}</b>
+                    </div>
+                  </div>
+                  <div class="row EmSampleBorderBotto">
+                    <div class="col-1">
+                      <i  class="fas fa-flask EMPMiconSampleStatus"></i>
+                    </div>
+                    <div class="col">
+                      {{ "Pending for Result Observation" | abpLocalization}}
+                    </div>
+                    <div class="col">
+                      <b>{{ this.PMSampleDataForBoard[i - 1][0]?.observationSamplingCount ?? 0 }}</b>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+
+            *ngIf="showEMSampleDataChartArray[i]"
+            class="chatCardsAndGraphs"
+          >
+            <div class="card-body">
+              <div class="card">
+                <div class="card-body" style="padding: 2% !important">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col center-block text-center">
+                        <div>
+                          <div class="center-block text-center">
+                            <button type="button" class="btn btn-primary mb-1 roundbutton">
+                              <i class="fas fa-map-marker-alt"></i>
+                            </button>
+                          </div>
+                          <div>
+                            {{ this.EMSampleDataForBoard[i - 1][0]?.emSampleOfTheDay }}
+                          </div>
+                          <div>
+                            <b>{{ 'EM Samples Exposed' | abpLocalization }}</b>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col center-block text-center">
+                        <div>
+                          <button type="button" class="btn btn-primary mb-1 roundbutton">
+                            <i class="fas fa-universal-access"></i>
+                          </button>
+                        </div>
+                        <div>
+                          {{ this.EMSampleDataForBoard[i - 1][0]?.pmSampleOfTheDay }}
+                        </div>
+                        <div>
+                          <b> {{ 'PM Samples Exposed' | abpLocalization }}</b>
+                        </div>
+                      </div>
+                      <div class="col center-block text-center">
+                        <div>
+                          <button type="button" class="btn btn-primary mb-1 roundbutton">
+                            <i class="fas fa-pen-square"></i>
+                          </button>
+                        </div>
+                        <div>
+                          {{ this.EMSampleDataForBoard[i - 1][0]?.samplesVerifedOfTheDay }}
+                        </div>
+                        <div>
+                          <b>{{ 'Samples Verified' | abpLocalization }}</b>
+                        </div>
+                      </div>
+                      <div class="col center-block text-center">
+                        <div>
+                          <button type="button" class="btn btn-primary mb-1 roundbutton">
+                            <i class="fas fa-pen-square"></i>
+                          </button>
+                        </div>
+                        <div>
+                          {{ this.EMSampleDataForBoard[i - 1][0]?.sampleReviewsOfTheDay }}
+                        </div>
+                        <div>
+                          <b> {{ 'Samples Reviewed' | abpLocalization }}</b>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col center-block text-center">
+                        <div>
+                          <button type="button" class="btn btn-primary mb-1 roundbutton">
+                            <i class="fas fa-archive"></i>
+                          </button>
+                        </div>
+                        <div>
+                          {{ this.EMSampleDataForBoard[i - 1][0]?.incCyclesOfTheDay }}
+                        </div>
+                        <div>
+                          <b> {{ 'Incubation Cycles Started' | abpLocalization }}</b>
+                        </div>
+                      </div>
+                      <div class="col center-block text-center">
+                        <div>
+                          <button type="button" class="btn btn-primary mb-1 roundbutton">
+                            <i class="fas fa-archive"></i>
+                          </button>
+                        </div>
+                        <div>
+                          {{ this.EMSampleDataForBoard[i - 1][0]?.incCyclesEndOfTheDay }}
+                        </div>
+                        <div>
+                          <b> {{ 'Incubation Cycles End' | abpLocalization }}</b>
+                        </div>
+                      </div>
+                      <div class="col center-block text-center">
+                        <div>
+                          <button type="button" class="btn btn-primary mb-1 roundbutton">
+                            <i class="fas fa-archive"></i>
+                          </button>
+                        </div>
+                        <div>
+                          {{
+                            this.EMSampleDataForBoard[i - 1][0]?.emSamplesIn +
+                              this.EMSampleDataForBoard[i - 1][0]?.pmSamplesIn
+                          }}
+                        </div>
+                        <div>
+                          <b> {{ 'Incubation Started' | abpLocalization }}</b>
+                        </div>
+                      </div>
+                      <div class="col center-block text-center">
+                        <div>
+                          <button type="button" class="btn btn-primary mb-1 roundbutton">
+                            <i class="fas fa-archive"></i>
+                          </button>
+                        </div>
+                        <div>
+                          {{
+                            this.EMSampleDataForBoard[i - 1][0]?.emSamplesOut +
+                              this.EMSampleDataForBoard[i - 1][0]?.pmSamplesOut
+                          }}
+                        </div>
+                        <div>
+                          <b> {{ 'Incubation Completed' | abpLocalization }}</b>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+      </ng-container>
+    </div>
+  </div>
+</div>
+</div>
+
+
+  <div
+  *ngIf="this.isMagicWordCalled == true || this.isListenButtonClicked == true"
+  class="wrapper"
+>
+  <div class="col" id="isListening">
+    <span>
+      {{ '::Listening...' | abpLocalization }}
+    </span>
+  </div>
+  <div class="pulseOne"></div>
+  <div class="pulseTwo"></div>
+  <div class="pulseThree"></div>
+  <div class="pulseFour"></div>
+  <div class="pulseFive"></div>
+  <div class="pulseSix"></div>
+</div>
+<div *ngIf="this.showloader" class="wrapper">
+  <div class="col" id="isListening">
+    <span>
+      {{ '::loading...' | abpLocalization }}
+    </span>
+  </div>
+  <div class="blue ball"></div>
+  <div class="yellow ball"></div>
+  <div class="green ball"></div>
+  <div class="blueOne ball"></div>
+  <div class="yellowOne ball"></div>
+  <div class="greenOne ball"></div>
+</div>
+
+<div
+  *ngIf="
+    this.showloader != true &&
+    this.isMagicWordCalled != true &&
+    this.isListenButtonClicked != true
+  "
+>
+  <button
+    style="margin: 4px"
+    *ngFor="let question of suggestionForChatList"
+    type="button"
+    class="btn btn-primary soft btn-sm mb-1"
+    (click)="SendQuestion(question)"
+  >
+    {{ question }}
+  </button>
+</div>
+
+
+
+<div class="">
+  <form [formGroup]="chatForm" id="chat-form" validateOnSubmit>
+    <div class="form-check form-check-inline">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="returnResponseType"
+        id="returnResponseType1"
+        formControlName="returnResponseType"
+        [value]="1"
+      />
+      <label class="form-check-label" for="returnResponseType1">
+        {{ '::Text' | abpLocalization }}
+      </label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="returnResponseType"
+        id="returnResponseType2"
+        formControlName="returnResponseType"
+        [value]="2"
+      />
+      <label class="form-check-label" for="returnResponseType">
+        {{ '::Chart' | abpLocalization }}
+      </label>
+    </div>
+
+    <div class="input-group input-group-sm mb-3" placement="top-end" ngbDropdown>
+      <input
+        id="userMessage"
+        type="text"
+        formControlName="userMessage"
+        class="form-control form-control-lg"
+        autofocus
+      />
+      <button
+        [disabled]="
+          !(
+            this.chatForm.controls.userMessage.value != null &&
+            this.chatForm.controls.returnResponseType.value != null &&
+            this.showloader != true
+          )
+        "
+        type="submit"
+        class="btn btn-outline-secondary"
+        iconClass="fa fa-send"
+        (click)="sendUserMessage()"
+        formName="chat-form"
+      >
+        <span class="row">
+          <ng-container *ngIf="this.showloader">
+            <span class="col">
+              <span class="spinner-border spinner-border-sm" role="status">
+                <span class="visually-hidden">Loading...</span></span
+              >
+            </span>
+          </ng-container>
+          <span class="col">
+            <i class="fas fa-paper-plane"></i>
+          </span>
+        </span>
+      </button>
+      <button
+        class="btn btn-outline-secondary"
+        iconClass="fa fa-microphone"
+        [disabled]="
+          !(
+            this.chatForm.controls.returnResponseType.value != null &&
+            this.showloader != true &&
+            this.disableRecordingButton != true
+          )
+        "
+        (click)="this.isListenButtonClicked = true"
+      >
+        <i class="fas fa-microphone"></i>
+      </button>
+
+
+        <button type="button"  class="btn btn-outline-secondary" ngbDropdownToggle></button>
+        <div ngbDropdownMenu>
+          <button
+            ngbDropdownItem
+            (click)="openFileSelectionModel()"
+          >
+          {{ '::selectFile' | abpLocalization }}
+          </button>
+          <button
+            ngbDropdownItem
+            (click)="clearChatHistory()"
+          >
+          {{ '::clearChat' | abpLocalization }}
+          </button>
+        </div>
+
+
+
+    </div>
+
+    <div style="display: flex; justify-content: space-between">
+      <div class="row">
+        <div class="col">
+          <ng-container *ngIf="this.currentSelectedFiles.length != 0">
+            <b class="row">{{ '::SelectedFiles' | abpLocalization }}</b>
+            <ng-container *ngFor="let selectedFile of this.currentSelectedFiles">
+              <div class="row">
+                {{ selectedFile }}
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+
+        <div
+          class="col"
+          *ngIf="this.currentSelectedFiles.length != 0"
+          (click)="clearSelectedFiles()"
+        >
+          <i style="color: var(--lpx-danger)" class="fas fa-trash"></i>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+</div>

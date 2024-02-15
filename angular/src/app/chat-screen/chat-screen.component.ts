@@ -9,6 +9,7 @@ import {
   GetWholeDirectorySturctureResponseModel,
 } from '@proxy/file-uploader-saver';
 import { Observable, Subscription } from 'rxjs';
+import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-chat-screen',
@@ -53,8 +54,11 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
     private fb: FormBuilder,
     // private fileUploadSaverProxyService: FileUploadProxyService,
     private fileUploadSaverService: FileUploaderSaverService,
-    private service: ChatScreenService
+    private service: ChatScreenService,
+    config: NgbDropdownConfig
   ) {
+    // config.placement = 'top-start';
+		// config.autoClose = false;
     this.service.jsonDataTest.forEach(x => {
       this.data.push({ name: x.SampleType, value: x.count });
     });
@@ -78,6 +82,7 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
     let chat: chatScreenChatInterface = {
       message: this.chatForm.controls.userMessage.value,
       messageType: 1,
+      dateTime: new Date()
     };
     this.chatScreenChatData.push(chat);
     this.ShowChart.push(false);
@@ -110,6 +115,7 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
       let chat2: chatScreenChatInterface = {
         message: '',
         messageType: 2,
+        dateTime: new Date()
       };
       this.chatScreenChatData.push(chat2);
       setTimeout(() => {
@@ -127,6 +133,7 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
             let chat2: chatScreenChatInterface = {
               message: x,
               messageType: 2,
+              dateTime: new Date()
             };
             this.chatScreenChatData.push(chat2);
             this.ShowChart.push(false);
@@ -154,6 +161,7 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
             let chat2: chatScreenChatInterface = {
               message: 'Something went wrong.',
               messageType: 2,
+              dateTime: new Date()
             };
             this.chatScreenChatData.push(chat2);
             setTimeout(() => {
@@ -176,6 +184,7 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
         let chat2: chatScreenChatInterface = {
           message: '',
           messageType: 2,
+          dateTime: new Date()
         };
         this.chatScreenChatData.push(chat2);
         setTimeout(() => {
