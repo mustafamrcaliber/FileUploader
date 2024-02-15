@@ -123,3 +123,105 @@
   margin: 0px 2px;
   animation: pulse 1.7s infinite ease-in-out;
 }
+
+
+.scrollHorizontal
+{
+  overflow-y: hidden;
+    display: flex;
+    overflow-x: auto;
+}
+
+
+.SampleCardButtonDesign
+{
+  background: #405cff;
+  text-align: center;
+  width: 20%;
+  height: 20%;
+  border: 0px black;
+  border-radius: 1709px;
+  color: white;
+  font-size: large;
+}
+
+.roundbutton{
+  border: none;
+  display: inline-block;
+  font-size: 1.8rem;
+  border-radius: 1109px;
+}
+
+.EMPMiconSampleStatus{
+  color: var(--lpx-success);
+  font-size: 18px;
+}
+
+.EmSampleBorderBotto
+{
+  border-bottom: 2px solid;
+  margin: 8px;
+  border-color: var(--lpx-warning);
+}
+
+.displayAtChatAtTop
+{
+  display: none;
+}
+
+.ChatScreenSizeStyle{
+  overflow-y: auto;
+  height: 42vh;
+}
+
+
+
+@media (max-height: 1000px) and (max-width: 500px){
+  .ChatScreenSizeStyle{
+    overflow-y: auto;
+    height: 46vh;
+  }
+}
+
+@media (max-height: 800px) and (max-width: 500px) {
+  .ChatScreenSizeStyle{
+    overflow-y: auto;
+    height: 40vh;
+  }
+}
+
+@media (max-height: 750px) and (max-width: 500px) {
+  .ChatScreenSizeStyle{
+    overflow-y: auto;
+    height: 33vh;
+  }
+}
+
+@media (max-height: 700px) and (max-width: 500px) {
+  .ChatScreenSizeStyle{
+    overflow-y: auto;
+    height: 30vh;
+  }
+}
+
+@media (max-height: 600px) and (max-width: 500px) {
+  .ChatScreenSizeStyle{
+    overflow-y: auto;
+    height: 28vh;
+  }
+}
+// @media (max-width: 450px) {
+//   .displayAtChatAtbottom{
+//     display: none;
+//   }
+//   .displayAtChatAtTop
+//   {
+//     display: inline;
+//   }
+// }
+
+// @media (max-width: 500px) {
+//   .displayAtChatAtTop{
+//     display: none;
+//   }
+// }

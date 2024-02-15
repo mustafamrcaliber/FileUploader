@@ -12,5 +12,7 @@ namespace FileUploader.FileUploaderSaver
         public Task<string> SendUserMessageToApiAndGetJsonChart(string Message);
         public Task<string> SendUserMessageToApi(string Message);
         public string GetUrlToUploadFile();
+        public Task<List<GetPMSampleDataResponse>> GetPMSampleData();
+        public Task<List<GetEmSampleDataResponse>> GetEmSampleData();
     }
 }

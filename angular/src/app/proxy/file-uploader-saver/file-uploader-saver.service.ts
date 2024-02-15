@@ -1,4 +1,4 @@
-import type { GetWholeDirectorySturctureResponseModel, UploadFileRequestModel, UploadFileResponseModel } from './models';
+import type { GetEmSampleDataResponse, GetPMSampleDataResponse, GetWholeDirectorySturctureResponseModel, UploadFileRequestModel, UploadFileResponseModel } from './models';
 import { RestService, Rest } from '@abp/ng.core';
 import { Injectable } from '@angular/core';
 
@@ -9,10 +9,26 @@ export class FileUploaderSaverService {
   apiName = 'Default';
   
 
+  getEmSampleData = (config?: Partial<Rest.Config>) =>
+    this.restService.request<any, GetEmSampleDataResponse[]>({
+      method: 'GET',
+      url: '/api/app/file-uploader-saver/em-sample-data',
+    },
+    { apiName: this.apiName,...config });
+  
+
   getListOfFilesFromDir = (config?: Partial<Rest.Config>) =>
     this.restService.request<any, string[]>({
       method: 'GET',
       url: '/api/app/file-uploader-saver/of-files-from-dir',
+    },
+    { apiName: this.apiName,...config });
+  
+
+  getPMSampleData = (config?: Partial<Rest.Config>) =>
+    this.restService.request<any, GetPMSampleDataResponse[]>({
+      method: 'GET',
+      url: '/api/app/file-uploader-saver/p-mSample-data',
     },
     { apiName: this.apiName,...config });
   
