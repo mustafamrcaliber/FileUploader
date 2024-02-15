@@ -143,5 +143,37 @@ namespace FileUploader.FileUploaderSaver
             }
             return Response;
         }
+
+        [AllowAnonymous]
+        [HttpGet("GetPMSampleData")]
+        public async Task<List<GetPMSampleDataResponse>> GetPMSampleData()
+        {
+            List<GetPMSampleDataResponse> Response = new List<GetPMSampleDataResponse>();
+            try
+            {
+                Response = await _iFileUploaderSaverAppService.GetPMSampleData();
+            }
+            catch(Exception ex)
+            {
+                throw new UserFriendlyException(ex.Message);
+            }
+            return Response;
+        }
+
+        [AllowAnonymous]
+        [HttpGet("GetEmSampleData")]
+        public async Task<List<GetEmSampleDataResponse>> GetEmSampleData()
+        {
+            List<GetEmSampleDataResponse> Response = new List<GetEmSampleDataResponse>();
+            try
+            {
+                Response = await _iFileUploaderSaverAppService.GetEmSampleData();
+            }
+            catch(Exception ex)
+            {
+                throw new UserFriendlyException(ex.Message);
+            }
+            return Response;
+        }
     }
 }

@@ -142,7 +142,7 @@ namespace FileUploader.FileUploaderSaver
             string Result = "";
             using (var client = new HttpClient())
             {
-                var requestURL = $@"http://{(_iConfiguration.GetSection("appSettings").GetSection("IPAdd").Value).ToString()}:5002/FileUpload/{FileName}";
+                var requestURL = $@"http://{(_iConfiguration.GetSection("appSettings").GetSection("IPForAI").Value).ToString()}:5002/FileUpload/{FileName}";
                 using HttpResponseMessage response = await client.GetAsync(requestURL);
                 response.EnsureSuccessStatusCode();
                 Result = await response.Content.ReadAsStringAsync();
@@ -155,7 +155,7 @@ namespace FileUploader.FileUploaderSaver
             string Result = "";
             using( var client = new HttpClient())
             {
-                var requestURL = $@"http://{(_iConfiguration.GetSection("appSettings").GetSection("IPAdd").Value).ToString()}:5004/Text2SGraph/{Message}";
+                var requestURL = $@"http://{(_iConfiguration.GetSection("appSettings").GetSection("IPForAI").Value).ToString()}:5004/Text2SGraph/{Message}";
                 using HttpResponseMessage response = await client.GetAsync(requestURL);
                 response.EnsureSuccessStatusCode();
                 Result = await response.Content.ReadAsStringAsync();
@@ -167,7 +167,7 @@ namespace FileUploader.FileUploaderSaver
             string Result = "";
             using( var client = new HttpClient())
             {
-                var requestURL =  $@"http://{(_iConfiguration.GetSection("appSettings").GetSection("IPAdd").Value).ToString()}:5002/UserQuery/{Message}";
+                var requestURL =  $@"http://{(_iConfiguration.GetSection("appSettings").GetSection("IPForAI").Value).ToString()}:5002/UserQuery/{Message}";
                 using HttpResponseMessage response = await client.GetAsync(requestURL);
                 response.EnsureSuccessStatusCode();
                 Result = await response.Content.ReadAsStringAsync();
@@ -178,6 +178,48 @@ namespace FileUploader.FileUploaderSaver
         public string GetUrlToUploadFile()
         {
             string Result =  $@"{(_iConfiguration.GetSection("App").GetSection("SelfUrl").Value).ToString()}/FileUploaderSaver/UploadFile";
+            return Result;
+        }
+
+
+        //swaping urls but main logic remains the same 
+        public async Task<List<GetPMSampleDataResponse>> GetPMSampleData()
+        {
+            List<GetPMSampleDataResponse> Result = new List<GetPMSampleDataResponse>();
+            using(var client = new HttpClient())
+            {
+                var requestURL = $@"http://cqmsinnovtst01/CaliberEM_TST_API/api/v1/SystemManager/Rolling/GetEMSamplesData?plantId=14";
+                using HttpResponseMessage response = await client.GetAsync(requestURL);
+                response.EnsureSuccessStatusCode();
+                string responseMessage = await response.Content.ReadAsStringAsync();
+                try{
+                Result = JsonConvert.DeserializeObject<List<GetPMSampleDataResponse>>(responseMessage);
+                }
+                catch(Exception ex)
+                {
+                    throw ex;
+                }
+            }
+            return Result;
+        }
+
+        public async Task<List<GetEmSampleDataResponse>> GetEmSampleData()
+        {
+            List<GetEmSampleDataResponse> Result = new List<GetEmSampleDataResponse>();
+            using(var client = new HttpClient())
+            {
+                var requestURL = $@"http://cqmsinnovtst01/CaliberEM_TST_API/api/v1/SystemManager/Rolling/GetPMSamplesData?plantId=14";
+                using HttpResponseMessage response = await client.GetAsync(requestURL);
+                response.EnsureSuccessStatusCode();
+                string responseMessage = await response.Content.ReadAsStringAsync();
+                try{
+                Result = JsonConvert.DeserializeObject<List<GetEmSampleDataResponse>>(responseMessage);
+                }
+                catch(Exception ex)
+                {
+                    throw ex;
+                }
+            }
             return Result;
         }
     }

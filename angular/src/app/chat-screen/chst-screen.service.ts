@@ -59,6 +59,7 @@ export class ChatScreenService {
 export interface chatScreenChatInterface {
   message: string;
   messageType: 1 | 2;
+  dateTime: Date;
 }
 
 export interface IWindow extends Window {

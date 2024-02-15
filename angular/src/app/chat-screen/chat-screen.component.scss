@@ -73,53 +73,245 @@
 }
 
 @keyframes pulse {
-  0%{
+  0% {
     width: 5px;
     height: 20px;
   }
-  50%{
+
+  50% {
     width: 5px;
     height: 12px;
   }
-  100%{
+
+  100% {
     width: 5px;
     height: 20px;
   }
 }
 
-.pulseOne{
+.pulseOne {
   animation: pulse 1.1s infinite ease-in-out;
   background: #2e67ad;
   border-radius: 47px;
   margin: 0px 2px;
 }
-.pulseTwo{
+
+.pulseTwo {
   background: #f6c527;
   border-radius: 47px;
   margin: 0px 2px;
   animation: pulse 1.4s infinite ease-in-out;
 }
-.pulseThree{
+
+.pulseThree {
   background: #34A952;
   border-radius: 47px;
   margin: 0px 2px;
   animation: pulse 1.3s infinite ease-in-out;
 }
-.pulseFour{
+
+.pulseFour {
   background: #2e67ad;
   border-radius: 47px;
   margin: 0px 2px;
   animation: pulse 1.5s infinite ease-in-out;
 }
-.pulseFive{
+
+.pulseFive {
   background: #f6c527;
   border-radius: 47px;
   margin: 0px 2px;
   animation: pulse 1.8s infinite ease-in-out;
 }
-.pulseSix{
+
+.pulseSix {
   background: #34A952;
   border-radius: 47px;
   margin: 0px 2px;
   animation: pulse 1.7s infinite ease-in-out;
+}
+
+
+.scrollHorizontal {
+  overflow-y: hidden;
+  display: flex;
+  overflow-x: auto;
+}
+
+
+.SampleCardButtonDesign {
+  background: #405cff;
+  text-align: center;
+  width: 20%;
+  height: 20%;
+  border: 0px black;
+  border-radius: 1709px;
+  color: white;
+  font-size: large;
+}
+
+.roundbutton {
+  border: none;
+  display: inline-block;
+  font-size: 1.8rem;
+  border-radius: 1109px;
+}
+
+.EMPMiconSampleStatus {
+  color: var(--lpx-success);
+  font-size: 18px;
+}
+
+.EmSampleBorderBotto {
+  border-bottom: 2px solid;
+  margin: 8px;
+  border-color: var(--lpx-warning);
+}
+
+.displayAtChatAtTop {
+  display: none;
+}
+
+.ChatScreenSizeStyle {
+  overflow-y: auto;
+  height: 67vh;
+  background: #d8d9c900;
+  border: 0 solid;
+  border-radius: 8px;
+}
+
+
+
+@media (max-height: 1000px) and (max-width: 500px) {
+  .ChatScreenSizeStyle {
+    overflow-y: auto;
+    height: 59vh;
+    background: #d8d9c900;
+    border: 0 solid;
+    border-radius: 8px;
+  }
+}
+
+@media (max-height: 800px) and (max-width: 500px) {
+  .ChatScreenSizeStyle {
+    overflow-y: auto;
+    height: 57vh;
+    background: #d8d9c900;
+    border: 0 solid;
+    border-radius: 8px;
+  }
+}
+
+@media (max-height: 750px) and (max-width: 500px) {
+  .ChatScreenSizeStyle {
+    overflow-y: auto;
+    height: 54vh;
+    background: #d8d9c900;
+    border: 0 solid;
+    border-radius: 8px;
+  }
+}
+
+@media (max-height: 700px) and (max-width: 500px) {
+  .ChatScreenSizeStyle {
+    overflow-y: auto;
+    height: 52vh;
+    background: #d8d9c900;
+    border: 0 solid;
+    border-radius: 8px;
+  }
+}
+
+@media (max-height: 600px) and (max-width: 500px) {
+  .ChatScreenSizeStyle {
+    overflow-y: auto;
+    height: 51vh;
+    background: #d8d9c900;
+    border: 0 solid;
+    border-radius: 8px;
+  }
+}
+
+// @media (max-width: 450px) {
+//   .displayAtChatAtbottom{
+//     display: none;
+//   }
+//   .displayAtChatAtTop
+//   {
+//     display: inline;
+//   }
+// }
+
+// @media (max-width: 500px) {
+//   .displayAtChatAtTop{
+//     display: none;
+//   }
+// }
+
+
+
+////////
+///
+html {
+  height: 100%;
+}
+
+.bodyStyle {
+  width: 100%;
+  height: 100%;
+}
+
+.chatScreenBootomPillTag {
+  position: fixed;
+  z-index: 1000;
+  bottom: 7%;
+}
+
+.chatScreenConvoLayout {}
+
+@media (max-width: 600px) {
+  .chatScreenBootomPillTag {
+    position: fixed;
+    z-index: 1000;
+    bottom: 12%;
+  }
+}
+
+///
+
+
+.chatUserMessageClass {
+  padding: 0.5rem;
+  text-align: right;
+  background: #78C1F3;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  max-width: 86%;
+}
+
+.chatResponseMessageClass {
+  padding: 0.5rem;
+  text-align: left;
+  background: #9BE8D8;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  max-width: 86%;
+}
+
+.classDivOpposite {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chatCardsAndGraphs {
+  padding: 0.5rem;
+  text-align: left;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.chatScreenMessageDateStyle
+{
+  color: #317efb;
+    font-size: xx-small;
 }
