@@ -267,7 +267,7 @@ html {
   bottom: 7%;
 }
 
-.chatScreenConvoLayout {}
+// .chatScreenConvoLayout {}
 
 @media (max-width: 600px) {
   .chatScreenBootomPillTag {
@@ -283,20 +283,23 @@ html {
 .chatUserMessageClass {
   padding: 0.5rem;
   text-align: right;
-  background: #78C1F3;
+  background: var(--lpx-primary);
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
   max-width: 86%;
+  color: var(--lpx-brand-text) !important;
 }
 
 .chatResponseMessageClass {
   padding: 0.5rem;
   text-align: left;
-  background: #9BE8D8;
+  background: var(--lpx-secondary);
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
   max-width: 86%;
+  color: var(--lpx-brand-text) !important;
 }
+
 
 .classDivOpposite {
   display: flex;
@@ -308,6 +311,8 @@ html {
   text-align: left;
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .chatScreenMessageDateStyle
@@ -315,3 +320,5 @@ html {
   color: var(--bs-body-color);
     font-size: xx-small;
 }
+
+
