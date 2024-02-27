@@ -582,13 +582,14 @@
             <div *ngIf="message.messageType == 1" class="chatScreenMessageDateStyle" style="padding-right: 1vw;">{{ message.dateTime  | shortDateTime }}</div>
           </div>
         </div>
+        <div>
           <div
 
             *ngIf="ShowChart[i] && chartData[i].length != 0"
             class="chatCardsAndGraphs chatResponseMessageClass"
+            id="pie-chart-parent"
           >
             <ngx-charts-pie-chart
-              [view]="view"
               [scheme]="colorScheme"
               [results]="chartData[i]"
               [gradient]="gradient"
@@ -599,6 +600,7 @@
             >
             </ngx-charts-pie-chart>
           </div>
+        </div>
 
           <div
 
@@ -910,7 +912,7 @@
   <div class="greenOne ball"></div>
 </div>
 
-<div
+<!-- <div
   *ngIf="
     this.showloader != true &&
     this.isMagicWordCalled != true &&
@@ -926,7 +928,7 @@
   >
     {{ question }}
   </button>
-</div>
+</div> -->
 
 
 
