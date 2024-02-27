@@ -331,6 +331,7 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
         ) {
           this.isMagicWordCalled = true;
           this.clickonisListeningDiv();
+          this.clickOnDiv();
         } else if (
           !(
             this.results.includes('hey caliber') ||
