@@ -133,6 +133,30 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
                 logoUri: "/images/clients/swagger.svg"
             );
         }
+
+
+         //Mobile Client
+        var mobileClientId = configurationSection["FileUploader_Mobile:ClientId"];
+        if (!mobileClientId.IsNullOrWhiteSpace())
+        {
+            var mobileClientRootUrl = configurationSection["FileUploader_Mobile:RootUrl"]?.Replace("_", "-");
+            await CreateApplicationAsync(
+                name: mobileClientId!,
+                type: OpenIddictConstants.ClientTypes.Public,
+                consentType: OpenIddictConstants.ConsentTypes.Implicit,
+                displayName: "Mobile Application",
+                secret: null,
+                grantTypes: new List<string> {
+                    OpenIddictConstants.GrantTypes.AuthorizationCode,
+                    OpenIddictConstants.GrantTypes.Password,
+                    OpenIddictConstants.GrantTypes.ClientCredentials,
+                    OpenIddictConstants.GrantTypes.RefreshToken
+                },
+                scopes: commonScopes,
+                redirectUri: mobileClientRootUrl,
+                postLogoutRedirectUri: mobileClientRootUrl
+            );
+        }
     }
 
     private async Task CreateApplicationAsync(
