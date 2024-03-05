@@ -75,6 +75,7 @@
     "SelectFiles":"Select Files",
     "Done":"Done",
     "clearChat":"Clear Chat",
-    "loading...":"Loading..."
+    "loading...":"Loading...",
+    "chat":"Chat"
   }
 }

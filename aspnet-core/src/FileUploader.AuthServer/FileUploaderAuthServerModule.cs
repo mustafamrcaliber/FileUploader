@@ -85,6 +85,8 @@ public class FileUploaderAuthServerModule : AbpModule
                 options.UseLocalServer();
                 options.UseAspNetCore();
             });
+
+             builder.AddServer(options => { options.UseAspNetCore().DisableTransportSecurityRequirement(); });
         });
 
         if (!hostingEnvironment.IsDevelopment())

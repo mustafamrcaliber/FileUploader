@@ -1,2 +1,25 @@
 {
+  "production": true,
+  "application": {
+    "baseUrl":"https://dmo2a.caliberuniversal.com:576/CaliGen",
+    "name": "FileUploader",
+    "logoUrl": ""
+  },
+  "oAuthConfig": {
+    "issuer": "https://dmo2a.caliberuniversal.com:44370/",
+    "redirectUri": "http://https://dmo2a.caliberuniversal.com:576/CaliGen",
+    "clientId": "FileUploader_App",
+    "responseType": "code",
+    "scope": "offline_access openid profile email phone FileUploader"
+  },
+  "apis": {
+    "default": {
+      "url": "https://dmo2a.caliberuniversal.com:44375",
+      "rootNamespace": "FileUploader"
+    },
+    "AbpAccountPublic": {
+      "url": "https://dmo2a.caliberuniversal.com:44370",
+      "rootNamespace": "AbpAccountPublic"
+    }
+  }
 }
