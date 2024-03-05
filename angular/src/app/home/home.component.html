@@ -47,6 +47,220 @@
 
 <p *ngIf="!hasLoggedIn">
   <a (click)="login()" class="btn btn-primary" role="button"
-    ><i class="fa fa-sign-in me-1" aria-hidden="true"></i>{{ 'AbpAccount::Login' | abpLocalization }}</a
+    ><i class="fa fa-sign-in me-1" aria-hidden="true"></i
+    >{{ 'AbpAccount::Login' | abpLocalization }}</a
   >
 </p>
+<div *ngIf="hasLoggedIn">
+  <div class="row card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col" style="margin: auto">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckChecked"
+              checked
+            />
+            <label class="form-check-label" for="flexCheckChecked">
+              {{ '::Mine' | abpLocalization }}
+            </label>
+          </div>
+        </div>
+        <div class="col">
+          <select class="form-select" aria-label="Default select example">
+            <option selected>{{ '::JobsAndIssues' | abpLocalization }}</option>
+          </select>
+        </div>
+        <div class="col">
+          <select class="form-select" aria-label="Default select example">
+            <option selected>{{ '::Today' | abpLocalization }}</option>
+            <option value="1">{{ '::yesterday' | abpLocalization }}</option>
+            <option value="2">{{ '::Last30Days' | abpLocalization }}</option>
+          </select>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-light mb-1" style="margin-left: 22%">
+            {{ '::Refresh' | abpLocalization }}
+          </button>
+        </div>
+        <div class="col">
+          <button type="button" (click)="RouteToCaliGen()" class="btn btn-primary mb-1">
+            {{ '::CaliGen' | abpLocalization }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <div class="row">
+          <div id="card">
+            <div id="chart">
+              <apx-chart
+                [series]="[70]"
+                [chart]="chartOptions.chart"
+                [plotOptions]="chartOptions.plotOptions"
+                [labels]="['70%']"
+                [stroke]="chartOptions.stroke"
+                [fill]="chartOptions.fill"
+              ></apx-chart>
+            </div>
+          </div>
+        </div>
+        <div class="row footerForItems"><span>{{ "::OEE" | abpLocalization }}</span></div>
+        </div>
+        <div class="col">
+          <div class="row">
+          <div id="card">
+            <div id="chart">
+              <apx-chart
+                [series]="[100]"
+                [chart]="chartOptions.chart"
+                [plotOptions]="chartOptions.plotOptions"
+                [labels]="['']"
+                [stroke]="chartOptions.stroke"
+                [fill]="chartOptions.fill"
+              ></apx-chart>
+            </div>
+          </div>
+        </div>
+        <div class="row footerForItems"><span>{{ "::No.OfBatches" | abpLocalization}}</span></div>
+        </div>
+        <div class="col">
+          <div class="row">
+          <div id="card">
+            <div id="chart">
+              <apx-chart
+                [series]="[100]"
+                [chart]="chartOptions.chart"
+                [plotOptions]="chartOptions.plotOptions"
+                [labels]="['']"
+                [stroke]="chartOptions.stroke"
+                [fill]="chartOptions.fill"
+              ></apx-chart>
+            </div>
+          </div>
+        </div>
+        <div class="row footerForItems"><span>{{ "::TotalARN.No" | abpLocalization}}</span></div>
+        </div>
+        <div class="col">
+          <div class="row">
+          <div id="card">
+            <div id="chart">
+              <apx-chart
+                [series]="[100]"
+                [chart]="chartOptions.chart"
+                [plotOptions]="chartOptions.plotOptions"
+                [labels]="['']"
+                [stroke]="chartOptions.stroke"
+                [fill]="chartOptions.fill"
+              ></apx-chart>
+            </div>
+          </div>
+        </div>
+        <div class="row footerForItems"> <span>{{"::ChangeControl" | abpLocalization }}</span>
+        </div>
+      </div>
+      <div class="col">
+        <div class="row footerForItems">
+          <span class="HorsTimeChange"> {{"::30Hrs" | abpLocalization}}</span>
+      </div>
+      <div class="row footerForItems"><span>{{ "::AvgTurnAroundTime" | abpLocalization}}</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="row headerForItems">
+        <span>{{ '::Schedules (3)' | abpLocalization }}</span>
+      </div>
+      <div class="row">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"></label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"></label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"></label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" />
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="row headerForItems">
+        <span>{{ '::Open (4)' | abpLocalization }}</span>
+      </div>
+      <div class="row">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"></label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"></label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"></label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"></label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" />
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="row headerForItems">
+        <span>{{ '::In Progress (5)' | abpLocalization }}</span>
+      </div>
+      <div class="row">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"></label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"></label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"></label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"></label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"></label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
