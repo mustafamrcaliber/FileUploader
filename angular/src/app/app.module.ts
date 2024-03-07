@@ -26,6 +26,8 @@ import { SideMenuLayoutModule } from '@volosoft/abp.ng.theme.lepton-x/layouts';
 import { FileViewMastersComponent } from './file-view-masters/file-view-masters.component';
 import { FileViewMastersModule } from './file-view-masters/file-view-masters.module';
 import { ChatScreenModule } from './chat-screen/chat-screen.module';
+import { DataVisualizationModule} from './data-visualization/data-visualization.module';
+import { AutoDataVisualizationModule} from './auto-data-visualization/auto-data-visualization.module';
 // import { UPLOAD_FILES_UPLOAD_FILE_ROUTE_PROVIDER } from './upload-files/upload-file/providers/upload-file-route.provider';
 
 @NgModule({
@@ -59,7 +61,9 @@ import { ChatScreenModule } from './chat-screen/chat-screen.module';
     ThemeLeptonXModule.forRoot(),
     SideMenuLayoutModule.forRoot(),
     FileViewMastersModule,
-    ChatScreenModule
+    ChatScreenModule,
+    DataVisualizationModule,
+    AutoDataVisualizationModule
   ],
   providers: [APP_ROUTE_PROVIDER,
     // UPLOAD_FILES_UPLOAD_FILE_ROUTE_PROVIDER

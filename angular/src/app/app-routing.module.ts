@@ -78,6 +78,16 @@ const routes: Routes = [
     path: 'chat-screen',
     loadChildren: () =>
     import ('./chat-screen/chat-screen-routing.module').then( m => m.ChatScreenRoutingModule)
+  },
+  {
+    path: 'data-visualization',
+    loadChildren:() =>
+    import( './data-visualization/data-visualization-routing.module').then( m => m.DataVisualizationRoutingModule)
+  },
+  {
+    path: 'auto-data-visualization',
+    loadChildren:() =>
+    import( './auto-data-visualization/auto-data-visualization-routing.module').then( m => m.AutoDataVisualizationRoutingModule)
   }
 ];
 
