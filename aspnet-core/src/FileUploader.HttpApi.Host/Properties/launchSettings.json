@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://172.20.10.2:44335",
+      "applicationUrl": "http://192.168.0.101:44335",
       "sslPort": 44335
     }
   },
@@ -18,7 +18,7 @@
     "FileUploader.HttpApi.Host": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://172.20.10.2:44335",
+      "applicationUrl": "http://192.168.0.101:44335",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
