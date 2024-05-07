@@ -112,6 +112,7 @@
     "NewModelConfiguration": "New Model Configuration",
     "ModelConfiguration": "Model Configuration",
     "Menu:ModelConfigurations": "Model Configurations",
+    "Menu:Settings": "Settings",
     "SystemPrompt": "System Prompt",
     "Temperature": "Temperature",
     "TopK": "Top K",

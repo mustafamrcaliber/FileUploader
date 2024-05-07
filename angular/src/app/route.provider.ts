@@ -39,6 +39,14 @@ function configureRoutes(routes: RoutesService) {
         layout: eLayoutType.application,
         requiredPolicy: 'FileUploader.Dashboard.Host  || FileUploader.Dashboard.Tenant',
       },
+      {
+        path: '/',
+        name: '::Menu:Settings',
+        iconClass: 'fas fa-cog',
+        order: 5,
+        layout: eLayoutType.application,
+        requiredPolicy: 'FileUploader.Dashboard.Host  || FileUploader.Dashboard.Tenant',
+      },
       // {
       //   path: '/',
       //   name: '::Menu:DataCo-pilot',
@@ -191,6 +199,33 @@ function configureRoutes(routes: RoutesService) {
       //   order:13,
       //   layout: eLayoutType.application,
       // }
+      {
+        path: '/model-configurations',
+        name: '::ModelConfigurations',
+        iconClass: '',
+        order: 1,
+        layout: eLayoutType.application,
+        parentName: '::Menu:Settings',
+        requiredPolicy: 'FileUploader.Dashboard.Host  || FileUploader.Dashboard.Tenant',
+      },
+      {
+        path: '/model-registrations',
+        name: '::ModelRegistrations',
+        iconClass: '',
+        order: 1,
+        layout: eLayoutType.application,
+        parentName: '::Menu:Settings',
+        requiredPolicy: 'FileUploader.Dashboard.Host  || FileUploader.Dashboard.Tenant',
+      },
+      {
+        path: '/model-trainings',
+        name: '::ModelTrainings',
+        iconClass: '',
+        order: 1,
+        layout: eLayoutType.application,
+        parentName: '::Menu:Settings',
+        requiredPolicy: 'FileUploader.Dashboard.Host  || FileUploader.Dashboard.Tenant',
+      },
     ]);
   };
 }
