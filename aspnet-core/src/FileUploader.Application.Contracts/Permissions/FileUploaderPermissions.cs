@@ -37,4 +37,12 @@ public static class FileUploaderPermissions
         public const string Create = Default + ".Create";
         public const string Delete = Default + ".Delete";
     }
+
+    public static class ModelTrainings
+    {
+        public const string Default = GroupName + ".ModelTrainings";
+        public const string Edit = Default + ".Edit";
+        public const string Create = Default + ".Create";
+        public const string Delete = Default + ".Delete";
+    }
 }

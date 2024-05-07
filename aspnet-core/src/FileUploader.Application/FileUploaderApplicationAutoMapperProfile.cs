@@ -1,3 +1,4 @@
+using FileUploader.ModelTrainings;
 using FileUploader.ModelRegistrations;
 using FileUploader.ModelConfigurations;
 using System;
@@ -22,5 +23,7 @@ public class FileUploaderApplicationAutoMapperProfile : Profile
         CreateMap<ModelConfiguration, ModelConfigurationDto>();
 
         CreateMap<ModelRegistration, ModelRegistrationDto>();
+
+        CreateMap<ModelTraining, ModelTrainingDto>();
     }
 }

@@ -107,6 +107,13 @@ const routes: Routes = [
         m => m.ModelRegistrationModule
       ),
   },
+  {
+    path: 'model-trainings',
+    loadChildren: () =>
+      import('./model-trainings/model-training/model-training.module').then(
+        m => m.ModelTrainingModule
+      ),
+  },
 ];
 
 @NgModule({

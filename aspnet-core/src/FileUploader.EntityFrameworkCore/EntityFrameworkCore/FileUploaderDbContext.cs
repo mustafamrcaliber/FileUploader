@@ -1,3 +1,4 @@
+using FileUploader.ModelTrainings;
 using FileUploader.ModelRegistrations;
 using FileUploader.ModelConfigurations;
 using FileUploader.UploadFiles;
@@ -32,6 +33,7 @@ public class FileUploaderDbContext :
     IIdentityProDbContext,
     ISaasDbContext
 {
+    public DbSet<ModelTraining> ModelTrainings { get; set; } = null!;
     public DbSet<ModelRegistration> ModelRegistrations { get; set; } = null!;
     public DbSet<ModelConfiguration> ModelConfigurations { get; set; } = null!;
     public DbSet<UploadFile> UploadFiles { get; set; } = null!;
@@ -139,6 +141,26 @@ public class FileUploaderDbContext :
                 b.Property(x => x.LocalPath).HasColumnName(nameof(ModelRegistration.LocalPath));
                 b.Property(x => x.Schedule).HasColumnName(nameof(ModelRegistration.Schedule));
                 b.Property(x => x.Interval).HasColumnName(nameof(ModelRegistration.Interval));
+            });
+
+        }
+        if (builder.IsHostDatabase())
+        {
+
+        }
+        if (builder.IsHostDatabase())
+        {
+            builder.Entity<ModelTraining>(b =>
+            {
+                b.ToTable(FileUploaderConsts.DbTablePrefix + "ModelTrainings", FileUploaderConsts.DbSchema);
+                b.ConfigureByConvention();
+                b.Property(x => x.Type).HasColumnName(nameof(ModelTraining.Type));
+                b.Property(x => x.Path).HasColumnName(nameof(ModelTraining.Path));
+                b.Property(x => x.DataSource).HasColumnName(nameof(ModelTraining.DataSource));
+                b.Property(x => x.DatabaseConnectionString).HasColumnName(nameof(ModelTraining.DatabaseConnectionString));
+                b.Property(x => x.DocumentsDirectoryPath).HasColumnName(nameof(ModelTraining.DocumentsDirectoryPath));
+                b.Property(x => x.Mode).HasColumnName(nameof(ModelTraining.Mode));
+                b.Property(x => x.TrainingLog).HasColumnName(nameof(ModelTraining.TrainingLog));
             });
 
         }

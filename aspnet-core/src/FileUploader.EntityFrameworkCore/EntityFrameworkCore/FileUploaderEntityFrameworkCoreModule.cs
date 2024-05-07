@@ -1,3 +1,4 @@
+using FileUploader.ModelTrainings;
 using FileUploader.ModelRegistrations;
 using FileUploader.ModelConfigurations;
 using FileUploader.UploadFiles;
@@ -57,6 +58,8 @@ public class FileUploaderEntityFrameworkCoreModule : AbpModule
             options.AddRepository<ModelConfiguration, ModelConfigurations.EfCoreModelConfigurationRepository>();
 
             options.AddRepository<ModelRegistration, ModelRegistrations.EfCoreModelRegistrationRepository>();
+
+            options.AddRepository<ModelTraining, ModelTrainings.EfCoreModelTrainingRepository>();
 
         });
 
