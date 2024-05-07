@@ -409,3 +409,7 @@ p {
   background-color: var(--lpx-success) !important;
 }
 
+:root input[type=range]::-webkit-slider-thumb {
+  background: var(--lpx-brand);
+}
+
