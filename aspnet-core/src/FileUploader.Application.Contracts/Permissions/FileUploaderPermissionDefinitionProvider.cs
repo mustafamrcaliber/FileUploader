@@ -21,6 +21,16 @@ public class FileUploaderPermissionDefinitionProvider : PermissionDefinitionProv
         uploadFilePermission.AddChild(FileUploaderPermissions.UploadFiles.Create, L("Permission:Create"));
         uploadFilePermission.AddChild(FileUploaderPermissions.UploadFiles.Edit, L("Permission:Edit"));
         uploadFilePermission.AddChild(FileUploaderPermissions.UploadFiles.Delete, L("Permission:Delete"));
+
+        var modelConfigurationPermission = myGroup.AddPermission(FileUploaderPermissions.ModelConfigurations.Default, L("Permission:ModelConfigurations"));
+        modelConfigurationPermission.AddChild(FileUploaderPermissions.ModelConfigurations.Create, L("Permission:Create"));
+        modelConfigurationPermission.AddChild(FileUploaderPermissions.ModelConfigurations.Edit, L("Permission:Edit"));
+        modelConfigurationPermission.AddChild(FileUploaderPermissions.ModelConfigurations.Delete, L("Permission:Delete"));
+
+        var modelRegistrationPermission = myGroup.AddPermission(FileUploaderPermissions.ModelRegistrations.Default, L("Permission:ModelRegistrations"));
+        modelRegistrationPermission.AddChild(FileUploaderPermissions.ModelRegistrations.Create, L("Permission:Create"));
+        modelRegistrationPermission.AddChild(FileUploaderPermissions.ModelRegistrations.Edit, L("Permission:Edit"));
+        modelRegistrationPermission.AddChild(FileUploaderPermissions.ModelRegistrations.Delete, L("Permission:Delete"));
     }
 
     private static LocalizableString L(string name)

@@ -1,3 +1,5 @@
+using FileUploader.ModelRegistrations;
+using FileUploader.ModelConfigurations;
 using System;
 using FileUploader.Shared;
 using Volo.Abp.AutoMapper;
@@ -16,5 +18,9 @@ public class FileUploaderApplicationAutoMapperProfile : Profile
 
         CreateMap<UploadFile, UploadFileDto>();
         CreateMap<UploadFile, UploadFileExcelDto>();
+
+        CreateMap<ModelConfiguration, ModelConfigurationDto>();
+
+        CreateMap<ModelRegistration, ModelRegistrationDto>();
     }
 }

@@ -21,4 +21,20 @@ public static class FileUploaderPermissions
         public const string Create = Default + ".Create";
         public const string Delete = Default + ".Delete";
     }
+
+    public static class ModelConfigurations
+    {
+        public const string Default = GroupName + ".ModelConfigurations";
+        public const string Edit = Default + ".Edit";
+        public const string Create = Default + ".Create";
+        public const string Delete = Default + ".Delete";
+    }
+
+    public static class ModelRegistrations
+    {
+        public const string Default = GroupName + ".ModelRegistrations";
+        public const string Edit = Default + ".Edit";
+        public const string Create = Default + ".Create";
+        public const string Delete = Default + ".Delete";
+    }
 }

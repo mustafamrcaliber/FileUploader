@@ -26,8 +26,10 @@ import { SideMenuLayoutModule } from '@volosoft/abp.ng.theme.lepton-x/layouts';
 import { FileViewMastersComponent } from './file-view-masters/file-view-masters.component';
 import { FileViewMastersModule } from './file-view-masters/file-view-masters.module';
 import { ChatScreenModule } from './chat-screen/chat-screen.module';
-import { DataVisualizationModule} from './data-visualization/data-visualization.module';
-import { AutoDataVisualizationModule} from './auto-data-visualization/auto-data-visualization.module';
+import { DataVisualizationModule } from './data-visualization/data-visualization.module';
+import { AutoDataVisualizationModule } from './auto-data-visualization/auto-data-visualization.module';
+import { MODEL_CONFIGURATIONS_MODEL_CONFIGURATION_ROUTE_PROVIDER } from './model-configurations/model-configuration/providers/model-configuration-route.provider';
+import { MODEL_REGISTRATIONS_MODEL_REGISTRATION_ROUTE_PROVIDER } from './model-registrations/model-registration/providers/model-registration-route.provider';
 // import { UPLOAD_FILES_UPLOAD_FILE_ROUTE_PROVIDER } from './upload-files/upload-file/providers/upload-file-route.provider';
 
 @NgModule({
@@ -63,9 +65,12 @@ import { AutoDataVisualizationModule} from './auto-data-visualization/auto-data-
     FileViewMastersModule,
     ChatScreenModule,
     DataVisualizationModule,
-    AutoDataVisualizationModule
+    AutoDataVisualizationModule,
   ],
-  providers: [APP_ROUTE_PROVIDER,
+  providers: [
+    APP_ROUTE_PROVIDER,
+    MODEL_CONFIGURATIONS_MODEL_CONFIGURATION_ROUTE_PROVIDER,
+    MODEL_REGISTRATIONS_MODEL_REGISTRATION_ROUTE_PROVIDER,
     // UPLOAD_FILES_UPLOAD_FILE_ROUTE_PROVIDER
   ],
   bootstrap: [AppComponent],

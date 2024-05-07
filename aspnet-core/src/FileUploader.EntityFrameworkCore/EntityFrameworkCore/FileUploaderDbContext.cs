@@ -1,3 +1,5 @@
+using FileUploader.ModelRegistrations;
+using FileUploader.ModelConfigurations;
 using FileUploader.UploadFiles;
 using Volo.Abp.EntityFrameworkCore.Modeling;
 using Microsoft.EntityFrameworkCore;
@@ -30,6 +32,8 @@ public class FileUploaderDbContext :
     IIdentityProDbContext,
     ISaasDbContext
 {
+    public DbSet<ModelRegistration> ModelRegistrations { get; set; } = null!;
+    public DbSet<ModelConfiguration> ModelConfigurations { get; set; } = null!;
     public DbSet<UploadFile> UploadFiles { get; set; } = null!;
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
 
@@ -105,6 +109,36 @@ public class FileUploaderDbContext :
                 b.Property(x => x.FilePath).HasColumnName(nameof(UploadFile.FilePath));
                 b.Property(x => x.FileType).HasColumnName(nameof(UploadFile.FileType));
                 b.Property(x => x.FileSize).HasColumnName(nameof(UploadFile.FileSize));
+            });
+
+        }
+        if (builder.IsHostDatabase())
+        {
+            builder.Entity<ModelConfiguration>(b =>
+            {
+                b.ToTable(FileUploaderConsts.DbTablePrefix + "ModelConfigurations", FileUploaderConsts.DbSchema);
+                b.ConfigureByConvention();
+                b.Property(x => x.SystemPrompt).HasColumnName(nameof(ModelConfiguration.SystemPrompt));
+                b.Property(x => x.Temperature).HasColumnName(nameof(ModelConfiguration.Temperature));
+                b.Property(x => x.TopK).HasColumnName(nameof(ModelConfiguration.TopK));
+                b.Property(x => x.TopP).HasColumnName(nameof(ModelConfiguration.TopP));
+                b.Property(x => x.RepeatPenalty).HasColumnName(nameof(ModelConfiguration.RepeatPenalty));
+                b.Property(x => x.ContextLength).HasColumnName(nameof(ModelConfiguration.ContextLength));
+                b.Property(x => x.MaxTokens).HasColumnName(nameof(ModelConfiguration.MaxTokens));
+            });
+
+        }
+        if (builder.IsHostDatabase())
+        {
+            builder.Entity<ModelRegistration>(b =>
+            {
+                b.ToTable(FileUploaderConsts.DbTablePrefix + "ModelRegistrations", FileUploaderConsts.DbSchema);
+                b.ConfigureByConvention();
+                b.Property(x => x.Model).HasColumnName(nameof(ModelRegistration.Model));
+                b.Property(x => x.ApiPath).HasColumnName(nameof(ModelRegistration.ApiPath));
+                b.Property(x => x.LocalPath).HasColumnName(nameof(ModelRegistration.LocalPath));
+                b.Property(x => x.Schedule).HasColumnName(nameof(ModelRegistration.Schedule));
+                b.Property(x => x.Interval).HasColumnName(nameof(ModelRegistration.Interval));
             });
 
         }

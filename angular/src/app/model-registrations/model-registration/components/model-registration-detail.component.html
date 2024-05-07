@@ -1,0 +1,105 @@
+<abp-modal [busy]="service.isBusy" [(visible)]="service.isVisible">
+  <ng-template #abpHeader>
+    <!--<suite-custom-code-block-0>-->
+    <!--</suite-custom-code-block-0>-->
+    <h3>
+      <!--<suite-custom-code-block-1>-->
+      <!--</suite-custom-code-block-1>-->
+      {{ (service.selected ? 'AbpUi::Edit' : '::NewModelRegistration') | abpLocalization }}
+      <!--<suite-custom-code-block-2>-->
+      <!--</suite-custom-code-block-2>-->
+    </h3>
+    <!--<suite-custom-code-block-3>-->
+    <!--</suite-custom-code-block-3>-->
+  </ng-template>
+
+  <ng-template #abpBody>
+    <!--<suite-custom-code-block-4>-->
+    <!--</suite-custom-code-block-4>-->
+    <form
+      [formGroup]="service.form"
+      id="model-registration"
+      (ngSubmit)="service.submitForm()"
+      validateOnSubmit
+    >
+      <!--<suite-custom-code-block-5>-->
+      <!--</suite-custom-code-block-5>-->
+
+      <div class="mt-2 fade-in-top">
+        <div class="mb-3">
+          <label class="form-label" for="model-registration-model">
+            {{ '::Model' | abpLocalization }}
+          </label>
+
+          <input
+            type="number"
+            id="model-registration-model"
+            formControlName="model"
+            class="form-control"
+            autofocus
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="model-registration-api-path">
+            {{ '::ApiPath' | abpLocalization }}
+          </label>
+
+          <input id="model-registration-api-path" formControlName="apiPath" class="form-control" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="model-registration-local-path">
+            {{ '::LocalPath' | abpLocalization }}
+          </label>
+
+          <input
+            id="model-registration-local-path"
+            formControlName="localPath"
+            class="form-control"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="model-registration-schedule">
+            {{ '::Schedule' | abpLocalization }}
+          </label>
+
+          <input
+            type="number"
+            id="model-registration-schedule"
+            formControlName="schedule"
+            class="form-control"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="model-registration-interval">
+            {{ '::Interval' | abpLocalization }}
+          </label>
+
+          <input
+            type="number"
+            id="model-registration-interval"
+            formControlName="interval"
+            class="form-control"
+          />
+        </div>
+      </div>
+
+      <!--<suite-custom-code-block-6>-->
+      <!--</suite-custom-code-block-6>-->
+    </form>
+  </ng-template>
+
+  <ng-template #abpFooter>
+    <!--<suite-custom-code-block-7>-->
+    <!--</suite-custom-code-block-7>-->
+    <button type="button" class="btn btn-secondary" abpClose>
+      {{ 'AbpUi::Cancel' | abpLocalization }}
+    </button>
+    <!--<suite-custom-code-block-8>-->
+    <!--</suite-custom-code-block-8>-->
+    <abp-button iconClass="fa fa-check" buttonType="submit" formName="model-registration">
+      {{ 'AbpUi::Save' | abpLocalization }}
+    </abp-button>
+    <!--<suite-custom-code-block-9>-->
+    <!--</suite-custom-code-block-9>-->
+  </ng-template>
+</abp-modal>

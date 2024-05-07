@@ -24,6 +24,158 @@ namespace FileUploader.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("FileUploader.ModelConfigurations.ModelConfiguration", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)")
+                        .HasColumnName("ConcurrencyStamp");
+
+                    b.Property<string>("ContextLength")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("ContextLength");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreationTime");
+
+                    b.Property<Guid?>("CreatorId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("CreatorId");
+
+                    b.Property<Guid?>("DeleterId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("DeleterId");
+
+                    b.Property<DateTime?>("DeletionTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("DeletionTime");
+
+                    b.Property<string>("ExtraProperties")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("ExtraProperties");
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("IsDeleted");
+
+                    b.Property<DateTime?>("LastModificationTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("LastModificationTime");
+
+                    b.Property<Guid?>("LastModifierId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("LastModifierId");
+
+                    b.Property<string>("MaxTokens")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("MaxTokens");
+
+                    b.Property<string>("RepeatPenalty")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("RepeatPenalty");
+
+                    b.Property<string>("SystemPrompt")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("SystemPrompt");
+
+                    b.Property<double>("Temperature")
+                        .HasColumnType("float")
+                        .HasColumnName("Temperature");
+
+                    b.Property<string>("TopK")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("TopK");
+
+                    b.Property<string>("TopP")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("TopP");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AppModelConfigurations", (string)null);
+                });
+
+            modelBuilder.Entity("FileUploader.ModelRegistrations.ModelRegistration", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ApiPath")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("ApiPath");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)")
+                        .HasColumnName("ConcurrencyStamp");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreationTime");
+
+                    b.Property<Guid?>("CreatorId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("CreatorId");
+
+                    b.Property<Guid?>("DeleterId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("DeleterId");
+
+                    b.Property<DateTime?>("DeletionTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("DeletionTime");
+
+                    b.Property<string>("ExtraProperties")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("ExtraProperties");
+
+                    b.Property<double>("Interval")
+                        .HasColumnType("float")
+                        .HasColumnName("Interval");
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("IsDeleted");
+
+                    b.Property<DateTime?>("LastModificationTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("LastModificationTime");
+
+                    b.Property<Guid?>("LastModifierId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("LastModifierId");
+
+                    b.Property<string>("LocalPath")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("LocalPath");
+
+                    b.Property<int>("Model")
+                        .HasColumnType("int")
+                        .HasColumnName("Model");
+
+                    b.Property<int>("Schedule")
+                        .HasColumnType("int")
+                        .HasColumnName("Schedule");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AppModelRegistrations", (string)null);
+                });
+
             modelBuilder.Entity("FileUploader.UploadFiles.UploadFile", b =>
                 {
                     b.Property<Guid>("Id")

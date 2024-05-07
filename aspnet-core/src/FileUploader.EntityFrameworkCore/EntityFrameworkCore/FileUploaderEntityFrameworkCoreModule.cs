@@ -1,3 +1,5 @@
+using FileUploader.ModelRegistrations;
+using FileUploader.ModelConfigurations;
 using FileUploader.UploadFiles;
 using System;
 using Microsoft.Extensions.DependencyInjection;
@@ -51,6 +53,10 @@ public class FileUploaderEntityFrameworkCoreModule : AbpModule
              * default repositories only for aggregate roots */
             options.AddDefaultRepositories(includeAllEntities: true);
             options.AddRepository<UploadFile, UploadFiles.EfCoreUploadFileRepository>();
+
+            options.AddRepository<ModelConfiguration, ModelConfigurations.EfCoreModelConfigurationRepository>();
+
+            options.AddRepository<ModelRegistration, ModelRegistrations.EfCoreModelRegistrationRepository>();
 
         });
 
