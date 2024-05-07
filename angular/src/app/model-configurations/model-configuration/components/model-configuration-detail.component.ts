@@ -20,7 +20,7 @@ import { ModelConfigurationDetailViewService } from '../services/model-configura
   ],
   providers: [{ provide: NgbDateAdapter, useClass: DateAdapter }],
   templateUrl: './model-configuration-detail.component.html',
-  styles: [],
+  styleUrls: ['./model-configuration-detail.component.scss'],
 })
 export class ModelConfigurationDetailModalComponent {
   public readonly service = inject(ModelConfigurationDetailViewService);

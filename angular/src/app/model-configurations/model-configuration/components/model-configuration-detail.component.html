@@ -48,8 +48,9 @@
           type="range" class="form-range"
             id="model-configuration-temperature"
             formControlName="temperature"
-            min="0" max="1" step="0.1"
+            min="0" max="1" step="0.001"
           />
+          <b>{{this.service.form.controls.temperature.value}}</b>
         </div>
         <div class="mb-3">
           <label class="form-label" for="model-configuration-top-k">
