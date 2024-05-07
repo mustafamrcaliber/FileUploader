@@ -31,13 +31,40 @@
             {{ '::Type' | abpLocalization }}
           </label>
 
-          <input
+          <!-- <input
             type="number"
             id="model-training-type"
             formControlName="type"
             class="form-control"
             autofocus
-          />
+          /> -->
+          <div class="row" style="margin: 1%;">
+            <div class="form-check col">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="type"
+                id="model-training-type1"
+                formControlName="type"  [value]="1"
+              />
+              <label class="form-check-label" for="model-training-type1">
+                {{ "::In-House" | abpLocalization }}
+              </label>
+            </div>
+            <div class="form-check col">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="type"
+                id="model-training-type2"
+                formControlName="type"
+                [value]="2"
+              />
+              <label class="form-check-label" for="model-training-type2">
+               {{ "::Foundation Model" | abpLocalization }}
+              </label>
+            </div>
+          </div>
         </div>
         <div class="mb-3">
           <label class="form-label" for="model-training-path">
@@ -51,14 +78,42 @@
             {{ '::DataSource' | abpLocalization }}
           </label>
 
-          <input
+          <!-- <input
             type="number"
             id="model-training-data-source"
             formControlName="dataSource"
             class="form-control"
-          />
+          /> -->
+
+          <div class="row" style="margin: 1%;">
+            <div class="form-check col">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="dataSource"
+                id="model-training-data-source1"
+                formControlName="dataSource"  [value]="1"
+              />
+              <label class="form-check-label" for="model-training-data-source1">
+                {{ "::Database" | abpLocalization }}
+              </label>
+            </div>
+            <div class="form-check col">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="dataSource"
+                id="model-training-data-source2"
+                formControlName="dataSource"
+                [value]="2"
+              />
+              <label class="form-check-label" for="model-training-data-source2">
+               {{ "::Documents" | abpLocalization }}
+              </label>
+            </div>
+          </div>
         </div>
-        <div class="mb-3">
+        <div *ngIf="service.form.controls.dataSource.value == 1" class="mb-3">
           <label class="form-label" for="model-training-database-connection-string">
             {{ '::DatabaseConnectionString' | abpLocalization }}
           </label>
@@ -69,7 +124,7 @@
             class="form-control"
           />
         </div>
-        <div class="mb-3">
+        <div *ngIf="service.form.controls.dataSource.value == 2" class="mb-3">
           <label class="form-label" for="model-training-documents-directory-path">
             {{ '::DocumentsDirectoryPath' | abpLocalization }}
           </label>
@@ -85,13 +140,22 @@
             {{ '::Mode' | abpLocalization }}
           </label>
 
-          <input
+          <!-- <input
             type="number"
             id="model-training-mode"
             formControlName="mode"
             class="form-control"
-          />
+          /> -->
+          <select class="form-control"  id="model-training-mode"
+          formControlName="mode">
+            <option *ngFor="let mode of this.modes" [value]="mode.value">
+              {{ mode.name }}
+            </option>
+          </select>
         </div>
+        <button type="button" class="btn btn-secondary col">
+          {{ '::Train' | abpLocalization }}
+        </button>
         <div class="mb-3">
           <label class="form-label" for="model-training-training-log">
             {{ '::TrainingLog' | abpLocalization }}

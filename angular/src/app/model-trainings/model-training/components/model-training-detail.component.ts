@@ -23,5 +23,10 @@ import { ModelTrainingDetailViewService } from '../services/model-training-detai
   styles: [],
 })
 export class ModelTrainingDetailModalComponent {
+  modes: {name: string, value: number }[] = [
+{value: 1, name: "Text"},
+{value: 2, name: "Chart"},
+{value: 3, name: "Image"}
+  ];
   public readonly service = inject(ModelTrainingDetailViewService);
 }
