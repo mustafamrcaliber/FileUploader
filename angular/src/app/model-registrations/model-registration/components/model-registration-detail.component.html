@@ -31,22 +31,53 @@
             {{ '::Model' | abpLocalization }}
           </label>
 
-          <input
+          <!-- <input
             type="number"
             id="model-registration-model"
             formControlName="model"
             class="form-control"
             autofocus
-          />
+          /> -->
+          <div class="row" style="margin: 1%;">
+            <div class="form-check col">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="model"
+                id="model-registration-model1"
+            formControlName="model"  [value]="1"
+              />
+              <label class="form-check-label" for="model-registration-model1">
+                {{ "::API" | abpLocalization }}
+              </label>
+            </div>
+            <div class="form-check col">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="model"
+                id="model-registration-model2"
+            formControlName="model"
+                [value]="2"
+              />
+              <label class="form-check-label" for="model-registration-model2">
+               {{ "::Local" | abpLocalization }}
+              </label>
+            </div>
+          </div>
         </div>
-        <div class="mb-3">
-          <label class="form-label" for="model-registration-api-path">
-            {{ '::ApiPath' | abpLocalization }}
-          </label>
-
-          <input id="model-registration-api-path" formControlName="apiPath" class="form-control" />
+        <div class="row">
+        <div *ngIf="service.form.controls.model.value == 1" class="mb-3 row">
+            <label class="form-label" for="model-registration-api-path">
+              {{ '::ApiPath' | abpLocalization }}
+            </label>
+          <input id="model-registration-api-path" formControlName="apiPath" class="form-control col" />
+          <button type="button" class="btn btn-secondary col">
+            {{ '::Validate ' | abpLocalization }}
+          </button>
         </div>
-        <div class="mb-3">
+        </div>
+        <div *ngIf="service.form.controls.model.value == 2"  class="mb-3">
           <label class="form-label" for="model-registration-local-path">
             {{ '::LocalPath' | abpLocalization }}
           </label>
@@ -62,14 +93,41 @@
             {{ '::Schedule' | abpLocalization }}
           </label>
 
-          <input
+          <!-- <input
             type="number"
             id="model-registration-schedule"
             formControlName="schedule"
             class="form-control"
-          />
+          /> -->
+          <div class="row" style="margin: 1%;">
+            <div class="form-check col">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="schedule"
+                id="model-registration-schedule1"
+                formControlName="schedule"  [value]="1"
+              />
+              <label class="form-check-label" for="model-registration-schedule1">
+                {{ "::Continuous" | abpLocalization }}
+              </label>
+            </div>
+            <div class="form-check col">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="schedule"
+                id="model-registration-schedule2"
+            formControlName="schedule"
+                [value]="2"
+              />
+              <label class="form-check-label" for="model-registration-schedule2">
+               {{ "::Interval" | abpLocalization }}
+              </label>
+            </div>
+          </div>
         </div>
-        <div class="mb-3">
+        <div *ngIf="service.form.controls.schedule.value == 2"  class="mb-3">
           <label class="form-label" for="model-registration-interval">
             {{ '::Interval' | abpLocalization }}
           </label>
