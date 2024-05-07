@@ -178,6 +178,15 @@
     "MaxDatabaseConnectionString": "Max Database Connection String",
     "MaxDocumentsDirectoryPath": "Max Documents Directory Path",
     "MaxMode": "Max Mode",
-    "MaxTrainingLog": "Max Training Log"
+    "MaxTrainingLog": "Max Training Log",
+    "Train": "Train",
+    "Continuous":"Continuous",
+    "Validate":"Validate",
+    "API":"API",
+    "Local":"Local",
+    "In-House":"In-House",
+    "Foundation Model":"Foundation Model",
+    "Documents":"Documents",
+    "Database":"Database"
   }
 }
