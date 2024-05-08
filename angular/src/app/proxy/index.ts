@@ -5,12 +5,4 @@ import * as ModelRegistrations from './model-registrations';
 import * as ModelTrainings from './model-trainings';
 import * as Shared from './shared';
 import * as UploadFiles from './upload-files';
-export {
-  FileUploaderSaver,
-  Microsoft,
-  ModelConfigurations,
-  ModelRegistrations,
-  ModelTrainings,
-  Shared,
-  UploadFiles,
-};
+export { FileUploaderSaver, Microsoft, ModelConfigurations, ModelRegistrations, ModelTrainings, Shared, UploadFiles };

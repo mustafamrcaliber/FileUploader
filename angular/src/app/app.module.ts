@@ -28,6 +28,7 @@ import { FileViewMastersModule } from './file-view-masters/file-view-masters.mod
 import { ChatScreenModule } from './chat-screen/chat-screen.module';
 import { DataVisualizationModule } from './data-visualization/data-visualization.module';
 import { AutoDataVisualizationModule } from './auto-data-visualization/auto-data-visualization.module';
+import { ChartOneModule } from './chart-one/chart-one.module';
 // import { MODEL_CONFIGURATIONS_MODEL_CONFIGURATION_ROUTE_PROVIDER } from './model-configurations/model-configuration/providers/model-configuration-route.provider';
 // import { MODEL_REGISTRATIONS_MODEL_REGISTRATION_ROUTE_PROVIDER } from './model-registrations/model-registration/providers/model-registration-route.provider';
 // import { MODEL_TRAININGS_MODEL_TRAINING_ROUTE_PROVIDER } from './model-trainings/model-training/providers/model-training-route.provider';
@@ -67,6 +68,7 @@ import { AutoDataVisualizationModule } from './auto-data-visualization/auto-data
     ChatScreenModule,
     DataVisualizationModule,
     AutoDataVisualizationModule,
+    ChartOneModule
   ],
   providers: [
     APP_ROUTE_PROVIDER,

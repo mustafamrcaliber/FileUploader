@@ -234,6 +234,15 @@ function configureRoutes(routes: RoutesService) {
         parentName: '::Menu:Settings',
         requiredPolicy: 'FileUploader.Dashboard.Host  || FileUploader.Dashboard.Tenant',
       },
+      {
+        path: '/chart-one',
+        name: '::ChartOne',
+        iconClass: '',
+        order: 1,
+        layout: eLayoutType.application,
+        parentName: '::Menu:Charts',
+        requiredPolicy: 'FileUploader.Dashboard.Host  || FileUploader.Dashboard.Tenant',
+      },
     ]);
   };
 }

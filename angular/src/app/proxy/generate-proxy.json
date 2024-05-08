@@ -1,5 +1,7 @@
 {
-  "generated": ["app"],
+  "generated": [
+    "app"
+  ],
   "modules": {
     "saas": {
       "rootPath": "saas",
@@ -9292,6 +9294,1400 @@
             }
           }
         },
+        "FileUploader.Controllers.ModelTrainings.ModelTrainingController": {
+          "controllerName": "ModelTraining",
+          "controllerGroupName": "ModelTraining",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "FileUploader.Controllers.ModelTrainings.ModelTrainingController",
+          "interfaces": [
+            {
+              "type": "FileUploader.ModelTrainings.IModelTrainingsAppService",
+              "name": "IModelTrainingsAppService",
+              "methods": [
+                {
+                  "name": "GetListAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "FileUploader.ModelTrainings.GetModelTrainingsInput, FileUploader.Application.Contracts",
+                      "type": "FileUploader.ModelTrainings.GetModelTrainingsInput",
+                      "typeSimple": "FileUploader.ModelTrainings.GetModelTrainingsInput",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<FileUploader.ModelTrainings.ModelTrainingDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<FileUploader.ModelTrainings.ModelTrainingDto>"
+                  }
+                },
+                {
+                  "name": "GetAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "FileUploader.ModelTrainings.ModelTrainingDto",
+                    "typeSimple": "FileUploader.ModelTrainings.ModelTrainingDto"
+                  }
+                },
+                {
+                  "name": "DeleteAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                },
+                {
+                  "name": "CreateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "FileUploader.ModelTrainings.ModelTrainingCreateDto, FileUploader.Application.Contracts",
+                      "type": "FileUploader.ModelTrainings.ModelTrainingCreateDto",
+                      "typeSimple": "FileUploader.ModelTrainings.ModelTrainingCreateDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "FileUploader.ModelTrainings.ModelTrainingDto",
+                    "typeSimple": "FileUploader.ModelTrainings.ModelTrainingDto"
+                  }
+                },
+                {
+                  "name": "UpdateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    },
+                    {
+                      "name": "input",
+                      "typeAsString": "FileUploader.ModelTrainings.ModelTrainingUpdateDto, FileUploader.Application.Contracts",
+                      "type": "FileUploader.ModelTrainings.ModelTrainingUpdateDto",
+                      "typeSimple": "FileUploader.ModelTrainings.ModelTrainingUpdateDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "FileUploader.ModelTrainings.ModelTrainingDto",
+                    "typeSimple": "FileUploader.ModelTrainings.ModelTrainingDto"
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": {
+            "GetListAsyncByInput": {
+              "uniqueName": "GetListAsyncByInput",
+              "name": "GetListAsync",
+              "httpMethod": "GET",
+              "url": "api/app/model-trainings",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "FileUploader.ModelTrainings.GetModelTrainingsInput, FileUploader.Application.Contracts",
+                  "type": "FileUploader.ModelTrainings.GetModelTrainingsInput",
+                  "typeSimple": "FileUploader.ModelTrainings.GetModelTrainingsInput",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "FilterText",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "TypeMin",
+                  "jsonName": null,
+                  "type": "System.Int32?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "TypeMax",
+                  "jsonName": null,
+                  "type": "System.Int32?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Path",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "DataSourceMin",
+                  "jsonName": null,
+                  "type": "System.Int32?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "DataSourceMax",
+                  "jsonName": null,
+                  "type": "System.Int32?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "DatabaseConnectionString",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "DocumentsDirectoryPath",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "ModeMin",
+                  "jsonName": null,
+                  "type": "System.Int32?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "ModeMax",
+                  "jsonName": null,
+                  "type": "System.Int32?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "TrainingLog",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Sorting",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<FileUploader.ModelTrainings.ModelTrainingDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<FileUploader.ModelTrainings.ModelTrainingDto>"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "FileUploader.ModelTrainings.IModelTrainingsAppService"
+            },
+            "GetAsyncById": {
+              "uniqueName": "GetAsyncById",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/app/model-trainings/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "FileUploader.ModelTrainings.ModelTrainingDto",
+                "typeSimple": "FileUploader.ModelTrainings.ModelTrainingDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "FileUploader.ModelTrainings.IModelTrainingsAppService"
+            },
+            "CreateAsyncByInput": {
+              "uniqueName": "CreateAsyncByInput",
+              "name": "CreateAsync",
+              "httpMethod": "POST",
+              "url": "api/app/model-trainings",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "FileUploader.ModelTrainings.ModelTrainingCreateDto, FileUploader.Application.Contracts",
+                  "type": "FileUploader.ModelTrainings.ModelTrainingCreateDto",
+                  "typeSimple": "FileUploader.ModelTrainings.ModelTrainingCreateDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "FileUploader.ModelTrainings.ModelTrainingCreateDto",
+                  "typeSimple": "FileUploader.ModelTrainings.ModelTrainingCreateDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "FileUploader.ModelTrainings.ModelTrainingDto",
+                "typeSimple": "FileUploader.ModelTrainings.ModelTrainingDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "FileUploader.ModelTrainings.IModelTrainingsAppService"
+            },
+            "UpdateAsyncByIdAndInput": {
+              "uniqueName": "UpdateAsyncByIdAndInput",
+              "name": "UpdateAsync",
+              "httpMethod": "PUT",
+              "url": "api/app/model-trainings/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "input",
+                  "typeAsString": "FileUploader.ModelTrainings.ModelTrainingUpdateDto, FileUploader.Application.Contracts",
+                  "type": "FileUploader.ModelTrainings.ModelTrainingUpdateDto",
+                  "typeSimple": "FileUploader.ModelTrainings.ModelTrainingUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "FileUploader.ModelTrainings.ModelTrainingUpdateDto",
+                  "typeSimple": "FileUploader.ModelTrainings.ModelTrainingUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "FileUploader.ModelTrainings.ModelTrainingDto",
+                "typeSimple": "FileUploader.ModelTrainings.ModelTrainingDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "FileUploader.ModelTrainings.IModelTrainingsAppService"
+            },
+            "DeleteAsyncById": {
+              "uniqueName": "DeleteAsyncById",
+              "name": "DeleteAsync",
+              "httpMethod": "DELETE",
+              "url": "api/app/model-trainings/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "FileUploader.ModelTrainings.IModelTrainingsAppService"
+            }
+          }
+        },
+        "FileUploader.Controllers.ModelRegistrations.ModelRegistrationController": {
+          "controllerName": "ModelRegistration",
+          "controllerGroupName": "ModelRegistration",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "FileUploader.Controllers.ModelRegistrations.ModelRegistrationController",
+          "interfaces": [
+            {
+              "type": "FileUploader.ModelRegistrations.IModelRegistrationsAppService",
+              "name": "IModelRegistrationsAppService",
+              "methods": [
+                {
+                  "name": "GetListAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "FileUploader.ModelRegistrations.GetModelRegistrationsInput, FileUploader.Application.Contracts",
+                      "type": "FileUploader.ModelRegistrations.GetModelRegistrationsInput",
+                      "typeSimple": "FileUploader.ModelRegistrations.GetModelRegistrationsInput",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<FileUploader.ModelRegistrations.ModelRegistrationDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<FileUploader.ModelRegistrations.ModelRegistrationDto>"
+                  }
+                },
+                {
+                  "name": "GetAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "FileUploader.ModelRegistrations.ModelRegistrationDto",
+                    "typeSimple": "FileUploader.ModelRegistrations.ModelRegistrationDto"
+                  }
+                },
+                {
+                  "name": "DeleteAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                },
+                {
+                  "name": "CreateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "FileUploader.ModelRegistrations.ModelRegistrationCreateDto, FileUploader.Application.Contracts",
+                      "type": "FileUploader.ModelRegistrations.ModelRegistrationCreateDto",
+                      "typeSimple": "FileUploader.ModelRegistrations.ModelRegistrationCreateDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "FileUploader.ModelRegistrations.ModelRegistrationDto",
+                    "typeSimple": "FileUploader.ModelRegistrations.ModelRegistrationDto"
+                  }
+                },
+                {
+                  "name": "UpdateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    },
+                    {
+                      "name": "input",
+                      "typeAsString": "FileUploader.ModelRegistrations.ModelRegistrationUpdateDto, FileUploader.Application.Contracts",
+                      "type": "FileUploader.ModelRegistrations.ModelRegistrationUpdateDto",
+                      "typeSimple": "FileUploader.ModelRegistrations.ModelRegistrationUpdateDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "FileUploader.ModelRegistrations.ModelRegistrationDto",
+                    "typeSimple": "FileUploader.ModelRegistrations.ModelRegistrationDto"
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": {
+            "GetListAsyncByInput": {
+              "uniqueName": "GetListAsyncByInput",
+              "name": "GetListAsync",
+              "httpMethod": "GET",
+              "url": "api/app/model-registrations",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "FileUploader.ModelRegistrations.GetModelRegistrationsInput, FileUploader.Application.Contracts",
+                  "type": "FileUploader.ModelRegistrations.GetModelRegistrationsInput",
+                  "typeSimple": "FileUploader.ModelRegistrations.GetModelRegistrationsInput",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "FilterText",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "ModelMin",
+                  "jsonName": null,
+                  "type": "System.Int32?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "ModelMax",
+                  "jsonName": null,
+                  "type": "System.Int32?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "ApiPath",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "LocalPath",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "ScheduleMin",
+                  "jsonName": null,
+                  "type": "System.Int32?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "ScheduleMax",
+                  "jsonName": null,
+                  "type": "System.Int32?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "IntervalMin",
+                  "jsonName": null,
+                  "type": "System.Double?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "IntervalMax",
+                  "jsonName": null,
+                  "type": "System.Double?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Sorting",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<FileUploader.ModelRegistrations.ModelRegistrationDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<FileUploader.ModelRegistrations.ModelRegistrationDto>"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "FileUploader.ModelRegistrations.IModelRegistrationsAppService"
+            },
+            "GetAsyncById": {
+              "uniqueName": "GetAsyncById",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/app/model-registrations/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "FileUploader.ModelRegistrations.ModelRegistrationDto",
+                "typeSimple": "FileUploader.ModelRegistrations.ModelRegistrationDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "FileUploader.ModelRegistrations.IModelRegistrationsAppService"
+            },
+            "CreateAsyncByInput": {
+              "uniqueName": "CreateAsyncByInput",
+              "name": "CreateAsync",
+              "httpMethod": "POST",
+              "url": "api/app/model-registrations",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "FileUploader.ModelRegistrations.ModelRegistrationCreateDto, FileUploader.Application.Contracts",
+                  "type": "FileUploader.ModelRegistrations.ModelRegistrationCreateDto",
+                  "typeSimple": "FileUploader.ModelRegistrations.ModelRegistrationCreateDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "FileUploader.ModelRegistrations.ModelRegistrationCreateDto",
+                  "typeSimple": "FileUploader.ModelRegistrations.ModelRegistrationCreateDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "FileUploader.ModelRegistrations.ModelRegistrationDto",
+                "typeSimple": "FileUploader.ModelRegistrations.ModelRegistrationDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "FileUploader.ModelRegistrations.IModelRegistrationsAppService"
+            },
+            "UpdateAsyncByIdAndInput": {
+              "uniqueName": "UpdateAsyncByIdAndInput",
+              "name": "UpdateAsync",
+              "httpMethod": "PUT",
+              "url": "api/app/model-registrations/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "input",
+                  "typeAsString": "FileUploader.ModelRegistrations.ModelRegistrationUpdateDto, FileUploader.Application.Contracts",
+                  "type": "FileUploader.ModelRegistrations.ModelRegistrationUpdateDto",
+                  "typeSimple": "FileUploader.ModelRegistrations.ModelRegistrationUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "FileUploader.ModelRegistrations.ModelRegistrationUpdateDto",
+                  "typeSimple": "FileUploader.ModelRegistrations.ModelRegistrationUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "FileUploader.ModelRegistrations.ModelRegistrationDto",
+                "typeSimple": "FileUploader.ModelRegistrations.ModelRegistrationDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "FileUploader.ModelRegistrations.IModelRegistrationsAppService"
+            },
+            "DeleteAsyncById": {
+              "uniqueName": "DeleteAsyncById",
+              "name": "DeleteAsync",
+              "httpMethod": "DELETE",
+              "url": "api/app/model-registrations/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "FileUploader.ModelRegistrations.IModelRegistrationsAppService"
+            }
+          }
+        },
+        "FileUploader.Controllers.ModelConfigurations.ModelConfigurationController": {
+          "controllerName": "ModelConfiguration",
+          "controllerGroupName": "ModelConfiguration",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "FileUploader.Controllers.ModelConfigurations.ModelConfigurationController",
+          "interfaces": [
+            {
+              "type": "FileUploader.ModelConfigurations.IModelConfigurationsAppService",
+              "name": "IModelConfigurationsAppService",
+              "methods": [
+                {
+                  "name": "GetListAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "FileUploader.ModelConfigurations.GetModelConfigurationsInput, FileUploader.Application.Contracts",
+                      "type": "FileUploader.ModelConfigurations.GetModelConfigurationsInput",
+                      "typeSimple": "FileUploader.ModelConfigurations.GetModelConfigurationsInput",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<FileUploader.ModelConfigurations.ModelConfigurationDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<FileUploader.ModelConfigurations.ModelConfigurationDto>"
+                  }
+                },
+                {
+                  "name": "GetAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "FileUploader.ModelConfigurations.ModelConfigurationDto",
+                    "typeSimple": "FileUploader.ModelConfigurations.ModelConfigurationDto"
+                  }
+                },
+                {
+                  "name": "DeleteAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                },
+                {
+                  "name": "CreateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "FileUploader.ModelConfigurations.ModelConfigurationCreateDto, FileUploader.Application.Contracts",
+                      "type": "FileUploader.ModelConfigurations.ModelConfigurationCreateDto",
+                      "typeSimple": "FileUploader.ModelConfigurations.ModelConfigurationCreateDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "FileUploader.ModelConfigurations.ModelConfigurationDto",
+                    "typeSimple": "FileUploader.ModelConfigurations.ModelConfigurationDto"
+                  }
+                },
+                {
+                  "name": "UpdateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    },
+                    {
+                      "name": "input",
+                      "typeAsString": "FileUploader.ModelConfigurations.ModelConfigurationUpdateDto, FileUploader.Application.Contracts",
+                      "type": "FileUploader.ModelConfigurations.ModelConfigurationUpdateDto",
+                      "typeSimple": "FileUploader.ModelConfigurations.ModelConfigurationUpdateDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "FileUploader.ModelConfigurations.ModelConfigurationDto",
+                    "typeSimple": "FileUploader.ModelConfigurations.ModelConfigurationDto"
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": {
+            "GetListAsyncByInput": {
+              "uniqueName": "GetListAsyncByInput",
+              "name": "GetListAsync",
+              "httpMethod": "GET",
+              "url": "api/app/model-configurations",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "FileUploader.ModelConfigurations.GetModelConfigurationsInput, FileUploader.Application.Contracts",
+                  "type": "FileUploader.ModelConfigurations.GetModelConfigurationsInput",
+                  "typeSimple": "FileUploader.ModelConfigurations.GetModelConfigurationsInput",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "FilterText",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SystemPrompt",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "TemperatureMin",
+                  "jsonName": null,
+                  "type": "System.Double?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "TemperatureMax",
+                  "jsonName": null,
+                  "type": "System.Double?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "TopK",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "TopP",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "RepeatPenalty",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "ContextLength",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxTokens",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Sorting",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<FileUploader.ModelConfigurations.ModelConfigurationDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<FileUploader.ModelConfigurations.ModelConfigurationDto>"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "FileUploader.ModelConfigurations.IModelConfigurationsAppService"
+            },
+            "GetAsyncById": {
+              "uniqueName": "GetAsyncById",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/app/model-configurations/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "FileUploader.ModelConfigurations.ModelConfigurationDto",
+                "typeSimple": "FileUploader.ModelConfigurations.ModelConfigurationDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "FileUploader.ModelConfigurations.IModelConfigurationsAppService"
+            },
+            "CreateAsyncByInput": {
+              "uniqueName": "CreateAsyncByInput",
+              "name": "CreateAsync",
+              "httpMethod": "POST",
+              "url": "api/app/model-configurations",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "FileUploader.ModelConfigurations.ModelConfigurationCreateDto, FileUploader.Application.Contracts",
+                  "type": "FileUploader.ModelConfigurations.ModelConfigurationCreateDto",
+                  "typeSimple": "FileUploader.ModelConfigurations.ModelConfigurationCreateDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "FileUploader.ModelConfigurations.ModelConfigurationCreateDto",
+                  "typeSimple": "FileUploader.ModelConfigurations.ModelConfigurationCreateDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "FileUploader.ModelConfigurations.ModelConfigurationDto",
+                "typeSimple": "FileUploader.ModelConfigurations.ModelConfigurationDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "FileUploader.ModelConfigurations.IModelConfigurationsAppService"
+            },
+            "UpdateAsyncByIdAndInput": {
+              "uniqueName": "UpdateAsyncByIdAndInput",
+              "name": "UpdateAsync",
+              "httpMethod": "PUT",
+              "url": "api/app/model-configurations/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "input",
+                  "typeAsString": "FileUploader.ModelConfigurations.ModelConfigurationUpdateDto, FileUploader.Application.Contracts",
+                  "type": "FileUploader.ModelConfigurations.ModelConfigurationUpdateDto",
+                  "typeSimple": "FileUploader.ModelConfigurations.ModelConfigurationUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "FileUploader.ModelConfigurations.ModelConfigurationUpdateDto",
+                  "typeSimple": "FileUploader.ModelConfigurations.ModelConfigurationUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "FileUploader.ModelConfigurations.ModelConfigurationDto",
+                "typeSimple": "FileUploader.ModelConfigurations.ModelConfigurationDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "FileUploader.ModelConfigurations.IModelConfigurationsAppService"
+            },
+            "DeleteAsyncById": {
+              "uniqueName": "DeleteAsyncById",
+              "name": "DeleteAsync",
+              "httpMethod": "DELETE",
+              "url": "api/app/model-configurations/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "FileUploader.ModelConfigurations.IModelConfigurationsAppService"
+            }
+          }
+        },
+        "FileUploader.FileUploaderSaver.ExtraAppServices": {
+          "controllerName": "ExtraAppServices",
+          "controllerGroupName": "ExtraAppServices",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "FileUploader.FileUploaderSaver.ExtraAppServices",
+          "interfaces": [],
+          "actions": {
+            "GetUrlForIFrame": {
+              "uniqueName": "GetUrlForIFrame",
+              "name": "GetUrlForIFrame",
+              "httpMethod": "GET",
+              "url": "api/app/extra-app-services/url-for-iFrame",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "System.String",
+                "typeSimple": "string"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "FileUploader.FileUploaderSaver.ExtraAppServices"
+            }
+          }
+        },
         "FileUploader.FileUploaderSaver.FileUploaderSaverAppService": {
           "controllerName": "FileUploaderSaver",
           "controllerGroupName": "FileUploaderSaver",
@@ -9638,1050 +11034,6 @@
               },
               "allowAnonymous": null,
               "implementFrom": "FileUploader.FileUploaderSaver.IFileUploaderSaverAppService"
-            }
-          }
-        },
-        "FileUploader.Controllers.ModelConfigurations.ModelConfigurationController": {
-          "controllerName": "ModelConfiguration",
-          "type": "FileUploader.Controllers.ModelConfigurations.ModelConfigurationController",
-          "isRemoteService": true,
-          "isIntegrationService": false,
-          "interfaces": [
-            {
-              "type": "FileUploader.ModelConfigurations.IModelConfigurationAppService"
-            }
-          ],
-          "actions": {
-            "GetListAsyncByInput": {
-              "uniqueName": "GetListAsyncByInput",
-              "name": "GetListAsync",
-              "httpMethod": "GET",
-              "url": "api/app/model-configurations",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "input",
-                  "typeAsString": "FileUploader.ModelConfigurations.GetModelConfigurationsInput, FileUploader.Application.Contracts",
-                  "type": "FileUploader.ModelConfigurations.GetModelConfigurationsInput",
-                  "typeSimple": "FileUploader.ModelConfigurations.GetModelConfigurationsInput",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "input",
-                  "name": "FilterText",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "Sorting",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "SkipCount",
-                  "jsonName": null,
-                  "type": "System.Int32",
-                  "typeSimple": "number",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "MaxResultCount",
-                  "jsonName": null,
-                  "type": "System.Int32",
-                  "typeSimple": "number",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "SystemPrompt",
-                  "jsonName": null,
-                  "type": "System.String?",
-                  "typeSimple": "string?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "TemperatureMin",
-                  "jsonName": null,
-                  "type": "System.Double?",
-                  "typeSimple": "number?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "TemperatureMax",
-                  "jsonName": null,
-                  "type": "System.Double?",
-                  "typeSimple": "number?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "TopK",
-                  "jsonName": null,
-                  "type": "System.String?",
-                  "typeSimple": "string?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "TopP",
-                  "jsonName": null,
-                  "type": "System.String?",
-                  "typeSimple": "string?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "RepeatPenalty",
-                  "jsonName": null,
-                  "type": "System.String?",
-                  "typeSimple": "string?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "ContextLength",
-                  "jsonName": null,
-                  "type": "System.String?",
-                  "typeSimple": "string?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "MaxTokens",
-                  "jsonName": null,
-                  "type": "System.String?",
-                  "typeSimple": "string?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                }
-              ],
-              "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<FileUploader.ModelConfigurations.ModelConfigurationDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<FileUploader.ModelConfigurations.ModelConfigurationDto>"
-              }
-            },
-            "GetAsyncById": {
-              "uniqueName": "GetAsyncById",
-              "name": "GetAsync",
-              "httpMethod": "GET",
-              "url": "api/app/model-configurations/{id}",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
-                  "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "FileUploader.ModelConfigurations.ModelConfigurationDto",
-                "typeSimple": "FileUploader.ModelConfigurations.ModelConfigurationDto"
-              }
-            },
-            "CreateAsyncByInput": {
-              "uniqueName": "CreateAsyncByInput",
-              "name": "CreateAsync",
-              "httpMethod": "POST",
-              "url": "api/app/model-configurations",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "input",
-                  "typeAsString": "FileUploader.ModelConfigurations.ModelConfigurationCreateDto, FileUploader.Application.Contracts",
-                  "type": "FileUploader.ModelConfigurations.ModelConfigurationCreateDto",
-                  "typeSimple": "FileUploader.ModelConfigurations.ModelConfigurationCreateDto",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "input",
-                  "name": "input",
-                  "jsonName": null,
-                  "type": "FileUploader.ModelConfigurations.ModelConfigurationCreateDto",
-                  "typeSimple": "FileUploader.ModelConfigurations.ModelConfigurationCreateDto",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "Body",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "FileUploader.ModelConfigurations.ModelConfigurationDto",
-                "typeSimple": "FileUploader.ModelConfigurations.ModelConfigurationDto"
-              }
-            },
-            "UpdateAsyncByIdAndInput": {
-              "uniqueName": "UpdateAsyncByIdAndInput",
-              "name": "UpdateAsync",
-              "httpMethod": "PUT",
-              "url": "api/app/model-configurations/{id}",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                },
-                {
-                  "name": "input",
-                  "typeAsString": "FileUploader.ModelConfigurations.ModelConfigurationUpdateDto, FileUploader.Application.Contracts",
-                  "type": "FileUploader.ModelConfigurations.ModelConfigurationUpdateDto",
-                  "typeSimple": "FileUploader.ModelConfigurations.ModelConfigurationUpdateDto",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
-                  "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "input",
-                  "jsonName": null,
-                  "type": "FileUploader.ModelConfigurations.ModelConfigurationUpdateDto",
-                  "typeSimple": "FileUploader.ModelConfigurations.ModelConfigurationUpdateDto",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "Body",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "FileUploader.ModelConfigurations.ModelConfigurationDto",
-                "typeSimple": "FileUploader.ModelConfigurations.ModelConfigurationDto"
-              }
-            },
-            "DeleteAsyncById": {
-              "uniqueName": "DeleteAsyncById",
-              "name": "DeleteAsync",
-              "httpMethod": "DELETE",
-              "url": "api/app/model-configurations/{id}",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
-                  "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "System.Void",
-                "typeSimple": "System.Void"
-              }
-            }
-          }
-        },
-        "FileUploader.Controllers.ModelRegistrations.ModelRegistrationController": {
-          "controllerName": "ModelRegistration",
-          "type": "FileUploader.Controllers.ModelRegistrations.ModelRegistrationController",
-          "isRemoteService": true,
-          "isIntegrationService": false,
-          "interfaces": [
-            {
-              "type": "FileUploader.ModelRegistrations.IModelRegistrationAppService"
-            }
-          ],
-          "actions": {
-            "GetListAsyncByInput": {
-              "uniqueName": "GetListAsyncByInput",
-              "name": "GetListAsync",
-              "httpMethod": "GET",
-              "url": "api/app/model-registrations",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "input",
-                  "typeAsString": "FileUploader.ModelRegistrations.GetModelRegistrationsInput, FileUploader.Application.Contracts",
-                  "type": "FileUploader.ModelRegistrations.GetModelRegistrationsInput",
-                  "typeSimple": "FileUploader.ModelRegistrations.GetModelRegistrationsInput",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "input",
-                  "name": "FilterText",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "Sorting",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "SkipCount",
-                  "jsonName": null,
-                  "type": "System.Int32",
-                  "typeSimple": "number",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "MaxResultCount",
-                  "jsonName": null,
-                  "type": "System.Int32",
-                  "typeSimple": "number",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "ModelMin",
-                  "jsonName": null,
-                  "type": "System.Int?",
-                  "typeSimple": "number?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "ModelMax",
-                  "jsonName": null,
-                  "type": "System.Int?",
-                  "typeSimple": "number?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "ApiPath",
-                  "jsonName": null,
-                  "type": "System.String?",
-                  "typeSimple": "string?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "LocalPath",
-                  "jsonName": null,
-                  "type": "System.String?",
-                  "typeSimple": "string?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "ScheduleMin",
-                  "jsonName": null,
-                  "type": "System.Int?",
-                  "typeSimple": "number?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "ScheduleMax",
-                  "jsonName": null,
-                  "type": "System.Int?",
-                  "typeSimple": "number?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "IntervalMin",
-                  "jsonName": null,
-                  "type": "System.Double?",
-                  "typeSimple": "number?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "IntervalMax",
-                  "jsonName": null,
-                  "type": "System.Double?",
-                  "typeSimple": "number?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                }
-              ],
-              "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<FileUploader.ModelRegistrations.ModelRegistrationDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<FileUploader.ModelRegistrations.ModelRegistrationDto>"
-              }
-            },
-            "GetAsyncById": {
-              "uniqueName": "GetAsyncById",
-              "name": "GetAsync",
-              "httpMethod": "GET",
-              "url": "api/app/model-registrations/{id}",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
-                  "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "FileUploader.ModelRegistrations.ModelRegistrationDto",
-                "typeSimple": "FileUploader.ModelRegistrations.ModelRegistrationDto"
-              }
-            },
-            "CreateAsyncByInput": {
-              "uniqueName": "CreateAsyncByInput",
-              "name": "CreateAsync",
-              "httpMethod": "POST",
-              "url": "api/app/model-registrations",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "input",
-                  "typeAsString": "FileUploader.ModelRegistrations.ModelRegistrationCreateDto, FileUploader.Application.Contracts",
-                  "type": "FileUploader.ModelRegistrations.ModelRegistrationCreateDto",
-                  "typeSimple": "FileUploader.ModelRegistrations.ModelRegistrationCreateDto",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "input",
-                  "name": "input",
-                  "jsonName": null,
-                  "type": "FileUploader.ModelRegistrations.ModelRegistrationCreateDto",
-                  "typeSimple": "FileUploader.ModelRegistrations.ModelRegistrationCreateDto",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "Body",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "FileUploader.ModelRegistrations.ModelRegistrationDto",
-                "typeSimple": "FileUploader.ModelRegistrations.ModelRegistrationDto"
-              }
-            },
-            "UpdateAsyncByIdAndInput": {
-              "uniqueName": "UpdateAsyncByIdAndInput",
-              "name": "UpdateAsync",
-              "httpMethod": "PUT",
-              "url": "api/app/model-registrations/{id}",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                },
-                {
-                  "name": "input",
-                  "typeAsString": "FileUploader.ModelRegistrations.ModelRegistrationUpdateDto, FileUploader.Application.Contracts",
-                  "type": "FileUploader.ModelRegistrations.ModelRegistrationUpdateDto",
-                  "typeSimple": "FileUploader.ModelRegistrations.ModelRegistrationUpdateDto",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
-                  "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "input",
-                  "jsonName": null,
-                  "type": "FileUploader.ModelRegistrations.ModelRegistrationUpdateDto",
-                  "typeSimple": "FileUploader.ModelRegistrations.ModelRegistrationUpdateDto",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "Body",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "FileUploader.ModelRegistrations.ModelRegistrationDto",
-                "typeSimple": "FileUploader.ModelRegistrations.ModelRegistrationDto"
-              }
-            },
-            "DeleteAsyncById": {
-              "uniqueName": "DeleteAsyncById",
-              "name": "DeleteAsync",
-              "httpMethod": "DELETE",
-              "url": "api/app/model-registrations/{id}",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
-                  "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "System.Void",
-                "typeSimple": "System.Void"
-              }
-            }
-          }
-        },
-        "FileUploader.Controllers.ModelTrainings.ModelTrainingController": {
-          "controllerName": "ModelTraining",
-          "type": "FileUploader.Controllers.ModelTrainings.ModelTrainingController",
-          "isRemoteService": true,
-          "isIntegrationService": false,
-          "interfaces": [
-            {
-              "type": "FileUploader.ModelTrainings.IModelTrainingAppService"
-            }
-          ],
-          "actions": {
-            "GetListAsyncByInput": {
-              "uniqueName": "GetListAsyncByInput",
-              "name": "GetListAsync",
-              "httpMethod": "GET",
-              "url": "api/app/model-trainings",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "input",
-                  "typeAsString": "FileUploader.ModelTrainings.GetModelTrainingsInput, FileUploader.Application.Contracts",
-                  "type": "FileUploader.ModelTrainings.GetModelTrainingsInput",
-                  "typeSimple": "FileUploader.ModelTrainings.GetModelTrainingsInput",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "input",
-                  "name": "FilterText",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "Sorting",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "SkipCount",
-                  "jsonName": null,
-                  "type": "System.Int32",
-                  "typeSimple": "number",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "MaxResultCount",
-                  "jsonName": null,
-                  "type": "System.Int32",
-                  "typeSimple": "number",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "TypeMin",
-                  "jsonName": null,
-                  "type": "System.Int?",
-                  "typeSimple": "number?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "TypeMax",
-                  "jsonName": null,
-                  "type": "System.Int?",
-                  "typeSimple": "number?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "Path",
-                  "jsonName": null,
-                  "type": "System.String?",
-                  "typeSimple": "string?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "DataSourceMin",
-                  "jsonName": null,
-                  "type": "System.Int?",
-                  "typeSimple": "number?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "DataSourceMax",
-                  "jsonName": null,
-                  "type": "System.Int?",
-                  "typeSimple": "number?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "DatabaseConnectionString",
-                  "jsonName": null,
-                  "type": "System.String?",
-                  "typeSimple": "string?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "DocumentsDirectoryPath",
-                  "jsonName": null,
-                  "type": "System.String?",
-                  "typeSimple": "string?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "ModeMin",
-                  "jsonName": null,
-                  "type": "System.Int?",
-                  "typeSimple": "number?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "ModeMax",
-                  "jsonName": null,
-                  "type": "System.Int?",
-                  "typeSimple": "number?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "TrainingLog",
-                  "jsonName": null,
-                  "type": "System.String?",
-                  "typeSimple": "string?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                }
-              ],
-              "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<FileUploader.ModelTrainings.ModelTrainingDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<FileUploader.ModelTrainings.ModelTrainingDto>"
-              }
-            },
-            "GetAsyncById": {
-              "uniqueName": "GetAsyncById",
-              "name": "GetAsync",
-              "httpMethod": "GET",
-              "url": "api/app/model-trainings/{id}",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
-                  "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "FileUploader.ModelTrainings.ModelTrainingDto",
-                "typeSimple": "FileUploader.ModelTrainings.ModelTrainingDto"
-              }
-            },
-            "CreateAsyncByInput": {
-              "uniqueName": "CreateAsyncByInput",
-              "name": "CreateAsync",
-              "httpMethod": "POST",
-              "url": "api/app/model-trainings",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "input",
-                  "typeAsString": "FileUploader.ModelTrainings.ModelTrainingCreateDto, FileUploader.Application.Contracts",
-                  "type": "FileUploader.ModelTrainings.ModelTrainingCreateDto",
-                  "typeSimple": "FileUploader.ModelTrainings.ModelTrainingCreateDto",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "input",
-                  "name": "input",
-                  "jsonName": null,
-                  "type": "FileUploader.ModelTrainings.ModelTrainingCreateDto",
-                  "typeSimple": "FileUploader.ModelTrainings.ModelTrainingCreateDto",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "Body",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "FileUploader.ModelTrainings.ModelTrainingDto",
-                "typeSimple": "FileUploader.ModelTrainings.ModelTrainingDto"
-              }
-            },
-            "UpdateAsyncByIdAndInput": {
-              "uniqueName": "UpdateAsyncByIdAndInput",
-              "name": "UpdateAsync",
-              "httpMethod": "PUT",
-              "url": "api/app/model-trainings/{id}",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                },
-                {
-                  "name": "input",
-                  "typeAsString": "FileUploader.ModelTrainings.ModelTrainingUpdateDto, FileUploader.Application.Contracts",
-                  "type": "FileUploader.ModelTrainings.ModelTrainingUpdateDto",
-                  "typeSimple": "FileUploader.ModelTrainings.ModelTrainingUpdateDto",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
-                  "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "input",
-                  "jsonName": null,
-                  "type": "FileUploader.ModelTrainings.ModelTrainingUpdateDto",
-                  "typeSimple": "FileUploader.ModelTrainings.ModelTrainingUpdateDto",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "Body",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "FileUploader.ModelTrainings.ModelTrainingDto",
-                "typeSimple": "FileUploader.ModelTrainings.ModelTrainingDto"
-              }
-            },
-            "DeleteAsyncById": {
-              "uniqueName": "DeleteAsyncById",
-              "name": "DeleteAsync",
-              "httpMethod": "DELETE",
-              "url": "api/app/model-trainings/{id}",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
-                  "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "System.Void",
-                "typeSimple": "System.Void"
-              }
             }
           }
         }
@@ -15035,8 +15387,8 @@
         {
           "name": "resultReviewInfo",
           "jsonName": null,
-          "type": "System.Int32?",
-          "typeSimple": "number?",
+          "type": "System.String",
+          "typeSimple": "string",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,
@@ -15047,8 +15399,8 @@
         {
           "name": "samplingRunningInfo",
           "jsonName": null,
-          "type": "System.Int32?",
-          "typeSimple": "number?",
+          "type": "System.String",
+          "typeSimple": "string",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,
@@ -15296,8 +15648,8 @@
         {
           "name": "resultReviewInfo",
           "jsonName": null,
-          "type": "System.Int32?",
-          "typeSimple": "number?",
+          "type": "System.String",
+          "typeSimple": "string",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,
@@ -15528,7 +15880,12 @@
           "jsonName": null,
           "type": "System.String",
           "typeSimple": "string",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
         }
       ]
     },
@@ -15544,7 +15901,12 @@
           "jsonName": null,
           "type": "System.Int32",
           "typeSimple": "number",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": "0",
+          "maximum": "2147483647",
+          "regex": null
         }
       ]
     },
@@ -15560,21 +15922,36 @@
           "jsonName": null,
           "type": "System.Int32",
           "typeSimple": "number",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
         },
         {
           "name": "MaxMaxResultCount",
           "jsonName": null,
           "type": "System.Int32",
           "typeSimple": "number",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
         },
         {
           "name": "MaxResultCount",
           "jsonName": null,
           "type": "System.Int32",
           "typeSimple": "number",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": "1",
+          "maximum": "2147483647",
+          "regex": null
         }
       ]
     },
@@ -15583,14 +15960,21 @@
       "isEnum": false,
       "enumNames": null,
       "enumValues": null,
-      "genericArguments": ["T"],
+      "genericArguments": [
+        "T"
+      ],
       "properties": [
         {
           "name": "TotalCount",
           "jsonName": null,
           "type": "System.Int64",
           "typeSimple": "number",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
         }
       ]
     },
@@ -15599,14 +15983,21 @@
       "isEnum": false,
       "enumNames": null,
       "enumValues": null,
-      "genericArguments": ["T"],
+      "genericArguments": [
+        "T"
+      ],
       "properties": [
         {
           "name": "Items",
           "jsonName": null,
           "type": "[T]",
           "typeSimple": "[T]",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
         }
       ]
     },
@@ -15692,28 +16083,45 @@
       "isEnum": false,
       "enumNames": null,
       "enumValues": null,
-      "genericArguments": ["TPrimaryKey"],
+      "genericArguments": [
+        "TPrimaryKey"
+      ],
       "properties": [
         {
           "name": "IsDeleted",
           "jsonName": null,
           "type": "System.Boolean",
           "typeSimple": "boolean",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
         },
         {
           "name": "DeleterId",
           "jsonName": null,
           "type": "System.Guid?",
           "typeSimple": "string?",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
         },
         {
           "name": "DeletionTime",
           "jsonName": null,
           "type": "System.DateTime?",
           "typeSimple": "string?",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
         }
       ]
     },
@@ -15722,21 +16130,33 @@
       "isEnum": false,
       "enumNames": null,
       "enumValues": null,
-      "genericArguments": ["TPrimaryKey"],
+      "genericArguments": [
+        "TPrimaryKey"
+      ],
       "properties": [
         {
           "name": "LastModificationTime",
           "jsonName": null,
           "type": "System.DateTime?",
           "typeSimple": "string?",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
         },
         {
           "name": "LastModifierId",
           "jsonName": null,
           "type": "System.Guid?",
           "typeSimple": "string?",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
         }
       ]
     },
@@ -15745,21 +16165,33 @@
       "isEnum": false,
       "enumNames": null,
       "enumValues": null,
-      "genericArguments": ["TPrimaryKey"],
+      "genericArguments": [
+        "TPrimaryKey"
+      ],
       "properties": [
         {
           "name": "CreationTime",
           "jsonName": null,
           "type": "System.DateTime",
           "typeSimple": "string",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
         },
         {
           "name": "CreatorId",
           "jsonName": null,
           "type": "System.Guid?",
           "typeSimple": "string?",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
         }
       ]
     },
@@ -15768,14 +16200,21 @@
       "isEnum": false,
       "enumNames": null,
       "enumValues": null,
-      "genericArguments": ["TKey"],
+      "genericArguments": [
+        "TKey"
+      ],
       "properties": [
         {
           "name": "Id",
           "jsonName": null,
           "type": "TKey",
           "typeSimple": "TKey",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
         }
       ]
     },
@@ -16092,6 +16531,1314 @@
         }
       ]
     },
+    "FileUploader.ModelTrainings.GetModelTrainingsInput": {
+      "baseType": "FileUploader.ModelTrainings.GetModelTrainingsInputBase",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": []
+    },
+    "FileUploader.ModelTrainings.GetModelTrainingsInputBase": {
+      "baseType": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "FilterText",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TypeMin",
+          "jsonName": null,
+          "type": "System.Int32?",
+          "typeSimple": "number?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TypeMax",
+          "jsonName": null,
+          "type": "System.Int32?",
+          "typeSimple": "number?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Path",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DataSourceMin",
+          "jsonName": null,
+          "type": "System.Int32?",
+          "typeSimple": "number?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DataSourceMax",
+          "jsonName": null,
+          "type": "System.Int32?",
+          "typeSimple": "number?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DatabaseConnectionString",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DocumentsDirectoryPath",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ModeMin",
+          "jsonName": null,
+          "type": "System.Int32?",
+          "typeSimple": "number?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ModeMax",
+          "jsonName": null,
+          "type": "System.Int32?",
+          "typeSimple": "number?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TrainingLog",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "FileUploader.ModelTrainings.ModelTrainingDto": {
+      "baseType": "FileUploader.ModelTrainings.ModelTrainingDtoBase",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": []
+    },
+    "FileUploader.ModelTrainings.ModelTrainingDtoBase": {
+      "baseType": "Volo.Abp.Application.Dtos.FullAuditedEntityDto<System.Guid>",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Type",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Path",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DataSource",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DatabaseConnectionString",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DocumentsDirectoryPath",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Mode",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TrainingLog",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ConcurrencyStamp",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "FileUploader.ModelTrainings.ModelTrainingCreateDto": {
+      "baseType": "FileUploader.ModelTrainings.ModelTrainingCreateDtoBase",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": []
+    },
+    "FileUploader.ModelTrainings.ModelTrainingCreateDtoBase": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Type",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Path",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DataSource",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DatabaseConnectionString",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DocumentsDirectoryPath",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Mode",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TrainingLog",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "FileUploader.ModelTrainings.ModelTrainingUpdateDto": {
+      "baseType": "FileUploader.ModelTrainings.ModelTrainingUpdateDtoBase",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": []
+    },
+    "FileUploader.ModelTrainings.ModelTrainingUpdateDtoBase": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Type",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Path",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DataSource",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DatabaseConnectionString",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DocumentsDirectoryPath",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Mode",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TrainingLog",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ConcurrencyStamp",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "FileUploader.ModelRegistrations.GetModelRegistrationsInput": {
+      "baseType": "FileUploader.ModelRegistrations.GetModelRegistrationsInputBase",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": []
+    },
+    "FileUploader.ModelRegistrations.GetModelRegistrationsInputBase": {
+      "baseType": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "FilterText",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ModelMin",
+          "jsonName": null,
+          "type": "System.Int32?",
+          "typeSimple": "number?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ModelMax",
+          "jsonName": null,
+          "type": "System.Int32?",
+          "typeSimple": "number?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ApiPath",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "LocalPath",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ScheduleMin",
+          "jsonName": null,
+          "type": "System.Int32?",
+          "typeSimple": "number?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ScheduleMax",
+          "jsonName": null,
+          "type": "System.Int32?",
+          "typeSimple": "number?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "IntervalMin",
+          "jsonName": null,
+          "type": "System.Double?",
+          "typeSimple": "number?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "IntervalMax",
+          "jsonName": null,
+          "type": "System.Double?",
+          "typeSimple": "number?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "FileUploader.ModelRegistrations.ModelRegistrationDto": {
+      "baseType": "FileUploader.ModelRegistrations.ModelRegistrationDtoBase",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": []
+    },
+    "FileUploader.ModelRegistrations.ModelRegistrationDtoBase": {
+      "baseType": "Volo.Abp.Application.Dtos.FullAuditedEntityDto<System.Guid>",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Model",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ApiPath",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "LocalPath",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Schedule",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Interval",
+          "jsonName": null,
+          "type": "System.Double",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ConcurrencyStamp",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "FileUploader.ModelRegistrations.ModelRegistrationCreateDto": {
+      "baseType": "FileUploader.ModelRegistrations.ModelRegistrationCreateDtoBase",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": []
+    },
+    "FileUploader.ModelRegistrations.ModelRegistrationCreateDtoBase": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Model",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ApiPath",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "LocalPath",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Schedule",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Interval",
+          "jsonName": null,
+          "type": "System.Double",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "FileUploader.ModelRegistrations.ModelRegistrationUpdateDto": {
+      "baseType": "FileUploader.ModelRegistrations.ModelRegistrationUpdateDtoBase",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": []
+    },
+    "FileUploader.ModelRegistrations.ModelRegistrationUpdateDtoBase": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Model",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ApiPath",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "LocalPath",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Schedule",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Interval",
+          "jsonName": null,
+          "type": "System.Double",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ConcurrencyStamp",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "FileUploader.ModelConfigurations.GetModelConfigurationsInput": {
+      "baseType": "FileUploader.ModelConfigurations.GetModelConfigurationsInputBase",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": []
+    },
+    "FileUploader.ModelConfigurations.GetModelConfigurationsInputBase": {
+      "baseType": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "FilterText",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "SystemPrompt",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TemperatureMin",
+          "jsonName": null,
+          "type": "System.Double?",
+          "typeSimple": "number?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TemperatureMax",
+          "jsonName": null,
+          "type": "System.Double?",
+          "typeSimple": "number?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TopK",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TopP",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "RepeatPenalty",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ContextLength",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "MaxTokens",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "FileUploader.ModelConfigurations.ModelConfigurationDto": {
+      "baseType": "FileUploader.ModelConfigurations.ModelConfigurationDtoBase",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": []
+    },
+    "FileUploader.ModelConfigurations.ModelConfigurationDtoBase": {
+      "baseType": "Volo.Abp.Application.Dtos.FullAuditedEntityDto<System.Guid>",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "SystemPrompt",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Temperature",
+          "jsonName": null,
+          "type": "System.Double",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TopK",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TopP",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "RepeatPenalty",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ContextLength",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "MaxTokens",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ConcurrencyStamp",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "FileUploader.ModelConfigurations.ModelConfigurationCreateDto": {
+      "baseType": "FileUploader.ModelConfigurations.ModelConfigurationCreateDtoBase",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": []
+    },
+    "FileUploader.ModelConfigurations.ModelConfigurationCreateDtoBase": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "SystemPrompt",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Temperature",
+          "jsonName": null,
+          "type": "System.Double",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TopK",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TopP",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "RepeatPenalty",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ContextLength",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "MaxTokens",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "FileUploader.ModelConfigurations.ModelConfigurationUpdateDto": {
+      "baseType": "FileUploader.ModelConfigurations.ModelConfigurationUpdateDtoBase",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": []
+    },
+    "FileUploader.ModelConfigurations.ModelConfigurationUpdateDtoBase": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "SystemPrompt",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Temperature",
+          "jsonName": null,
+          "type": "System.Double",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TopK",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TopP",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "RepeatPenalty",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ContextLength",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "MaxTokens",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ConcurrencyStamp",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
     "Volo.Abp.Account.AccountSettingsDto": {
       "baseType": null,
       "isEnum": false,
@@ -16173,8 +17920,16 @@
     "Volo.Abp.Identity.Features.IdentityProTwoFactorBehaviour": {
       "baseType": "System.Enum",
       "isEnum": true,
-      "enumNames": ["Optional", "Disabled", "Forced"],
-      "enumValues": [0, 1, 2],
+      "enumNames": [
+        "Optional",
+        "Disabled",
+        "Forced"
+      ],
+      "enumValues": [
+        0,
+        1,
+        2
+      ],
       "genericArguments": null,
       "properties": null
     },
@@ -16362,7 +18117,9 @@
       "isEnum": false,
       "enumNames": null,
       "enumValues": null,
-      "genericArguments": ["T"],
+      "genericArguments": [
+        "T"
+      ],
       "properties": [
         {
           "name": "Name",
@@ -16662,7 +18419,9 @@
       "isEnum": false,
       "enumNames": null,
       "enumValues": null,
-      "genericArguments": ["T"],
+      "genericArguments": [
+        "T"
+      ],
       "properties": [
         {
           "name": "HasValue",
@@ -16763,10 +18522,73 @@
         "NetworkAuthenticationRequired"
       ],
       "enumValues": [
-        100, 101, 102, 103, 200, 201, 202, 203, 204, 205, 206, 207, 208, 226, 300, 300, 301, 301,
-        302, 302, 303, 303, 304, 305, 306, 307, 307, 308, 400, 401, 402, 403, 404, 405, 406, 407,
-        408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 421, 422, 422, 423, 424, 426, 428, 429,
-        431, 451, 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, 511
+        100,
+        101,
+        102,
+        103,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        226,
+        300,
+        300,
+        301,
+        301,
+        302,
+        302,
+        303,
+        303,
+        304,
+        305,
+        306,
+        307,
+        307,
+        308,
+        400,
+        401,
+        402,
+        403,
+        404,
+        405,
+        406,
+        407,
+        408,
+        409,
+        410,
+        411,
+        412,
+        413,
+        414,
+        415,
+        416,
+        417,
+        421,
+        422,
+        422,
+        423,
+        424,
+        426,
+        428,
+        429,
+        431,
+        451,
+        500,
+        501,
+        502,
+        503,
+        504,
+        505,
+        506,
+        507,
+        508,
+        510,
+        511
       ],
       "genericArguments": null,
       "properties": null
@@ -17049,7 +18871,9 @@
       "isEnum": false,
       "enumNames": null,
       "enumValues": null,
-      "genericArguments": ["TKey"],
+      "genericArguments": [
+        "TKey"
+      ],
       "properties": [
         {
           "name": "Id",
@@ -17182,8 +19006,16 @@
     "Volo.Abp.Auditing.EntityChangeType": {
       "baseType": "System.Enum",
       "isEnum": true,
-      "enumNames": ["Created", "Updated", "Deleted"],
-      "enumValues": [0, 1, 2],
+      "enumNames": [
+        "Created",
+        "Updated",
+        "Deleted"
+      ],
+      "enumValues": [
+        0,
+        1,
+        2
+      ],
       "genericArguments": null,
       "properties": null
     },
@@ -17927,8 +19759,18 @@
     "Volo.Abp.Identity.IdentityClaimValueType": {
       "baseType": "System.Enum",
       "isEnum": true,
-      "enumNames": ["String", "Int", "Boolean", "DateTime"],
-      "enumValues": [0, 1, 2, 3],
+      "enumNames": [
+        "String",
+        "Int",
+        "Boolean",
+        "DateTime"
+      ],
+      "enumValues": [
+        0,
+        1,
+        2,
+        3
+      ],
       "genericArguments": null,
       "properties": null
     },
@@ -19093,7 +20935,7 @@
       ]
     },
     "Volo.Abp.Identity.IdentityUserDto": {
-      "baseType": "Volo.Abp.Application.Dtos.ExtensibleEntityDto<System.Guid>",
+      "baseType": "Volo.Abp.Application.Dtos.ExtensibleAuditedEntityDto<System.Guid>",
       "isEnum": false,
       "enumNames": null,
       "enumValues": null,
@@ -19104,84 +20946,228 @@
           "jsonName": null,
           "type": "System.Guid?",
           "typeSimple": "string?",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
         },
         {
           "name": "UserName",
           "jsonName": null,
           "type": "System.String",
           "typeSimple": "string",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
         },
         {
           "name": "Email",
           "jsonName": null,
           "type": "System.String",
           "typeSimple": "string",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
         },
         {
           "name": "Name",
           "jsonName": null,
           "type": "System.String",
           "typeSimple": "string",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
         },
         {
           "name": "Surname",
           "jsonName": null,
           "type": "System.String",
           "typeSimple": "string",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
         },
         {
           "name": "EmailConfirmed",
           "jsonName": null,
           "type": "System.Boolean",
           "typeSimple": "boolean",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
         },
         {
           "name": "PhoneNumber",
           "jsonName": null,
           "type": "System.String",
           "typeSimple": "string",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
         },
         {
           "name": "PhoneNumberConfirmed",
           "jsonName": null,
           "type": "System.Boolean",
           "typeSimple": "boolean",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
         },
         {
           "name": "SupportTwoFactor",
           "jsonName": null,
           "type": "System.Boolean",
           "typeSimple": "boolean",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TwoFactorEnabled",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "IsActive",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
         },
         {
           "name": "LockoutEnabled",
           "jsonName": null,
           "type": "System.Boolean",
           "typeSimple": "boolean",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
         },
         {
           "name": "IsLockedOut",
           "jsonName": null,
           "type": "System.Boolean",
           "typeSimple": "boolean",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "LockoutEnd",
+          "jsonName": null,
+          "type": "System.DateTime?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ShouldChangePasswordOnNextLogin",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
         },
         {
           "name": "ConcurrencyStamp",
           "jsonName": null,
           "type": "System.String",
           "typeSimple": "string",
-          "isRequired": false
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "RoleNames",
+          "jsonName": null,
+          "type": "[System.String]",
+          "typeSimple": "[string]",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "AccessFailedCount",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "LastPasswordChangeTime",
+          "jsonName": null,
+          "type": "System.DateTimeOffset?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
         }
       ]
     },
@@ -19190,7 +21176,9 @@
       "isEnum": false,
       "enumNames": null,
       "enumValues": null,
-      "genericArguments": ["TPrimaryKey"],
+      "genericArguments": [
+        "TPrimaryKey"
+      ],
       "properties": [
         {
           "name": "LastModificationTime",
@@ -19223,7 +21211,9 @@
       "isEnum": false,
       "enumNames": null,
       "enumValues": null,
-      "genericArguments": ["TPrimaryKey"],
+      "genericArguments": [
+        "TPrimaryKey"
+      ],
       "properties": [
         {
           "name": "CreationTime",
@@ -19721,7 +21711,9 @@
       "isEnum": false,
       "enumNames": null,
       "enumValues": null,
-      "genericArguments": ["TPrimaryKey"],
+      "genericArguments": [
+        "TPrimaryKey"
+      ],
       "properties": [
         {
           "name": "IsDeleted",
@@ -20169,8 +22161,14 @@
     "Volo.Abp.Identity.ImportUsersFromFileType": {
       "baseType": "System.Enum",
       "isEnum": true,
-      "enumNames": ["Excel", "Csv"],
-      "enumValues": [1, 2],
+      "enumNames": [
+        "Excel",
+        "Csv"
+      ],
+      "enumValues": [
+        1,
+        2
+      ],
       "genericArguments": null,
       "properties": null
     },
@@ -23177,16 +25175,32 @@
     "Volo.Payment.Requests.PaymentType": {
       "baseType": "System.Enum",
       "isEnum": true,
-      "enumNames": ["OneTime", "Subscription"],
-      "enumValues": [0, 1],
+      "enumNames": [
+        "OneTime",
+        "Subscription"
+      ],
+      "enumValues": [
+        0,
+        1
+      ],
       "genericArguments": null,
       "properties": null
     },
     "Volo.Payment.Requests.PaymentRequestState": {
       "baseType": "System.Enum",
       "isEnum": true,
-      "enumNames": ["Waiting", "Completed", "Failed", "Refunded"],
-      "enumValues": [0, 1, 2, 3],
+      "enumNames": [
+        "Waiting",
+        "Completed",
+        "Failed",
+        "Refunded"
+      ],
+      "enumValues": [
+        0,
+        1,
+        2,
+        3
+      ],
       "genericArguments": null,
       "properties": null
     },
@@ -23298,8 +25312,16 @@
     "Volo.Saas.TenantActivationState": {
       "baseType": "System.Enum",
       "isEnum": true,
-      "enumNames": ["Active", "ActiveWithLimitedTime", "Passive"],
-      "enumValues": [0, 1, 2],
+      "enumNames": [
+        "Active",
+        "ActiveWithLimitedTime",
+        "Passive"
+      ],
+      "enumValues": [
+        0,
+        1,
+        2
+      ],
       "genericArguments": null,
       "properties": null
     },
@@ -26594,862 +28616,6 @@
           "minimum": null,
           "maximum": null,
           "regex": null
-        }
-      ]
-    },
-    "FileUploader.Shared.LookupRequestDto": {
-      "baseType": "Volo.Abp.Application.Dtos.PagedResultRequestDto",
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "Filter",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false
-        }
-      ]
-    },
-    "FileUploader.Shared.LookupDto<T0>": {
-      "baseType": null,
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": ["TKey"],
-      "properties": [
-        {
-          "name": "Id",
-          "jsonName": null,
-          "type": "TKey",
-          "typeSimple": "TKey",
-          "isRequired": false
-        },
-        {
-          "name": "DisplayName",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false
-        }
-      ]
-    },
-    "FileUploader.ModelConfigurations.GetModelConfigurationsInput": {
-      "baseType": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "FilterText",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false
-        },
-        {
-          "name": "SystemPrompt",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRequired": false
-        },
-        {
-          "name": "TemperatureMin",
-          "jsonName": null,
-          "type": "System.Double?",
-          "typeSimple": "number?",
-          "isRequired": false
-        },
-        {
-          "name": "TemperatureMax",
-          "jsonName": null,
-          "type": "System.Double?",
-          "typeSimple": "number?",
-          "isRequired": false
-        },
-        {
-          "name": "TopK",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRequired": false
-        },
-        {
-          "name": "TopP",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRequired": false
-        },
-        {
-          "name": "RepeatPenalty",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRequired": false
-        },
-        {
-          "name": "ContextLength",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRequired": false
-        },
-        {
-          "name": "MaxTokens",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRequired": false
-        }
-      ]
-    },
-    "FileUploader.ModelConfigurations.ModelConfigurationDto": {
-      "baseType": "Volo.Abp.Application.Dtos.FullAuditedEntityDto<System.Guid>",
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "SystemPrompt",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "Temperature",
-          "jsonName": null,
-          "type": "System.Double?",
-          "typeSimple": "number?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "TopK",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "TopP",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "RepeatPenalty",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "ContextLength",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "MaxTokens",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "ConcurrencyStamp",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false
-        }
-      ]
-    },
-    "FileUploader.ModelConfigurations.ModelConfigurationCreateDto": {
-      "baseType": null,
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "SystemPrompt",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "Temperature",
-          "jsonName": null,
-          "type": "System.Double?",
-          "typeSimple": "number?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "TopK",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "TopP",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "RepeatPenalty",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "ContextLength",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "MaxTokens",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        }
-      ]
-    },
-    "FileUploader.ModelConfigurations.ModelConfigurationUpdateDto": {
-      "baseType": null,
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "SystemPrompt",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "Temperature",
-          "jsonName": null,
-          "type": "System.Double?",
-          "typeSimple": "number?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "TopK",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "TopP",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "RepeatPenalty",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "ContextLength",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "MaxTokens",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "ConcurrencyStamp",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false
-        }
-      ]
-    },
-    "FileUploader.Users.AppUserDto": {
-      "baseType": "Volo.Abp.Identity.IdentityUserDto",
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": []
-    },
-    "FileUploader.ModelRegistrations.GetModelRegistrationsInput": {
-      "baseType": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "FilterText",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false
-        },
-        {
-          "name": "ModelMin",
-          "jsonName": null,
-          "type": "System.Int?",
-          "typeSimple": "number?",
-          "isRequired": false
-        },
-        {
-          "name": "ModelMax",
-          "jsonName": null,
-          "type": "System.Int?",
-          "typeSimple": "number?",
-          "isRequired": false
-        },
-        {
-          "name": "ApiPath",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRequired": false
-        },
-        {
-          "name": "LocalPath",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRequired": false
-        },
-        {
-          "name": "ScheduleMin",
-          "jsonName": null,
-          "type": "System.Int?",
-          "typeSimple": "number?",
-          "isRequired": false
-        },
-        {
-          "name": "ScheduleMax",
-          "jsonName": null,
-          "type": "System.Int?",
-          "typeSimple": "number?",
-          "isRequired": false
-        },
-        {
-          "name": "IntervalMin",
-          "jsonName": null,
-          "type": "System.Double?",
-          "typeSimple": "number?",
-          "isRequired": false
-        },
-        {
-          "name": "IntervalMax",
-          "jsonName": null,
-          "type": "System.Double?",
-          "typeSimple": "number?",
-          "isRequired": false
-        }
-      ]
-    },
-    "FileUploader.ModelRegistrations.ModelRegistrationDto": {
-      "baseType": "Volo.Abp.Application.Dtos.FullAuditedEntityDto<System.Guid>",
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "Model",
-          "jsonName": null,
-          "type": "System.Int?",
-          "typeSimple": "number?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "ApiPath",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "LocalPath",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "Schedule",
-          "jsonName": null,
-          "type": "System.Int?",
-          "typeSimple": "number?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "Interval",
-          "jsonName": null,
-          "type": "System.Double?",
-          "typeSimple": "number?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "ConcurrencyStamp",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false
-        }
-      ]
-    },
-    "FileUploader.ModelRegistrations.ModelRegistrationCreateDto": {
-      "baseType": null,
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "Model",
-          "jsonName": null,
-          "type": "System.Int?",
-          "typeSimple": "number?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "ApiPath",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "LocalPath",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "Schedule",
-          "jsonName": null,
-          "type": "System.Int?",
-          "typeSimple": "number?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "Interval",
-          "jsonName": null,
-          "type": "System.Double?",
-          "typeSimple": "number?",
-          "isRef": false,
-          "isRequired": false
-        }
-      ]
-    },
-    "FileUploader.ModelRegistrations.ModelRegistrationUpdateDto": {
-      "baseType": null,
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "Model",
-          "jsonName": null,
-          "type": "System.Int?",
-          "typeSimple": "number?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "ApiPath",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "LocalPath",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "Schedule",
-          "jsonName": null,
-          "type": "System.Int?",
-          "typeSimple": "number?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "Interval",
-          "jsonName": null,
-          "type": "System.Double?",
-          "typeSimple": "number?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "ConcurrencyStamp",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false
-        }
-      ]
-    },
-    "FileUploader.ModelTrainings.GetModelTrainingsInput": {
-      "baseType": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "FilterText",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false
-        },
-        {
-          "name": "TypeMin",
-          "jsonName": null,
-          "type": "System.Int?",
-          "typeSimple": "number?",
-          "isRequired": false
-        },
-        {
-          "name": "TypeMax",
-          "jsonName": null,
-          "type": "System.Int?",
-          "typeSimple": "number?",
-          "isRequired": false
-        },
-        {
-          "name": "Path",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRequired": false
-        },
-        {
-          "name": "DataSourceMin",
-          "jsonName": null,
-          "type": "System.Int?",
-          "typeSimple": "number?",
-          "isRequired": false
-        },
-        {
-          "name": "DataSourceMax",
-          "jsonName": null,
-          "type": "System.Int?",
-          "typeSimple": "number?",
-          "isRequired": false
-        },
-        {
-          "name": "DatabaseConnectionString",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRequired": false
-        },
-        {
-          "name": "DocumentsDirectoryPath",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRequired": false
-        },
-        {
-          "name": "ModeMin",
-          "jsonName": null,
-          "type": "System.Int?",
-          "typeSimple": "number?",
-          "isRequired": false
-        },
-        {
-          "name": "ModeMax",
-          "jsonName": null,
-          "type": "System.Int?",
-          "typeSimple": "number?",
-          "isRequired": false
-        },
-        {
-          "name": "TrainingLog",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRequired": false
-        }
-      ]
-    },
-    "FileUploader.ModelTrainings.ModelTrainingDto": {
-      "baseType": "Volo.Abp.Application.Dtos.FullAuditedEntityDto<System.Guid>",
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "Type",
-          "jsonName": null,
-          "type": "System.Int?",
-          "typeSimple": "number?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "Path",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "DataSource",
-          "jsonName": null,
-          "type": "System.Int?",
-          "typeSimple": "number?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "DatabaseConnectionString",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "DocumentsDirectoryPath",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "Mode",
-          "jsonName": null,
-          "type": "System.Int?",
-          "typeSimple": "number?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "TrainingLog",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "ConcurrencyStamp",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false
-        }
-      ]
-    },
-    "FileUploader.ModelTrainings.ModelTrainingCreateDto": {
-      "baseType": null,
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "Type",
-          "jsonName": null,
-          "type": "System.Int?",
-          "typeSimple": "number?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "Path",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "DataSource",
-          "jsonName": null,
-          "type": "System.Int?",
-          "typeSimple": "number?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "DatabaseConnectionString",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "DocumentsDirectoryPath",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "Mode",
-          "jsonName": null,
-          "type": "System.Int?",
-          "typeSimple": "number?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "TrainingLog",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        }
-      ]
-    },
-    "FileUploader.ModelTrainings.ModelTrainingUpdateDto": {
-      "baseType": null,
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "Type",
-          "jsonName": null,
-          "type": "System.Int?",
-          "typeSimple": "number?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "Path",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "DataSource",
-          "jsonName": null,
-          "type": "System.Int?",
-          "typeSimple": "number?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "DatabaseConnectionString",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "DocumentsDirectoryPath",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "Mode",
-          "jsonName": null,
-          "type": "System.Int?",
-          "typeSimple": "number?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "TrainingLog",
-          "jsonName": null,
-          "type": "System.String?",
-          "typeSimple": "string?",
-          "isRef": false,
-          "isRequired": false
-        },
-        {
-          "name": "ConcurrencyStamp",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false
         }
       ]
     }

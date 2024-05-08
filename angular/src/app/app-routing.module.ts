@@ -80,6 +80,11 @@ const routes: Routes = [
       import('./chat-screen/chat-screen-routing.module').then(m => m.ChatScreenRoutingModule),
   },
   {
+    path: 'chart-one',
+    loadChildren: () =>
+      import('./chart-one/chart-one-routing.module').then(m => m.ChartOneRoutingModule),
+  },
+  {
     path: 'data-visualization',
     loadChildren: () =>
       import('./data-visualization/data-visualization-routing.module').then(
@@ -113,7 +118,7 @@ const routes: Routes = [
       import('./model-trainings/model-training/model-training.module').then(
         m => m.ModelTrainingModule
       ),
-  },
+  }
 ];
 
 @NgModule({

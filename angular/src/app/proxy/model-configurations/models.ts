@@ -1,6 +1,9 @@
 import type { FullAuditedEntityDto, PagedAndSortedResultRequestDto } from '@abp/ng.core';
 
-export interface GetModelConfigurationsInput extends PagedAndSortedResultRequestDto {
+export interface GetModelConfigurationsInput extends GetModelConfigurationsInputBase {
+}
+
+export interface GetModelConfigurationsInputBase extends PagedAndSortedResultRequestDto {
   filterText?: string;
   systemPrompt?: string;
   temperatureMin?: number;
@@ -12,9 +15,12 @@ export interface GetModelConfigurationsInput extends PagedAndSortedResultRequest
   maxTokens?: string;
 }
 
-export interface ModelConfigurationCreateDto {
+export interface ModelConfigurationCreateDto extends ModelConfigurationCreateDtoBase {
+}
+
+export interface ModelConfigurationCreateDtoBase {
   systemPrompt?: string;
-  temperature?: number;
+  temperature: number;
   topK?: string;
   topP?: string;
   repeatPenalty?: string;
@@ -22,9 +28,12 @@ export interface ModelConfigurationCreateDto {
   maxTokens?: string;
 }
 
-export interface ModelConfigurationDto extends FullAuditedEntityDto<string> {
+export interface ModelConfigurationDto extends ModelConfigurationDtoBase {
+}
+
+export interface ModelConfigurationDtoBase extends FullAuditedEntityDto<string> {
   systemPrompt?: string;
-  temperature?: number;
+  temperature: number;
   topK?: string;
   topP?: string;
   repeatPenalty?: string;
@@ -33,9 +42,12 @@ export interface ModelConfigurationDto extends FullAuditedEntityDto<string> {
   concurrencyStamp?: string;
 }
 
-export interface ModelConfigurationUpdateDto {
+export interface ModelConfigurationUpdateDto extends ModelConfigurationUpdateDtoBase {
+}
+
+export interface ModelConfigurationUpdateDtoBase {
   systemPrompt?: string;
-  temperature?: number;
+  temperature: number;
   topK?: string;
   topP?: string;
   repeatPenalty?: string;

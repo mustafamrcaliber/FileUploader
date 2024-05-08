@@ -1,6 +1,9 @@
 import type { FullAuditedEntityDto, PagedAndSortedResultRequestDto } from '@abp/ng.core';
 
-export interface GetModelRegistrationsInput extends PagedAndSortedResultRequestDto {
+export interface GetModelRegistrationsInput extends GetModelRegistrationsInputBase {
+}
+
+export interface GetModelRegistrationsInputBase extends PagedAndSortedResultRequestDto {
   filterText?: string;
   modelMin?: number;
   modelMax?: number;
@@ -12,28 +15,37 @@ export interface GetModelRegistrationsInput extends PagedAndSortedResultRequestD
   intervalMax?: number;
 }
 
-export interface ModelRegistrationCreateDto {
-  model?: number;
-  apiPath?: string;
-  localPath?: string;
-  schedule?: number;
-  interval?: number;
+export interface ModelRegistrationCreateDto extends ModelRegistrationCreateDtoBase {
 }
 
-export interface ModelRegistrationDto extends FullAuditedEntityDto<string> {
-  model?: number;
+export interface ModelRegistrationCreateDtoBase {
+  model: number;
   apiPath?: string;
   localPath?: string;
-  schedule?: number;
-  interval?: number;
+  schedule: number;
+  interval: number;
+}
+
+export interface ModelRegistrationDto extends ModelRegistrationDtoBase {
+}
+
+export interface ModelRegistrationDtoBase extends FullAuditedEntityDto<string> {
+  model: number;
+  apiPath?: string;
+  localPath?: string;
+  schedule: number;
+  interval: number;
   concurrencyStamp?: string;
 }
 
-export interface ModelRegistrationUpdateDto {
-  model?: number;
+export interface ModelRegistrationUpdateDto extends ModelRegistrationUpdateDtoBase {
+}
+
+export interface ModelRegistrationUpdateDtoBase {
+  model: number;
   apiPath?: string;
   localPath?: string;
-  schedule?: number;
-  interval?: number;
+  schedule: number;
+  interval: number;
   concurrencyStamp?: string;
 }
