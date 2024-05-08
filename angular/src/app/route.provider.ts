@@ -41,6 +41,14 @@ function configureRoutes(routes: RoutesService) {
       },
       {
         path: '/',
+        name: '::Menu:Charts',
+        iconClass: 'fas fa-chart-pie',
+        order: 5,
+        layout: eLayoutType.application,
+        requiredPolicy: 'FileUploader.Dashboard.Host  || FileUploader.Dashboard.Tenant',
+      },
+      {
+        path: '/',
         name: '::Menu:Settings',
         iconClass: 'fas fa-cog',
         order: 5,

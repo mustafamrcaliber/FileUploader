@@ -139,6 +139,7 @@
     "NewModelRegistration": "New Model Registration",
     "ModelRegistration": "Model Registration",
     "Menu:ModelRegistrations": "Model Registrations",
+    "Menu:Charts":"Charts",
     "Model": "Model",
     "ApiPath": "Api Path",
     "LocalPath": "Local Path",
