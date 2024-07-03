@@ -26,6 +26,7 @@ import { SideMenuLayoutModule } from '@volosoft/abp.ng.theme.lepton-x/layouts';
 import { FileViewMastersComponent } from './file-view-masters/file-view-masters.component';
 import { FileViewMastersModule } from './file-view-masters/file-view-masters.module';
 import { ChatScreenModule } from './chat-screen/chat-screen.module';
+import { UserInputModule } from './user-input/user-input.module';
 import { DataVisualizationModule } from './data-visualization/data-visualization.module';
 import { AutoDataVisualizationModule } from './auto-data-visualization/auto-data-visualization.module';
 import { ChartOneModule } from './chart-one/chart-one.module';
@@ -68,7 +69,8 @@ import { ChartOneModule } from './chart-one/chart-one.module';
     ChatScreenModule,
     DataVisualizationModule,
     AutoDataVisualizationModule,
-    ChartOneModule
+    ChartOneModule,
+    UserInputModule
   ],
   providers: [
     APP_ROUTE_PROVIDER,

@@ -283,21 +283,21 @@ html {
 .chatUserMessageClass {
   padding: 0.5rem;
   text-align: right;
-  background: var(--lpx-primary);
+  background: aliceblue;
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
   max-width: 86%;
-  color: var(--lpx-brand-text) !important;
+  color: black;
 }
 
 .chatResponseMessageClass {
   padding: 0.5rem;
   text-align: left;
-  background: var(--lpx-secondary);
+  background: aliceblue;
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
   max-width: 86%;
-  color: var(--lpx-brand-text) !important;
+  color: black;
 }
 
 
@@ -321,5 +321,18 @@ html {
     font-size: xx-small;
 }
 
+.centerStyleimage{
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.closeButtonPosition
+{
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  font-size: x-large;
+}
 #pie-chart-parent {  display: flex; overflow: hidden; }
 

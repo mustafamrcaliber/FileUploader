@@ -91,6 +91,15 @@ function configureRoutes(routes: RoutesService) {
         requiredPolicy: 'FileUploader.Dashboard.Host  || FileUploader.Dashboard.Tenant',
       },
       {
+        path: '/user-input',
+        name: '::Menu:UserInput',
+        iconClass: 'fas fa-comments',
+        order: 1,
+        layout: eLayoutType.application,
+        parentName: '::Menu:FileViewMenu',
+        requiredPolicy: 'FileUploader.Dashboard.Host  || FileUploader.Dashboard.Tenant',
+      },
+      {
         path: '/data-visualization',
         name: '::Menu:DataVisualization',
         iconClass: 'fas fa-chart-pie',

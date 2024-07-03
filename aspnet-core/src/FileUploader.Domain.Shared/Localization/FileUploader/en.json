@@ -11,6 +11,7 @@
     "Permission:Dashboard": "Dashboard",
     "Menu:Dashboard": "Dashboard",
     "Menu:HomePage": "Home page",
+    "Menu:UserInput": "User Input",
     "Dashboard": "Dashboard",
     "ExternalProvider:Google": "Google",
     "ExternalProvider:Google:ClientId": "Client ID",

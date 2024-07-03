@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ChatScreenService, IWindow, chatScreenChatInterface } from './chst-screen.service';
+import { ChatScreenService, IWindow, Message, chatScreenChatInterface, sendMessageResponse } from './chst-screen.service';
 import { FileUploadProxyService } from '../shared/FileUploadProxy.service';
 import {
   FileUploaderSaverService,
@@ -49,6 +49,11 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
   showEMSampleDataChartArray: boolean[] = [];
   PMSampleDataForBoard: GetPMSampleDataResponse[][] = [];
   EMSampleDataForBoard: GetEmSampleDataResponse[][] = [];
+  messages: Message[] = [];
+  $sendMessageSubscription: Subscription;
+  isImageModelOpen: boolean = false;
+  currentImage: string = "";
+
 
   constructor(
     private fb: FormBuilder,
@@ -58,7 +63,7 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
     config: NgbDropdownConfig
   ) {
     // config.placement = 'top-start';
-		// config.autoClose = false;
+    // config.autoClose = false;
     this.service.jsonDataTest.forEach(x => {
       this.data.push({ name: x.SampleType, value: x.count });
     });
@@ -100,31 +105,31 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
     this.showloader = true;
     if (this.showPMSampleDataChart == true || this.showEMSampleDataChart == true) {
       setTimeout(() => {
-      this.ShowChart.push(false);
-      this.chartData.push([]);
-      if (this.showPMSampleDataChart == true) {
-        this.showPMSampleDataChartArray.push(true);
-        this.showEMSampleDataChartArray.push(false);
-      } else if (this.showEMSampleDataChart == true) {
-        this.showPMSampleDataChartArray.push(false);
-        this.showEMSampleDataChartArray.push(true);
-      }
+        this.ShowChart.push(false);
+        this.chartData.push([]);
+        if (this.showPMSampleDataChart == true) {
+          this.showPMSampleDataChartArray.push(true);
+          this.showEMSampleDataChartArray.push(false);
+        } else if (this.showEMSampleDataChart == true) {
+          this.showPMSampleDataChartArray.push(false);
+          this.showEMSampleDataChartArray.push(true);
+        }
 
-      this.showPMSampleDataChart = false;
-      this.showEMSampleDataChart = false;
-      let chat2: chatScreenChatInterface = {
-        message: '',
-        messageType: 2,
-        dateTime: new Date()
-      };
-      this.chatScreenChatData.push(chat2);
-      setTimeout(() => {
-        this.scroolToBottom();
-      }, 100);
-      this.showloader = false;
-      this.showPMSampleDataChart = false;
-    this.showEMSampleDataChart = false;
-    }, 500);
+        this.showPMSampleDataChart = false;
+        this.showEMSampleDataChart = false;
+        let chat2: chatScreenChatInterface = {
+          message: '',
+          messageType: 2,
+          dateTime: new Date()
+        };
+        this.chatScreenChatData.push(chat2);
+        setTimeout(() => {
+          this.scroolToBottom();
+        }, 100);
+        this.showloader = false;
+        this.showPMSampleDataChart = false;
+        this.showEMSampleDataChart = false;
+      }, 500);
     } else if (this.chatForm.controls.returnResponseType.value == 1) {
       this.subscription = this.fileUploadSaverService
         .sendUserMessageToApiByMessage(this.chatForm.controls.userMessage.value)
@@ -171,8 +176,8 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
             this.subscription.unsubscribe();
           }
         );
-        this.showPMSampleDataChart = false;
-    this.showEMSampleDataChart = false;
+      this.showPMSampleDataChart = false;
+      this.showEMSampleDataChart = false;
     } else if (this.chatForm.controls.returnResponseType.value == 2) {
       setTimeout(() => {
         this.ShowChart.push(true);
@@ -193,54 +198,86 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
         this.showloader = false;
       }, 500);
       this.showPMSampleDataChart = false;
-    this.showEMSampleDataChart = false;
-      // this.ShowChart.push(true);
-      // this.chartData.push(this.data);
-      // let chat2: chatScreenChatInterface = {
-      //         message: "",
-      //         messageType: 2,
-      //       };
-      //       this.chatScreenChatData.push(chat2);
-      //       setTimeout(() => {
-      //         this.scroolToBottom();
-      //       }, 100);
-      //       this.showloader = false;
-      // let $chartQuery = this.service.sendUserMessafeToApiAndGetJsonChart(this.chatForm.controls.userMessage.value);
-      // let chartQuery = $chartQuery.subscribe( chartCall =>
-      //   {
-      //     let chat2: chatScreenChatInterface = {
-      //       message: chartCall,
-      //       messageType: 2,
-      //     };
-      //     this.chatScreenChatData.push(chat2);
-      //     console.log(chartCall , "chartCall");
-      //     setTimeout(() => {
-      //       this.scroolToBottom();
-      //     }, 100);
-      //     this.showloader = false;
-      //     chartQuery.unsubscribe();
-      //   },
-      //   error =>
-      //   {
-      //     this.showloader = false;
-      //     let chat2: chatScreenChatInterface = {
-      //       message: "Something went wrong.",
-      //       messageType: 2,
-      //     };
-      //     this.chatScreenChatData.push(chat2);
-      //     setTimeout(() => {
-      //       this.scroolToBottom();
-      //     }, 100);
-      //   })
+      this.showEMSampleDataChart = false;
     }
 
     setTimeout(() => {
       this.scroolToBottom();
     }, 100);
     this.chatForm.controls.userMessage.reset();
-    console.log("this.EMSampleDataForBoard", this.EMSampleDataForBoard)
-    console.log("this.PMSampleDataForBoard", this.PMSampleDataForBoard)
-    console.log("this.chatScreenChatData", this.chatScreenChatData)
+  }
+
+  sendMessage() {
+    if (this.chatForm.controls.userMessage.value.trim() === '') return;
+    let responseType: number = this.chatForm.controls.returnResponseType.value ?? 1;
+    this.showloader = true;
+    this.messages.push({
+      content: this.chatForm.controls.userMessage.value,
+      df: '',
+      img: '',
+      from: 'user',
+      messageType: 1,
+      dateTime: new Date()
+    });
+    this.$sendMessageSubscription = this.service.sendMessage(this.chatForm.controls.userMessage.value).subscribe(
+      (response) => {
+        const tableHtml = this.formatDataFrameAsTable(JSON.parse(response.df));
+        let content: Message = {
+          content: response.text,
+          df: tableHtml,
+          img: response.fig,
+          from: 'assistant',
+          messageType: 2,
+          dateTime: new Date()
+        }
+        if (responseType != 1) {
+          content = {
+            content: responseType == 2 ? response.text : '',
+            df: responseType == 4 ? tableHtml : null,
+            img: responseType == 3 ? response.fig : null,
+            from: 'assistant',
+            messageType: 2,
+            dateTime: new Date()
+          }
+        }
+        this.messages.push(content);
+        setTimeout(() => {
+          this.scroolToBottom();
+        }, 100);
+        this.showloader = false;
+      },
+      (error) => {
+        console.error('Error occurred while sending message to Flask backend:', error);
+        this.showloader = false;
+      }
+    );
+    this.chatForm.controls.userMessage.reset();
+    setTimeout(() => {
+      this.scroolToBottom();
+    }, 100);
+  }
+
+  private formatDataFrameAsTable(dataframe: any[]): string {
+    if (!dataframe || dataframe.length === 0) {
+      return '';
+    }
+
+    let table = '<table><thead><tr>';
+    for (let column of Object.keys(dataframe[0])) {
+      table += '<th>' + column + '</th>';
+    }
+    table += '</tr></thead><tbody>';
+
+    for (let row of dataframe) {
+      table += '<tr>';
+      for (let column of Object.values(row)) {
+        table += '<td>' + column + '</td>';
+      }
+      table += '</tr>';
+    }
+
+    table += '</tbody></table>';
+    return table;
   }
 
   openFileSelectionModel() {
@@ -292,6 +329,8 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   clearChatHistory() {
+    this.showloader = false;
+    this.stopSendMessage();
     this.chatScreenChatData = [];
     this.chartData = [];
     this.ShowChart = [];
@@ -299,8 +338,9 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
     this.showEMSampleDataChartArray = [];
     this.PMSampleDataForBoard = [];
     this.EMSampleDataForBoard = [];
-    this.subscription.unsubscribe();
+    // this.subscription.unsubscribe();
     this.showloader = false;
+    this.messages = [];
   }
   clearSelectedFiles() {
     this.currentSelectedFiles = [];
@@ -394,7 +434,7 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  ContinusVoiceListen() {}
+  ContinusVoiceListen() { }
 
   SendQuestion(Question: string) {
     if (Question == 'Show EM/PM sample status.') {
@@ -425,4 +465,23 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
       });
     }
   }
+
+  isCallRunning(): boolean {
+    return!(
+      // this.chatForm.controls.userMessage.value != null &&
+      this.chatForm.controls.returnResponseType.value != null &&
+      this.showloader != true
+    )
+  }
+
+
+  stopSendMessage()
+  {
+    this.$sendMessageSubscription.unsubscribe();
+    setTimeout(() => {
+      this.scroolToBottom();
+    }, 100);
+    this.showloader = false;
+  }
+
 }

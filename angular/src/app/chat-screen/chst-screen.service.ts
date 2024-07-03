@@ -34,26 +34,11 @@ export class ChatScreenService {
   ];
   constructor(private restService: RestService, private http: HttpClient) {}
 
-  // public sendUserMessageToApi(message: string): Observable<any> {
-  //   let httpOptions: Object = {
-  //     headers: new HttpHeaders({
-  //       Accept: 'text/html',
-  //       'Content-Type': 'text/plain; charset=utf-8',
-  //     }),
-  //     responseType: 'text',
-  //   };
-  //   return this.http.get<any>(this.URL + message, httpOptions);
-  // }
+  public sendMessage(newMessage):Observable<sendMessageResponse>
+  {
+    return this.http.get<sendMessageResponse>('http://10.20.61.83:8084/api/v0/ask', { params: { question: newMessage } });
+  }
 
-//  public uploadFileToChat(fileName: string): Observable<any>
-//  {
-//   return this.http.get<any>('http://10.20.61.83:5002/FileUpload/'+fileName);
-//  }
-
-//  public sendUserMessafeToApiAndGetJsonChart(message: string): Observable<any>
-//  {
-//   return this.http.get<any>("http://10.20.61.83:5004/Text2SGraph/"+message);
-//  }
 }
 
 export interface chatScreenChatInterface {
@@ -64,6 +49,24 @@ export interface chatScreenChatInterface {
 
 export interface IWindow extends Window {
   webkitSpeechRecognition: any;
+}
+
+export interface Message {
+  df : string;
+  img : any;
+  content: string;
+  from: 'user' | 'assistant';
+  messageType: 1 | 2,
+  dateTime: Date
+}
+
+export interface sendMessageResponse
+{
+  df: string
+  fig: string
+  id: string
+  text: string
+  type: string
 }
 
 //here 1 means user and 2 means api

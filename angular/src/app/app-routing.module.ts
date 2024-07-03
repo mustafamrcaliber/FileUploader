@@ -80,6 +80,11 @@ const routes: Routes = [
       import('./chat-screen/chat-screen-routing.module').then(m => m.ChatScreenRoutingModule),
   },
   {
+    path: 'user-input',
+    loadChildren: () =>
+      import('./user-input/user-input-routing.module').then(m => m.UserInputRoutingModule),
+  },
+  {
     path: 'chart-one',
     loadChildren: () =>
       import('./chart-one/chart-one-routing.module').then(m => m.ChartOneRoutingModule),
