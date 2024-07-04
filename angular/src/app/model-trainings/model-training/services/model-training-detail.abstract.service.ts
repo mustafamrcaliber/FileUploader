@@ -31,7 +31,7 @@ export abstract class AbstractModelTrainingDetailViewService {
     this.form = this.fb.group({
       type: [type ?? null, []],
       path: [path ?? null, []],
-      dataSource: [dataSource ?? null, []],
+      dataSource: [dataSource ?? 1, []],
       databaseConnectionString: [databaseConnectionString ?? '--', []],
       documentsDirectoryPath: [documentsDirectoryPath ?? '--', []],
       mode: [mode ?? null, []],

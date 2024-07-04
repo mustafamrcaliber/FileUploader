@@ -33,3 +33,5 @@ export const environment = {
     mergeStrategy: 'deepmerge'
   }
 } as Environment;
+
+export const aiApiUrl = 'http://10.20.61.83:8084/api/v0/ask';

@@ -2,6 +2,7 @@ import { RestService } from '@abp/ng.core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { aiApiUrl } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
@@ -36,7 +37,7 @@ export class ChatScreenService {
 
   public sendMessage(newMessage):Observable<sendMessageResponse>
   {
-    return this.http.get<sendMessageResponse>('http://10.20.61.83:8084/api/v0/ask', { params: { question: newMessage } });
+    return this.http.get<sendMessageResponse>(aiApiUrl, { params: { question: newMessage } });
   }
 
 }

@@ -16,7 +16,7 @@
   <ng-template #abpBody>
     <!--<suite-custom-code-block-4>-->
     <!--</suite-custom-code-block-4>-->
-    <form
+    <form autocomplete="off"
       [formGroup]="service.form"
       id="model-training"
       (ngSubmit)="service.submitForm()"
@@ -111,9 +111,22 @@
                {{ "::Documents" | abpLocalization }}
               </label>
             </div>
+            <div class="form-check col">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="dataSource"
+                id="model-training-data-source3"
+                formControlName="dataSource"
+                [value]="3"
+              />
+              <label class="form-check-label" for="model-training-data-source3">
+               {{ "::Both" | abpLocalization }}
+              </label>
+            </div>
           </div>
         </div>
-        <div *ngIf="service.form.controls.dataSource.value == 1" class="mb-3">
+        <div *ngIf="service.form.controls.dataSource.value != 2" class="mb-3">
           <label class="form-label" for="model-training-database-connection-string">
             {{ '::DatabaseConnectionString' | abpLocalization }}
           </label>
@@ -124,7 +137,7 @@
             class="form-control"
           />
         </div>
-        <div *ngIf="service.form.controls.dataSource.value == 2" class="mb-3">
+        <div *ngIf="service.form.controls.dataSource.value != 1" class="mb-3">
           <label class="form-label" for="model-training-documents-directory-path">
             {{ '::DocumentsDirectoryPath' | abpLocalization }}
           </label>
@@ -151,7 +164,7 @@
             formControlName="mode"
             class="form-control"
           /> -->
-          <select class="form-control"  id="model-training-mode"
+          <select class="form-control"  id="model-training-mode" multiple
           formControlName="mode">
             <option *ngFor="let mode of this.modes" [value]="mode.value">
               {{ mode.name }}
@@ -159,7 +172,7 @@
           </select>
         </div>
         <button type="button" class="btn btn-secondary col">
-          {{ '::Train' | abpLocalization }}
+          {{ '::Validate' | abpLocalization }}
         </button>
         <div class="mb-3">
           <label class="form-label" for="model-training-training-log">

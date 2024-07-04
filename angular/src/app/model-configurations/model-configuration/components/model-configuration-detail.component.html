@@ -16,7 +16,7 @@
   <ng-template #abpBody>
     <!--<suite-custom-code-block-4>-->
     <!--</suite-custom-code-block-4>-->
-    <form
+    <form autocomplete="off"
       [formGroup]="service.form"
       id="model-configuration"
       (ngSubmit)="service.submitForm()"
