@@ -34,7 +34,7 @@ export abstract class AbstractModelTrainingDetailViewService {
       dataSource: [dataSource ?? 1, []],
       databaseConnectionString: [databaseConnectionString ?? '--', []],
       documentsDirectoryPath: [documentsDirectoryPath ?? '--', []],
-      mode: [mode ?? null, []],
+      mode: [mode?.toString().split('0').map(numStr => parseInt(numStr)) ?? null, []],
       trainingLog: [trainingLog ?? null, []],
     });
   }
@@ -61,7 +61,7 @@ export abstract class AbstractModelTrainingDetailViewService {
 
   submitForm() {
     if (this.form.invalid) return;
-
+    this.form.controls.mode.setValue(parseInt(this.form.controls.mode.value.join('0')));
     this.isBusy = true;
 
     const request = this.createRequest().pipe(
