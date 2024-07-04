@@ -53,8 +53,6 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
   $sendMessageSubscription: Subscription;
   isImageModelOpen: boolean = false;
   currentImage: string = "";
-
-
   constructor(
     private fb: FormBuilder,
     // private fileUploadSaverProxyService: FileUploadProxyService,
@@ -248,7 +246,20 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
       },
       (error) => {
         console.error('Error occurred while sending message to Flask backend:', error);
+        let content: Message = {
+          content: 'Somethng went wrong.',
+          df: null,
+          img: null,
+          from: 'assistant',
+          messageType: 2,
+          dateTime: new Date()
+        }
+        this.messages.push(content);
         this.showloader = false;
+        this.chatForm.controls.userMessage.reset();
+        setTimeout(() => {
+          this.scroolToBottom();
+        }, 200);
       }
     );
     this.chatForm.controls.userMessage.reset();
@@ -403,7 +414,8 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   getResult() {
-    this.sendUserMessage();
+    // this.sendUserMessage();
+    this.sendMessage();
     setTimeout(() => {
       this.scroolToBottom();
       this.clickOnDiv();
@@ -467,7 +479,7 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   isCallRunning(): boolean {
-    return!(
+    return !(
       // this.chatForm.controls.userMessage.value != null &&
       this.chatForm.controls.returnResponseType.value != null &&
       this.showloader != true
@@ -475,13 +487,13 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
 
-  stopSendMessage()
-  {
+  stopSendMessage() {
     this.$sendMessageSubscription.unsubscribe();
     setTimeout(() => {
+      this.showloader = false;
       this.scroolToBottom();
+      this.clickOnDiv();
     }, 100);
-    this.showloader = false;
   }
 
 }
