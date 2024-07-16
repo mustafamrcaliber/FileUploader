@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, SecurityContext } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ChatScreenService, IWindow, Message, chatScreenChatInterface, sendMessageResponse } from './chst-screen.service';
 import { FileUploadProxyService } from '../shared/FileUploadProxy.service';
@@ -10,6 +10,7 @@ import {
 } from '@proxy/file-uploader-saver';
 import { Observable, Subscription } from 'rxjs';
 import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-chat-screen',
@@ -58,7 +59,8 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
     // private fileUploadSaverProxyService: FileUploadProxyService,
     private fileUploadSaverService: FileUploaderSaverService,
     private service: ChatScreenService,
-    config: NgbDropdownConfig
+    config: NgbDropdownConfig,
+    private sanitizer: DomSanitizer
   ) {
     // config.placement = 'top-start';
     // config.autoClose = false;
@@ -219,7 +221,7 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
     });
     this.$sendMessageSubscription = this.service.sendMessage(this.chatForm.controls.userMessage.value).subscribe(
       (response) => {
-        const tableHtml = this.formatDataFrameAsTable(JSON.parse(response.df));
+        const tableHtml = this.sanitizer.bypassSecurityTrustHtml(this.formatDataFrameAsTable(JSON.parse(response.df)));
         let content: Message = {
           content: response.text,
           df: tableHtml,
@@ -270,26 +272,28 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private formatDataFrameAsTable(dataframe: any[]): string {
     if (!dataframe || dataframe.length === 0) {
-      return '';
+        return '';
     }
-
-    let table = '<table><thead><tr>';
+    let table = '<table style="border-collapse: collapse; width: 100%; border: 0px solid black; border-radius: 1rem; overflow: hidden;">';
+    table += '<thead style="background-color: #e5ecf6;">';
+    table += '<tr>';
     for (let column of Object.keys(dataframe[0])) {
-      table += '<th>' + column + '</th>';
+        table += '<th style="text-align: center; font-weight: bold; padding: 1rem; border-bottom: 2px solid #67707b40;">' + column + '</th>';
     }
-    table += '</tr></thead><tbody>';
-
+    table += '</tr>';
+    table += '</thead>';
+    table += '<tbody>';
     for (let row of dataframe) {
-      table += '<tr>';
-      for (let column of Object.values(row)) {
-        table += '<td>' + column + '</td>';
-      }
-      table += '</tr>';
+        table += '<tr>';
+        for (let column of Object.values(row)) {
+            table += '<td style="text-align: center; padding: 1rem; border-top: 1px solid #67707b40; border-right: none; border-left: none; background-color: white;">' + column + '</td>';
+        }
+        table += '</tr>';
     }
-
-    table += '</tbody></table>';
+    table += '</tbody>';
+    table += '</table>';
     return table;
-  }
+}
 
   openFileSelectionModel() {
     let subscription: Subscription = this.fileUploadSaverService

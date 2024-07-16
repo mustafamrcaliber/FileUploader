@@ -1,6 +1,7 @@
 import { RestService } from '@abp/ng.core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { SafeHtml } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 import { aiApiUrl } from 'src/environments/environment.prod';
 
@@ -53,7 +54,7 @@ export interface IWindow extends Window {
 }
 
 export interface Message {
-  df : string;
+  df : string | SafeHtml;
   img : any;
   content: string;
   from: 'user' | 'assistant';

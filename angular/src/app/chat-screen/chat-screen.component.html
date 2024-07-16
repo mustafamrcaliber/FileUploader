@@ -21,6 +21,9 @@
 </abp-modal>
 
 <div class="bodyStyle">
+  <div class="Header">
+    {{ '::EMProSpecialist' | abpLocalization }}
+  </div>
   <div class="card mb-3">
     <div class="card-body" style="padding: 1% !important">
       <div class="chatScreenConvoLayout">
@@ -40,9 +43,11 @@
                 <div>{{ message.content }}</div>
                 <br />
                 <div *ngIf="message.img">
-                  <img (click)="currentImage = message.img; isImageModelOpen = true;" [src]="'data:image/png;base64,' + message.img" alt="Plot Image" />
+                  <img width="100%" (click)="currentImage = message.img; isImageModelOpen = true;" [src]="'data:image/png;base64,' + message.img" alt="Plot Image" />
                 </div>
+                <div *ngIf="message.df" style="border: 1px solid #67707b40;border-radius: 1rem; margin-top: 0.5rem;">
                 <span [innerHTML]="message.df"></span>
+              </div>
               </div>
               <div *ngIf="message.messageType == 2"></div>
             </div>
