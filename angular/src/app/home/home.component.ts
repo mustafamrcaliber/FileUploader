@@ -117,7 +117,14 @@ export class HomeComponent {
   }
 
 
-  RouteToCaliGen(){
+  RouteToCaliGen() {
     this.router.navigate(['/chat-screen']);
   }
+
+  questions: string[] =
+    [
+      "month wise sample collection report",
+      "What is the distribution of personnel qualifications by department?",
+      "What is the total number of samples collected by each personnel name?"
+    ];
 }

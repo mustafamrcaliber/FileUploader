@@ -1,264 +1,37 @@
-<!-- <abp-page [title]="'::Menu:Home' | abpLocalization">
-  <div class="card">
-    <div class="card-header">{{ '::Welcome' | abpLocalization }}</div>
-    <div class="card-body">
-      <p>
-        {{ '::LongWelcomeMessage' | abpLocalization }}
-      </p>
-      <p *ngIf="!hasLoggedIn">
-        <a (click)="login()" class="btn btn-primary" role="button"
-          ><i class="fa fa-sign-in me-1" aria-hidden="true"></i>{{ 'AbpAccount::Login' | abpLocalization }}</a
-        >
-      </p>
-      <hr />
-      <p class="text-right"><a href="https://abp.io?ref=tmpl" target="_blank">abp.io</a></p>
-    </div>
-  </div>
-  <div class="card mt-5">
-    <div class="card-body">
-      <div class="row">
-        <div class="col-md-auto text-center">
-          <img src="https://abp.io/assets/png/mastering-abp-framework.webp" style="max-width: 400px;"
-               class="w-100 mb-5 my-md-3">
-        </div>
-        <div class="col-md d-flex align-items-center">
-          <div class="pe-0 pe-md-4">
-            <small class="text-uppercase text-muted">The Official Guide</small>
-            <h2 class="mb-4">Mastering ABP Framework</h2>
-            <p class="mb-4">Written by the creator of the ABP Framework, this book will help you gain a complete
-              understanding of the framework and modern web application development techniques.</p>
-            <div class="mb-4">
-              <a href="https://www.amazon.com/gp/product/B097Z2DM8Q/ref=dbs_a_def_rwt_hsch_vapi_tkin_p1_i0"
-                 class="btn btn-success mb-1">
-                Buy on Amazon US
-              </a>
-              &nbsp;
-              <a href="https://www.packtpub.com/product/mastering-abp-framework/9781801079242"
-                 class="btn btn-primary mb-1">
-                Buy on PACKT
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</abp-page> -->
-
 <p *ngIf="!hasLoggedIn">
   <a (click)="login()" class="btn btn-primary" role="button"
     ><i class="fa fa-sign-in me-1" aria-hidden="true"></i
     >{{ 'AbpAccount::Login' | abpLocalization }}</a
   >
 </p>
-<div *ngIf="hasLoggedIn">
-  <div class="row card">
-    <div class="card-body">
-      <div class="row">
-        <div class="col" style="margin: auto">
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              value=""
-              id="flexCheckChecked"
-              checked
-            />
-            <label class="form-check-label" for="flexCheckChecked">
-              {{ '::Mine' | abpLocalization }}
-            </label>
-          </div>
-        </div>
-        <div class="col">
-          <select class="form-select" aria-label="Default select example">
-            <option selected>{{ '::JobsAndIssues' | abpLocalization }}</option>
-          </select>
-        </div>
-        <div class="col">
-          <select class="form-select" aria-label="Default select example">
-            <option selected>{{ '::Today' | abpLocalization }}</option>
-            <option value="1">{{ '::yesterday' | abpLocalization }}</option>
-            <option value="2">{{ '::Last30Days' | abpLocalization }}</option>
-          </select>
-        </div>
-        <div class="col">
-          <button type="button" class="btn btn-light mb-1" style="margin-left: 22%">
-            {{ '::Refresh' | abpLocalization }}
-          </button>
-        </div>
-        <div class="col">
-          <button type="button" (click)="RouteToCaliGen()" class="btn btn-primary mb-1">
-            {{ '::CaliGen' | abpLocalization }}
-          </button>
-        </div>
+<div *ngIf="hasLoggedIn" class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">Content Top Left</div>
       </div>
     </div>
-  </div>
-  <div class="row card">
-    <div class="card-body">
-      <div class="row">
-        <div class="col">
-          <div class="row">
-          <div id="card">
-            <div id="chart">
-              <apx-chart
-                [series]="[70]"
-                [chart]="chartOptions.chart"
-                [plotOptions]="chartOptions.plotOptions"
-                [labels]="['70%']"
-                [stroke]="chartOptions.stroke"
-                [fill]="chartOptions.fill"
-              ></apx-chart>
-            </div>
-          </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <app-chat-screen
+            [showExpandButton]="true"
+            (RouteToCaliGen)="RouteToCaliGen()"
+          ></app-chat-screen>
         </div>
-        <div class="row footerForItems"><span>{{ "::OEE" | abpLocalization }}</span></div>
-        </div>
-        <div class="col">
-          <div class="row">
-          <div id="card">
-            <div id="chart">
-              <apx-chart
-                [series]="[100]"
-                [chart]="chartOptions.chart"
-                [plotOptions]="chartOptions.plotOptions"
-                [labels]="['']"
-                [stroke]="chartOptions.stroke"
-                [fill]="chartOptions.fill"
-              ></apx-chart>
-            </div>
-          </div>
-        </div>
-        <div class="row footerForItems"><span>{{ "::No.OfBatches" | abpLocalization}}</span></div>
-        </div>
-        <div class="col">
-          <div class="row">
-          <div id="card">
-            <div id="chart">
-              <apx-chart
-                [series]="[100]"
-                [chart]="chartOptions.chart"
-                [plotOptions]="chartOptions.plotOptions"
-                [labels]="['']"
-                [stroke]="chartOptions.stroke"
-                [fill]="chartOptions.fill"
-              ></apx-chart>
-            </div>
-          </div>
-        </div>
-        <div class="row footerForItems"><span>{{ "::TotalARN.No" | abpLocalization}}</span></div>
-        </div>
-        <div class="col">
-          <div class="row">
-          <div id="card">
-            <div id="chart">
-              <apx-chart
-                [series]="[100]"
-                [chart]="chartOptions.chart"
-                [plotOptions]="chartOptions.plotOptions"
-                [labels]="['']"
-                [stroke]="chartOptions.stroke"
-                [fill]="chartOptions.fill"
-              ></apx-chart>
-            </div>
-          </div>
-        </div>
-        <div class="row footerForItems"> <span>{{"::ChangeControl" | abpLocalization }}</span>
-        </div>
-      </div>
-      <div class="col">
-        <div class="row footerForItems">
-          <span class="HorsTimeChange"> {{"::30Hrs" | abpLocalization}}</span>
-      </div>
-      <div class="row footerForItems"><span>{{ "::AvgTurnAroundTime" | abpLocalization}}</span></div>
       </div>
     </div>
   </div>
   <div class="row">
-    <div class="col">
-      <div class="row headerForItems">
-        <span>{{ '::Schedules (3)' | abpLocalization }}</span>
-      </div>
-      <div class="row">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label"></label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" />
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">{{ "::MostAskedQuestions" | abpLocalization}}</h5>
         </div>
-      </div>
-      <div class="row">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label"></label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" />
-        </div>
-      </div>
-      <div class="row">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label"></label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" />
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="row headerForItems">
-        <span>{{ '::Open (4)' | abpLocalization }}</span>
-      </div>
-      <div class="row">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label"></label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" />
-        </div>
-      </div>
-      <div class="row">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label"></label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" />
-        </div>
-      </div>
-      <div class="row">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label"></label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" />
-        </div>
-      </div>
-      <div class="row">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label"></label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" />
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="row headerForItems">
-        <span>{{ '::In Progress (5)' | abpLocalization }}</span>
-      </div>
-      <div class="row">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label"></label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" />
-        </div>
-      </div>
-      <div class="row">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label"></label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" />
-        </div>
-      </div>
-      <div class="row">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label"></label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" />
-        </div>
-      </div>
-      <div class="row">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label"></label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" />
-        </div>
-      </div>
-      <div class="row">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label"></label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" />
+        <div class="card-body">
+          <div class="cardForQuestion" *ngFor="let question of this.questions">
+            <span> {{ question }} </span>
+          </div>
         </div>
       </div>
     </div>

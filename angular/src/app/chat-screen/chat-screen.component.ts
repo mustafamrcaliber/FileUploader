@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, OnInit, SecurityContext } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnDestroy, OnInit, Output, SecurityContext } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ChatScreenService, IWindow, Message, chatScreenChatInterface, sendMessageResponse } from './chst-screen.service';
 import { FileUploadProxyService } from '../shared/FileUploadProxy.service';
@@ -54,6 +54,8 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
   $sendMessageSubscription: Subscription;
   isImageModelOpen: boolean = false;
   currentImage: string = "";
+  @Input() showExpandButton: boolean = false;
+  @Output() RouteToCaliGen = new EventEmitter<void>();
   constructor(
     private fb: FormBuilder,
     // private fileUploadSaverProxyService: FileUploadProxyService,
@@ -498,6 +500,10 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
       this.scroolToBottom();
       this.clickOnDiv();
     }, 100);
+  }
+
+  RouteToCaliGenButton() {
+    this.RouteToCaliGen.emit();
   }
 
 }

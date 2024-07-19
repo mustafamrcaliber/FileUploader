@@ -22,7 +22,7 @@
 
 <div class="bodyStyle">
   <div class="Header">
-    {{ '::EMProSpecialist' | abpLocalization }}
+    {{ '::EMProSpecialist' | abpLocalization }} <i class="fas fa-expand-arrows-alt" *ngIf="this.showExpandButton" (click)="RouteToCaliGenButton()"></i>
   </div>
   <div class="card mb-3">
     <div class="card-body" style="padding: 1% !important">

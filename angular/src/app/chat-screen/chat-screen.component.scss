@@ -348,4 +348,9 @@ html {
   font-size: large;
   font-weight: bold;
   margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between; /* This will push the items to opposite ends */
+  align-items: center; /* Centers vertically */
 }
+
+

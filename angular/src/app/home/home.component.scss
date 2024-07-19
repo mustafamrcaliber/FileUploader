@@ -18,3 +18,25 @@
     margin-top: 15%;
     margin-bottom: 15%;
 }
+
+html, body {
+  height: 100%!important;
+  margin: 0;
+  padding: 0;
+}
+
+.container-fluid {
+  height: 39rem !important;
+}
+
+.row {
+  height: 50%;
+}
+
+.cardForQuestion {
+  background: #b9c6fd;
+    border: solid 0px gray;
+    border-radius: 5px;
+    padding: 6px;
+    margin: 5px;
+}

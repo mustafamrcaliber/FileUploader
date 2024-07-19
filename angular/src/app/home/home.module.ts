@@ -16,10 +16,11 @@ import { ThemeSharedModule } from '@abp/ng.theme.shared';
 import { NgxValidateCoreModule } from '@ngx-validate/core';
 import { CommercialUiModule } from '@volo/abp.commercial.ng.ui';
 import { PageModule } from '@abp/ng.components/page';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { ChatScreenModule } from '../chat-screen/chat-screen.module';
+import { ChatScreenComponent } from '../chat-screen/chat-screen.component';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -39,7 +40,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     ReactiveFormsModule,
     FormsModule,
     NgxChartsModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    ChatScreenModule
   ],
 })
 export class HomeModule {}
