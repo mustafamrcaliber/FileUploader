@@ -11,6 +11,7 @@ import {
 import { Observable, Subscription } from 'rxjs';
 import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
 import { DomSanitizer } from '@angular/platform-browser';
+import { chatInit } from './chat';
 
 @Component({
   selector: 'app-chat-screen',
@@ -76,6 +77,7 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
   }
   ngAfterViewInit(): void {
     this.startListening();
+    this.sendInititalMessage();
   }
   ngOnInit(): void {
     this.chatForm = this.fb.group({
@@ -267,6 +269,35 @@ export class ChatScreenComponent implements OnInit, AfterViewInit, OnDestroy {
       }
     );
     this.chatForm.controls.userMessage.reset();
+    setTimeout(() => {
+      this.scroolToBottom();
+    }, 100);
+  }
+
+  sendInititalMessage()
+  {
+    let responseType= 1;
+    let response:sendMessageResponse = chatInit;
+    const tableHtml = this.sanitizer.bypassSecurityTrustHtml(this.formatDataFrameAsTable(JSON.parse(response.df)));
+    let content: Message = {
+      content: response.text,
+      df: tableHtml,
+      img: response.fig,
+      from: 'assistant',
+      messageType: 2,
+      dateTime: new Date()
+    }
+    if (responseType != 1) {
+      content = {
+        content: responseType == 2 ? response.text : '',
+        df: responseType == 4 ? tableHtml : null,
+        img: responseType == 3 ? response.fig : null,
+        from: 'assistant',
+        messageType: 2,
+        dateTime: new Date()
+      }
+    }
+    this.messages.push(content);
     setTimeout(() => {
       this.scroolToBottom();
     }, 100);
