@@ -62,7 +62,9 @@
 
 :root .lpx-logo-container {
   position: absolute;
-  background-image: url('/images/clients/CaliberEMLoginImage.svg') !important; 
+  background-image: url(/images/clients/CaliberEMLoginImage.svg) !important;
+  background-size: cover;
+  background-repeat: no-repeat; 
   width: 43.5vw;
   height: 90vh;
   margin-left: 7vw;
