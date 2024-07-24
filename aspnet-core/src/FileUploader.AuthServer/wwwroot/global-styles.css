@@ -48,51 +48,51 @@
   --lpx-logo-icon: url('/images/logo/leptonx/caliber-icon.png');
 }
 
-
-.lpx-login-image-area {
-background: #2B60F6;
-height: 100vh;
+:root .lpx-login-bg {
+  background-image: none !important;
+  background-color: var(--lpx-primary);
 }
 
-/* @keyframes gradient {
-0% {
-  background-position: 0% 50%;
-}
-50% {
-  background-position: 100% 50%;
-}
-100% {
-  background-position: 0% 50%;
-}
+:root .lpx-login-area {
+  min-height: 100vh;
+  overflow: auto;
+  position: relative;
+  background: var(--lpx-primary);
 }
 
-
-.lpx-brand-logo.lpx-login-sm-logo {
-  background-size: auto 48px;
-  height: 48px;
-  background-position: center;
-  display: none;
-}
-body {
-background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-background-size: 400% 400%;
-animation: gradient 15s ease infinite;
-height: auto;
-} */
-.copyright-text {
-  display: none;
+:root .lpx-logo-container {
+  /* padding: 20px; */
+  position: absolute;
+  /* height: 83.5vh; */
 }
 
-/* .lpx-brand-logo.lpx-login-sm-logo {
-  display: none;
-} */
-
-.lpx-brand-logo.lpx-login-big-logo {
-display: none;
-  filter: none !important; 
-  opacity: 100% !important; 
+:root .lpx-brand-name.lpx-login-name
+{
+  display: none !important;
 }
 
-/* body {
-background: #2B60F6;
-} */
+:root .mx-auto {
+  /* margin-right: auto !important; */
+  margin-right: 3vw !important;
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+  margin-left: auto !important;
+  width: 70% !important;
+}
+
+:root .lpx-logo-container {
+  padding: 0px !important;
+  /* position: absolute!important; */
+  margin-left: auto!important;
+  margin-right: auto!important;
+  margin-top: auto!important;
+  margin-bottom: auto!important;
+  position: absolute !important;
+  top: 40vh !important;
+}
+
+:root .lpx-login-brand-text .lpx-brand-logo.lpx-login-logo {
+  background-size: auto 100% !important;
+  width: 100% !important;
+  background-position: center !important;
+}
