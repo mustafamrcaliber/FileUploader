@@ -50,7 +50,7 @@
 
 :root .lpx-login-bg {
   background-image: none !important;
-  background-color: var(--lpx-primary);
+  background-color: #4e66c3;
 }
 
 :root .lpx-login-area {
@@ -61,9 +61,12 @@
 }
 
 :root .lpx-logo-container {
-  /* padding: 20px; */
   position: absolute;
-  /* height: 83.5vh; */
+  background-image: url('/images/clients/CaliberEMLoginImage.svg') !important; 
+  width: 43.5vw;
+  height: 90vh;
+  margin-left: 7vw;
+  margin-top: -6vh;
 }
 
 :root .lpx-brand-name.lpx-login-name
@@ -71,8 +74,19 @@
   display: none !important;
 }
 
+.lpx-brand-logo.lpx-login-logo {
+  display: none !important;
+}
+
 :root .mx-auto {
-  /* margin-right: auto !important; */
+  margin-right: 1vw !important;
+  margin-left: auto !important;
+  width: 100vw !important;
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+}
+
+/* :root .mx-auto {
   margin-right: 3vw !important;
   margin-top: auto !important;
   margin-bottom: auto !important;
@@ -82,7 +96,6 @@
 
 :root .lpx-logo-container {
   padding: 0px !important;
-  /* position: absolute!important; */
   margin-left: auto!important;
   margin-right: auto!important;
   margin-top: auto!important;
@@ -91,8 +104,12 @@
   top: 40vh !important;
 }
 
-:root .lpx-login-brand-text .lpx-brand-logo.lpx-login-logo {
+:root .lpx-login-brand-text .lpx-login-logo {
   background-size: auto 100% !important;
   width: 100% !important;
   background-position: center !important;
-}
+} */
+
+/* .lpx-brand-logo {
+  background-image: url(/images/clients/CaliberEMLoginImage.svg) !important;
+} */
