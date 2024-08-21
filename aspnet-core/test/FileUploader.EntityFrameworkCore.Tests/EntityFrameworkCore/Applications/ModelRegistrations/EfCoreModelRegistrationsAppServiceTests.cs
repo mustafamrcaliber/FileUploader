@@ -1,0 +1,8 @@
+using FileUploader.ModelRegistrations;
+using Xunit;
+
+namespace FileUploader.EntityFrameworkCore.Applications.ModelRegistrations;
+
+public class EfCoreModelRegistrationsAppServiceTests : ModelRegistrationsAppServiceTests<FileUploaderEntityFrameworkCoreTestModule>
+{
+}

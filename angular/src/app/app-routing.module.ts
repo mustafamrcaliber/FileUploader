@@ -70,14 +70,59 @@ const routes: Routes = [
       import('./upload-files/upload-file/upload-file.module').then(m => m.UploadFileModule),
   },
   {
-    path:'file-view-masters',
-    loadChildren:() =>
-    import ('./file-view-masters/file-view-masters.module').then(m => m.FileViewMastersModule)
+    path: 'file-view-masters',
+    loadChildren: () =>
+      import('./file-view-masters/file-view-masters.module').then(m => m.FileViewMastersModule),
   },
   {
     path: 'chat-screen',
     loadChildren: () =>
-    import ('./chat-screen/chat-screen-routing.module').then( m => m.ChatScreenRoutingModule)
+      import('./chat-screen/chat-screen-routing.module').then(m => m.ChatScreenRoutingModule),
+  },
+  {
+    path: 'user-input',
+    loadChildren: () =>
+      import('./user-input/user-input-routing.module').then(m => m.UserInputRoutingModule),
+  },
+  {
+    path: 'chart-one',
+    loadChildren: () =>
+      import('./chart-one/chart-one-routing.module').then(m => m.ChartOneRoutingModule),
+  },
+  {
+    path: 'data-visualization',
+    loadChildren: () =>
+      import('./data-visualization/data-visualization-routing.module').then(
+        m => m.DataVisualizationRoutingModule
+      ),
+  },
+  {
+    path: 'auto-data-visualization',
+    loadChildren: () =>
+      import('./auto-data-visualization/auto-data-visualization-routing.module').then(
+        m => m.AutoDataVisualizationRoutingModule
+      ),
+  },
+  {
+    path: 'model-configurations',
+    loadChildren: () =>
+      import('./model-configurations/model-configuration/model-configuration.module').then(
+        m => m.ModelConfigurationModule
+      ),
+  },
+  {
+    path: 'model-registrations',
+    loadChildren: () =>
+      import('./model-registrations/model-registration/model-registration.module').then(
+        m => m.ModelRegistrationModule
+      ),
+  },
+  {
+    path: 'model-trainings',
+    loadChildren: () =>
+      import('./model-trainings/model-training/model-training.module').then(
+        m => m.ModelTrainingModule
+      ),
   }
 ];
 

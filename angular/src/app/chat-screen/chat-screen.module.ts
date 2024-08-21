@@ -15,7 +15,6 @@ import { ThemeSharedModule } from '@abp/ng.theme.shared';
 import { NgxValidateCoreModule } from '@ngx-validate/core';
 import { CommercialUiModule } from '@volo/abp.commercial.ng.ui';
 import { PageModule } from '@abp/ng.components/page';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
@@ -35,11 +34,10 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     PageModule,
     NgbOffcanvasModule,
     NgbAccordionModule,
-    BrowserModule,
     ReactiveFormsModule,
     FormsModule,
     NgxChartsModule
   ],
-  exports: [ChatScreenRoutingModule],
+  exports: [ChatScreenRoutingModule, ChatScreenComponent],
 })
 export class ChatScreenModule {}

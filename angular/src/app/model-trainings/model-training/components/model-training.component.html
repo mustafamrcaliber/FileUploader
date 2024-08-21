@@ -1,0 +1,308 @@
+<abp-page [title]="title | abpLocalization">
+  <abp-page-toolbar-container class="col">
+    <!--<suite-custom-code-block-0>-->
+    <!--</suite-custom-code-block-0>-->
+    <div class="text-lg-end pt-2">
+      <!--<suite-custom-code-block-1>-->
+      <!--</suite-custom-code-block-1>-->
+
+      <button
+        *abpPermission="'FileUploader.ModelTrainings.Create'"
+        class="btn btn-primary btn-sm"
+        type="button"
+        (click)="create()"
+      >
+        <i class="fa fa-plus me-1" aria-hidden="true"></i>
+        {{ '::NewModelTraining' | abpLocalization }}
+      </button>
+      <!--<suite-custom-code-block-2>-->
+      <!--</suite-custom-code-block-2>-->
+    </div>
+  </abp-page-toolbar-container>
+
+  <abp-advanced-entity-filters localizationSourceName="" [list]="list">
+    <abp-advanced-entity-filters-form *ngIf="service.filters as filters">
+      <form #filterForm (keyup.enter)="list.get()">
+        <!--<suite-custom-code-block-3>-->
+        <!--</suite-custom-code-block-3>-->
+        <div class="row">
+          <div class="col-12 col-sm-auto">
+            <div class="mb-3">
+              <label class="form-label" for="minType">
+                {{ '::MinType' | abpLocalization }}
+              </label>
+
+              <input
+                id="minType"
+                type="number"
+                class="form-control"
+                [(ngModel)]="filters.typeMin"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-auto">
+            <div class="mb-3">
+              <label class="form-label" for="maxType">
+                {{ '::MaxType' | abpLocalization }}
+              </label>
+
+              <input
+                id="maxType"
+                type="number"
+                class="form-control"
+                [(ngModel)]="filters.typeMax"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </div>
+          </div>
+          <div class="col-12 col-sm-auto">
+            <div class="mb-3">
+              <label class="form-label" for="pathFilter">
+                {{ '::Path' | abpLocalization }}
+              </label>
+
+              <input
+                id="pathFilter"
+                class="form-control"
+                [(ngModel)]="filters.path"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </div>
+          </div>
+          <div class="col-12 col-sm-auto">
+            <div class="mb-3">
+              <label class="form-label" for="minDataSource">
+                {{ '::MinDataSource' | abpLocalization }}
+              </label>
+
+              <input
+                id="minDataSource"
+                type="number"
+                class="form-control"
+                [(ngModel)]="filters.dataSourceMin"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-auto">
+            <div class="mb-3">
+              <label class="form-label" for="maxDataSource">
+                {{ '::MaxDataSource' | abpLocalization }}
+              </label>
+
+              <input
+                id="maxDataSource"
+                type="number"
+                class="form-control"
+                [(ngModel)]="filters.dataSourceMax"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </div>
+          </div>
+          <div class="col-12 col-sm-auto">
+            <div class="mb-3">
+              <label class="form-label" for="databaseConnectionStringFilter">
+                {{ '::DatabaseConnectionString' | abpLocalization }}
+              </label>
+
+              <input
+                id="databaseConnectionStringFilter"
+                class="form-control"
+                [(ngModel)]="filters.databaseConnectionString"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </div>
+          </div>
+          <div class="col-12 col-sm-auto">
+            <div class="mb-3">
+              <label class="form-label" for="documentsDirectoryPathFilter">
+                {{ '::DocumentsDirectoryPath' | abpLocalization }}
+              </label>
+
+              <input
+                id="documentsDirectoryPathFilter"
+                class="form-control"
+                [(ngModel)]="filters.documentsDirectoryPath"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </div>
+          </div>
+          <div class="col-12 col-sm-auto">
+            <div class="mb-3">
+              <label class="form-label" for="minMode">
+                {{ '::MinMode' | abpLocalization }}
+              </label>
+
+              <input
+                id="minMode"
+                type="number"
+                class="form-control"
+                [(ngModel)]="filters.modeMin"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-auto">
+            <div class="mb-3">
+              <label class="form-label" for="maxMode">
+                {{ '::MaxMode' | abpLocalization }}
+              </label>
+
+              <input
+                id="maxMode"
+                type="number"
+                class="form-control"
+                [(ngModel)]="filters.modeMax"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </div>
+          </div>
+          <div class="col-12 col-sm-auto">
+            <div class="mb-3">
+              <label class="form-label" for="trainingLogFilter">
+                {{ '::TrainingLog' | abpLocalization }}
+              </label>
+
+              <input
+                id="trainingLogFilter"
+                class="form-control"
+                [(ngModel)]="filters.trainingLog"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-auto align-self-end mb-3">
+            <div class="row">
+              <div class="col-6 col-sm-auto d-grid">
+                <button type="button" class="btn btn-outline-primary" (click)="clearFilters()">
+                  <span>{{ 'AbpUi::Clear' | abpLocalization }}</span>
+                </button>
+              </div>
+              <div class="col-6 col-sm-auto d-grid">
+                <button type="button" class="btn btn-primary" (click)="list.get()">
+                  <span>{{ 'AbpUi::Refresh' | abpLocalization }}</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--<suite-custom-code-block-4>-->
+        <!--</suite-custom-code-block-4>-->
+      </form>
+    </abp-advanced-entity-filters-form>
+  </abp-advanced-entity-filters>
+  <!--<suite-custom-code-block-5>-->
+  <!--</suite-custom-code-block-5>-->
+  <div class="card">
+    <!--<suite-custom-code-block-6>-->
+    <!--</suite-custom-code-block-6>-->
+    <div class="card-body">
+      <!--<suite-custom-code-block-7>-->
+      <!--</suite-custom-code-block-7>-->
+      <ngx-datatable
+        default
+        [rows]="service.data.items"
+        [count]="service.data.totalCount"
+        [list]="list"
+      >
+        <!--<suite-custom-code-block-8>-->
+        <!--</suite-custom-code-block-8>-->
+
+        <ngx-datatable-column
+          [name]="'AbpUi::Actions' | abpLocalization"
+          [maxWidth]="150"
+          [width]="150"
+          [sortable]="false"
+        >
+          <ng-template let-row="row" let-i="rowIndex" ngx-datatable-cell-template>
+            <div ngbDropdown container="body" class="d-inline-block">
+              <button
+                class="btn btn-primary btn-sm dropdown-toggle"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                ngbDropdownToggle
+              >
+                <i class="fa fa-cog me-1" aria-hidden="true"></i>
+                {{ 'AbpUi::Actions' | abpLocalization }}
+              </button>
+
+              <div ngbDropdownMenu>
+                <button
+                  ngbDropdownItem
+                  *abpPermission="'FileUploader.ModelTrainings.Edit'"
+                  (click)="update(row)"
+                >
+                  {{ 'AbpUi::Edit' | abpLocalization }}
+                </button>
+
+                <button
+                  ngbDropdownItem
+                  *abpPermission="'FileUploader.ModelTrainings.Delete'"
+                  (click)="delete(row)"
+                >
+                  {{ 'AbpUi::Delete' | abpLocalization }}
+                </button>
+              </div>
+            </div>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="{{ '::Type' | abpLocalization }}" prop="type">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row.type }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="{{ '::Path' | abpLocalization }}" prop="path">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row.path }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="{{ '::DataSource' | abpLocalization }}" prop="dataSource">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row.dataSource }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="{{ '::DatabaseConnectionString' | abpLocalization }}"
+          prop="databaseConnectionString"
+        >
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row.databaseConnectionString }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="{{ '::DocumentsDirectoryPath' | abpLocalization }}"
+          prop="documentsDirectoryPath"
+        >
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row.documentsDirectoryPath }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="{{ '::Mode' | abpLocalization }}" prop="mode">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row.mode }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="{{ '::TrainingLog' | abpLocalization }}" prop="trainingLog">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row.trainingLog }}
+          </ng-template>
+        </ngx-datatable-column>
+        <!--<suite-custom-code-block-9>-->
+        <!--</suite-custom-code-block-9>-->
+      </ngx-datatable>
+      <!--<suite-custom-code-block-10>-->
+      <!--</suite-custom-code-block-10>-->
+    </div>
+  </div>
+  <!--<suite-custom-code-block-11>-->
+  <!--</suite-custom-code-block-11>-->
+</abp-page>
+<!--<suite-custom-code-block-12>-->
+<!--</suite-custom-code-block-12>-->
+
+<app-model-training-detail-modal />

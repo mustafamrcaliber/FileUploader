@@ -1,7 +1,9 @@
 import { RestService } from '@abp/ng.core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { SafeHtml } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
+import { aiApiUrl } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
@@ -34,26 +36,11 @@ export class ChatScreenService {
   ];
   constructor(private restService: RestService, private http: HttpClient) {}
 
-  // public sendUserMessageToApi(message: string): Observable<any> {
-  //   let httpOptions: Object = {
-  //     headers: new HttpHeaders({
-  //       Accept: 'text/html',
-  //       'Content-Type': 'text/plain; charset=utf-8',
-  //     }),
-  //     responseType: 'text',
-  //   };
-  //   return this.http.get<any>(this.URL + message, httpOptions);
-  // }
+  public sendMessage(newMessage):Observable<sendMessageResponse>
+  {
+    return this.http.get<sendMessageResponse>(aiApiUrl, { params: { question: newMessage } });
+  }
 
-//  public uploadFileToChat(fileName: string): Observable<any>
-//  {
-//   return this.http.get<any>('http://10.20.61.83:5002/FileUpload/'+fileName);
-//  }
-
-//  public sendUserMessafeToApiAndGetJsonChart(message: string): Observable<any>
-//  {
-//   return this.http.get<any>("http://10.20.61.83:5004/Text2SGraph/"+message);
-//  }
 }
 
 export interface chatScreenChatInterface {
@@ -64,6 +51,24 @@ export interface chatScreenChatInterface {
 
 export interface IWindow extends Window {
   webkitSpeechRecognition: any;
+}
+
+export interface Message {
+  df : string | SafeHtml;
+  img : any;
+  content: string;
+  from: 'user' | 'assistant';
+  messageType: 1 | 2,
+  dateTime: Date
+}
+
+export interface sendMessageResponse
+{
+  df: string
+  fig: string
+  id: string
+  text: string
+  type: string
 }
 
 //here 1 means user and 2 means api
